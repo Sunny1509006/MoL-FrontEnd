@@ -1,0 +1,19 @@
+.Homepage_header_div {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 20px;
+
+    font-family: Kalpurush;
+}
+
+.nagorik_color {
+    color: #0C6395;
+    border-bottom: 2px solid #0C6395;
+
+}
+
+.gap_div {
+    margin-right: 5px;
+    margin-top: -5px;
+}

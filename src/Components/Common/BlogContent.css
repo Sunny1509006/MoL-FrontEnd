@@ -1,0 +1,9 @@
+.blog_content_main {
+    display: flex;
+    flex-direction: column;
+    padding: relative;
+    margin-left: 40px;
+    min-height: 700px;
+    margin-top: 60px;
+    gap: 1em;
+}

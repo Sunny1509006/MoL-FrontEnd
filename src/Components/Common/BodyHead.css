@@ -1,0 +1,140 @@
+.header_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.1rem;
+    flex-wrap: wrap;
+    width: 100%;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    /* height: 80px; */
+
+    background-color: #CEE9FD;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.header_main div{
+    padding: 0.2rem;
+}
+
+.Header_logo {
+    display: flex;
+
+}
+
+.header_button {
+    display: flex;
+} 
+
+@media screen and (max-width: 1040px){
+    .header_main{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0.1rem;
+    }
+
+    .header_main div{
+        padding: 0.2rem;
+    }
+}
+
+
+
+
+.body_head {
+    /* background-color:#119CCA; */
+    /* background-color: #CEE9FD; */
+    /* position: relative; */
+    /* margin-left: 20px; */
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+
+}
+
+.logotext_div {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.ilkms_logo {
+    height: 50px;
+    width: 50px;
+}
+
+.vumibid {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    /* justify-content: left; */
+    text-align: left;
+    margin-left: 10px;
+
+    color:#0C6395;
+}
+
+.header_button_div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.flex_div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* height: 40px; */
+    /* margin: 20px; */
+}
+
+/* .font_div {
+    font-family: Kalpurush;
+    margin-top: 10px;
+    
+} */
+
+.search_div {
+    /* position: relative; */
+    /* margin: 20px; */
+    background-color: F5F5F5;
+    color: rgba(0,0,0,1);
+    /* border-radius: 10px; */
+    margin-bottom: 50px;
+    /* border: 1px solid #119CCA; */
+    /* width: 500px; */
+}
+
+.search_width {
+    width: 300px;
+}
+
+.login_div {
+    align: right;
+    margin-bottom: 60px;
+}
+
+.signup_color {
+    color: white !important;
+}
+
+.button_div {
+    background-color: white;
+    color: black;
+
+    font-size: 12px;
+    font-family: Kalpurush;
+    border: 3px;
+    margin: 4px;
+}
+
+.button_div:hover {
+    background-color: #0C6395;
+    color: white;
+}
