@@ -7,7 +7,7 @@
     margin-right: 50px;
     min-height: 700px;
     margin-top: 60px;
-    gap: 1em;
+    gap: 1rem;
 }
 
 .book_div {
@@ -20,6 +20,22 @@
     /* gap: 1rem; */
 
 }
+
+.book_div_header {
+    display: flex;
+    background-color: #CEE9FD;
+    justify-content: flex-start;
+    width: 100%;
+    color: #0C6395;
+    ;
+
+    padding: 6px 10px;
+    font-family: Kalpurush;
+    font-size: 12px;
+    margin-bottom: -1rem;
+}
+
+
 
 .book_content {
 

@@ -67,6 +67,7 @@ const EbookContent = () => {
             <div>
                 <PageLink />
             </div>
+            <div className='book_div_header' >ই-বুক</div>
             <div className='book_div'>
                 {FilterBooks.map((book, index) => {
                     return <BookList_div key={index} book={book} />;

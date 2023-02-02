@@ -7,3 +7,9 @@
     margin-top: 60px;
     gap: 1em;
 }
+
+.blog_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
