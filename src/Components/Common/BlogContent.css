@@ -13,3 +13,8 @@
     flex-direction: column;
     align-items: center;
 }
+
+.blog_cover {
+    height: 250px;
+    width: 200px;
+}

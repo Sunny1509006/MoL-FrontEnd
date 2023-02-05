@@ -52,6 +52,7 @@ const HomePage = () => {
                             return <Article_div key={index} article={article} />;
                         })}
                     </div>
+                    <div className='divider_line'></div>
                     <div className='blog_box'>
                         {FilterArticles.map((article, index) => {
                             return <Article_div key={index} article={article} />;

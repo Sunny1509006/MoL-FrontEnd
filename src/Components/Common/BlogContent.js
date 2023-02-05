@@ -5,11 +5,12 @@ import axios from 'axios';
 import { Pagination } from 'antd';
 
 
+
 const BlogContent = () => {
 
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [postPerPage, setPostPerPage] = useState(10);
 
   useEffect(() => {
@@ -51,7 +52,8 @@ const BlogContent = () => {
       <div className='blog_content'>
         <div className='book_div'>
         {currentPosts.map((post) => (
-          <h6 key={post.id} className='book_content'>{post.body}</h6>
+          // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
+          <h6 key={post.ebook_id} className='book_content'>{post.body}</h6>
         ))}
         </div>
         <Pagination

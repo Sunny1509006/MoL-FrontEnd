@@ -8,6 +8,8 @@
 }
 
 .container_margin {
+    display: flex;
+    flex-direction: column;
     margin-left: 15px;
     margin-right: 15px;
 
@@ -29,20 +31,46 @@
 }
 
 .container_div_body {
-    height: 15em;
+    /* height: 15em; */
+    min-height: 15rem;
     background-color: #FDFBFB;
 
     display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
 }
 
 .ain_forum {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
 }
 
 .blog_box {
     margin: 10px;
+    /* border: 0.5px solid rgba(0, 0, 0, 0.2); */
+    /* border-radius: 5px; */
+    max-width: calc(50% - 20px);
+    /* width: 48%; */
+    
+}
+
+.divider_line {
+    width: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
     border: 0.5px solid rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+}
+
+
+@media screen and (max-width: 1040px){
+    .container_div_body{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0.1rem;
+    }
 }
