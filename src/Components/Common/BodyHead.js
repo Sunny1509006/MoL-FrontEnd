@@ -81,7 +81,7 @@ export default function BodyHead() {
             <Button variant="outline-info" className='btn btn-light'>লগইন</Button>
           </div>
           <div>
-            <Button variant="outline-info">সাইন আপ</Button>
+            <Link to='/SignUp' > <Button variant="outline-info">সাইন আপ</Button></Link>
           </div>
         </div>
       </div>

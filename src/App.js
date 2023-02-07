@@ -2,6 +2,8 @@ import Home from './Components/Screen/Home';
 import Ebook from './Components/Screen/Ebook';
 import Blog from './Components/Screen/Blog';
 import Forum from './Components/Screen/Forum';
+import SignUpScreen from './Components/Screen/SignUpScreen';
+
 import './index.css';
 import {
   BrowserRouter as Router,
@@ -23,6 +25,7 @@ function App() {
             <Route exact path="/ebook" element={<Ebook />} />
             <Route exact path="/blog" element={<Blog />} />
             <Route exact path="/forum" element={<Forum />} />
+            <Route exact path="/SignUp" element={<SignUpScreen />} />
           </Routes>
 
         </div>
