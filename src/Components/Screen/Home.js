@@ -7,6 +7,7 @@ import EbookContent from "../Common/EbookContent";
 import EbookDummy from "../Common/EbookDummy";
 import ForumContent from "../Common/ForumContent";
 import SignUp from "../Common/SignUp";
+import EbookView from "../Common/EbookView";
 
 
 import './Home.css';
@@ -18,7 +19,7 @@ import {
     Route,
     Link,
     Routes
-  } from "react-router-dom";
+} from "react-router-dom";
 
 function Home() {
     return (
@@ -31,6 +32,15 @@ function Home() {
                 <Route exact path="/blog" element={<BlogContent />} />
                 <Route exact path="/forum" element={<ForumContent />} />
                 <Route exact path="/SignUp" element={<SignUp />} />
+                <Route path="/ebook/:id" element={<EbookView />} />
+                <Route
+                    path="*"
+                    element={
+                        <div>
+                            <h2>404 Page not found</h2>
+                        </div>
+                    }
+                />
             </Routes>
             <Footer />
         </div>

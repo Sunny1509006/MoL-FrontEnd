@@ -11,6 +11,13 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 import { maxWidth } from '@mui/system'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Routes
+} from "react-router-dom";
 
 const EbookDummy = () => {
 
@@ -22,7 +29,7 @@ const EbookDummy = () => {
     useEffect(() => {
         const loadEbookPosts = async () => {
             const response = await axios.get(
-                "http://143.110.241.20:4000/api/ebooks/"
+                "https://jsonplaceholder.typicode.com/comments"
             );
             setPosts(response.data);
             setTotal(response.data.length);
@@ -55,20 +62,22 @@ const EbookDummy = () => {
             <div>
                 <PageLink />
             </div>
+
             <div className='blog_content'>
+                
                 <div className='book_content_div'>
                     {currentPosts.map((post) => (
                         // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
                         // <h6 key={post.ebook_id} className='book_content'>{post.ebook_description}</h6>
                         // book_content classname can be added
-                        <div key={post.ebook_id} className='book_content_div book_content_margin_div'>
+                        <div key={post.id} className='book_content_div book_content_margin_div'>
                             <Paper elevation={5}>
                                 <img src={post.ebook_cover} className='book_image' />
 
                             </Paper>
                             {/* <ShareIcon sx={{ fontSize: 10, color: "#0C6395" }} /> */}
                             <Grid style={{ margin: '10px 0px' }}>
-                                <h6>{post.ebook_name.slice(0, 50)}</h6>
+                                <Link to={"/ebook/"+post.id}><h6>{post.body.slice(0, 50)}...</h6></Link>
                             </Grid>
                             <Grid style={{ display: 'flex', marginTop: '-10px' }}>
                                 <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
@@ -95,7 +104,7 @@ const EbookDummy = () => {
                     itemRender={itemRender}
                 />
             </div>
-        </div>
+        </div >
     )
 }
 
