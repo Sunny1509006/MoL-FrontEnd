@@ -9,7 +9,7 @@ function EbookView() {
 
     useEffect(() => {
         axios.get(
-            `https://jsonplaceholder.typicode.com/comments/${params.id }`
+            `http://143.110.241.20:5000/api/ebooks/${params.ebook_id }`
         )
             .then(res => {
                 console.log(res)
@@ -24,7 +24,7 @@ function EbookView() {
     return (
         <div className='ebook_view_main'>
             {/* {laws_name} */}
-            {post.body}
+            <div dangerouslySetInnerHTML={{ __html: post.ebook_description }}/>
         </div>
     )
 }

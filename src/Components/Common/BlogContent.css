@@ -12,10 +12,36 @@
 .blog_content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
 
+.blog_inner_content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* gap: 1rem; */
+}
+
+.blog_each_div {
+    text-align: left;
+    /* border: 1px solid rgb(235, 235, 235); */
+    min-width: 46%;
+    margin: 20px;
+}
+
+.blog_each_div h6 {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.blog_each_div p {
+    font-size: 10px;
+}
 .blog_cover {
+    /* padding: 20px; */
     height: 250px;
-    width: 200px;
+
+    width: 100%;
 }

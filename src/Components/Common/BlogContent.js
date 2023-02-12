@@ -3,7 +3,13 @@ import './BlogContent.css'
 import PageLink from './PageLink'
 import axios from 'axios';
 import { Pagination } from 'antd';
-
+import { Avatar, Grid, Paper } from '@mui/material'
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import { FaComments } from 'react-icons/fa';
+import ShareIcon from '@mui/icons-material/Share';
+import { Link } from 'react-router-dom';
 
 
 const BlogContent = () => {
@@ -16,10 +22,11 @@ const BlogContent = () => {
   useEffect(() => {
     const loadPosts = async () => {
       const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/comments"
+        "http://143.110.241.20:5000/api/blogs/"
       );
       setPosts(response.data);
       setTotal(response.data.length);
+
     };
 
     loadPosts();
@@ -50,11 +57,29 @@ const BlogContent = () => {
         <PageLink />
       </div>
       <div className='blog_content'>
-        <div className='book_div'>
-        {currentPosts.map((post) => (
-          // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
-          <h6 key={post.ebook_id} className='book_content'>{post.body}</h6>
-        ))}
+        <div className='blog_inner_content'>
+          {currentPosts.map((post) => (
+            // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
+            // <h6 key={post.ebook_id} className='book_content'><div dangerouslySetInnerHTML={{ __html: post.blog_content}} /></h6>
+            <div key={post.blog_id} className='blog_each_div'>
+              <img src={post.blog_cover} className="blog_cover" />
+              <Link to={"/blog/"+post.blog_id}><h6>{post.blog_title_name.slice(0, 100)}</h6></Link>
+              <p>{post.blog_author}, {post.blog_publication.slice(0, 10)}</p>
+              <Grid style={{ display: 'flex', marginTop: '0px' }}>
+                <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
+                <div className='like_comment_padding'>{post.blog_viewer_counter}</div>
+                <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                <div className='like_comment_padding'>{post.blog_like_user_counter}</div>
+                <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                <div className='like_comment_padding'>{post.blog_dislike_user_counter}</div>
+                <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
+                <div className='like_comment_padding'>{post.blog_comment_counter}</div>
+                <ShareIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                <div className='like_comment_padding'>{post.blog_share_user_counter}</div>
+
+              </Grid>
+            </div>
+          ))}
         </div>
         <Pagination
           onChange={(value) => setPage(value)}

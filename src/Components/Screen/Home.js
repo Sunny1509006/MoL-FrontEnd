@@ -20,6 +20,7 @@ import {
     Link,
     Routes
 } from "react-router-dom";
+import BlogInner from "../Common/BlogInner";
 
 function Home() {
     return (
@@ -32,7 +33,8 @@ function Home() {
                 <Route exact path="/blog" element={<BlogContent />} />
                 <Route exact path="/forum" element={<ForumContent />} />
                 <Route exact path="/SignUp" element={<SignUp />} />
-                <Route path="/ebook/:id" element={<EbookView />} />
+                <Route path="/ebook/:ebook_id" element={<EbookView />} />
+                <Route path="/blog/:blog_id" element={<BlogInner />} />
                 <Route
                     path="*"
                     element={

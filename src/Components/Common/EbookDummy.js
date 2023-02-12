@@ -29,7 +29,7 @@ const EbookDummy = () => {
     useEffect(() => {
         const loadEbookPosts = async () => {
             const response = await axios.get(
-                "https://jsonplaceholder.typicode.com/comments"
+                "http://143.110.241.20:5000/api/ebooks/"
             );
             setPosts(response.data);
             setTotal(response.data.length);
@@ -70,14 +70,14 @@ const EbookDummy = () => {
                         // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
                         // <h6 key={post.ebook_id} className='book_content'>{post.ebook_description}</h6>
                         // book_content classname can be added
-                        <div key={post.id} className='book_content_div book_content_margin_div'>
+                        <div key={post.ebook_id} className='book_content_div book_content_margin_div'>
                             <Paper elevation={5}>
                                 <img src={post.ebook_cover} className='book_image' />
 
                             </Paper>
                             {/* <ShareIcon sx={{ fontSize: 10, color: "#0C6395" }} /> */}
                             <Grid style={{ margin: '10px 0px' }}>
-                                <Link to={"/ebook/"+post.id}><h6>{post.body.slice(0, 50)}...</h6></Link>
+                                <Link to={"/ebook/"+post.ebook_id}><h6>{post.ebook_name.slice(0, 50)}...</h6></Link>
                             </Grid>
                             <Grid style={{ display: 'flex', marginTop: '-10px' }}>
                                 <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
