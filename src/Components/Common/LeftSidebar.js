@@ -14,6 +14,7 @@ import { FaRegHandshake } from 'react-icons/fa';
 import { TfiBookmarkAlt } from 'react-icons/tfi';
 import { TbDotsCircleHorizontal } from 'react-icons/tb';
 import RuleRoundedIcon from '@mui/icons-material/RuleRounded';
+import { RxDoubleArrowRight, RxDoubleArrowLeft } from 'react-icons/rx'
 import HomePage from './HomePage';
 
 
@@ -30,18 +31,23 @@ const routes = [
     },
     {
         path: "/ain",
-        name: "বিধি ও প্রবিধান",
+        name: "রাস্ট্রপতির আদেশ",
         icon: <RuleRoundedIcon fontSize='6px' />,
     },
     {
         path: "/ain",
-        name: "নীতি",
-        icon: <MdPolicy />,
+        name: "বিধিমালা",
+        icon: <RuleRoundedIcon fontSize='6px' />,
     },
     {
         path: "/ain",
-        name: "সার্কুলার",
-        icon: <MdBlurCircular />,
+        name: "প্রবিধান",
+        icon: <RuleRoundedIcon fontSize='6px' />,
+    },
+    {
+        path: "/ain",
+        name: "নীতিমালা",
+        icon: <MdPolicy />,
     },
     {
         path: "/ain",
@@ -50,7 +56,12 @@ const routes = [
     },
     {
         path: "/ain",
-        name: "বিজ্ঞপ্তি",
+        name: "পরিপত্র",
+        icon: <MdBlurCircular />,
+    },
+    {
+        path: "/ain",
+        name: "প্রজ্ঞাপন",
         icon: <AiOutlineNotification />,
     },
     {
@@ -90,11 +101,15 @@ const LeftSidebar = () => {
             <div>
                 <motion.div animate={{ width: isOpen ? "140px" : "35px" }} className="Left_Sidebar">
                     <div className='top_section'>
-                        <div className='bars'>
-                            <FaBars onClick={toggle} />
-                        </div>
+                        {isOpen ? < div className='bars' style={{ marginLeft: '75px'}}>
+                            <RxDoubleArrowLeft onClick={toggle} />
+                        </div> :
+                            <div className='bars' style={{ marginLeft: '-30px'}}>
+                                <RxDoubleArrowRight onClick={toggle} />
+                            </div>
+                        }
                     </div>
-                    <section>
+                    <section style={{ marginTop: '-20px'}}>
                         {routes.map((route) => (
                             <NavLink to={route.path} key={route.name} className='link_div'>
                                 <div>
@@ -109,8 +124,8 @@ const LeftSidebar = () => {
                         ))}
                     </section>
                 </motion.div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 

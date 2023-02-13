@@ -37,7 +37,7 @@ const BlogInner = () => {
                 <Grid className='blog_content_inner_padding'>
                     <div><h3>{post.blog_title_name}</h3></div>
                     <Grid style={{ display: 'flex' }}>
-                        <p>{post.blog_author}, {post.blog_publication.slice(0, 10)}</p>
+                        <p>{post.blog_author}, {post.blog_publication?.slice(0, 10)}</p>
                         <div className='Blog_follow_button'>
                             <Button style={{ margin: '7px', fontSize: '10px' }}>
                                 <SlUserFollow style={{ marginTop: '-3px' }} /> Follow

@@ -64,7 +64,7 @@ const BlogContent = () => {
             <div key={post.blog_id} className='blog_each_div'>
               <img src={post.blog_cover} className="blog_cover" />
               <Link to={"/blog/"+post.blog_id}><h6>{post.blog_title_name.slice(0, 100)}</h6></Link>
-              <p>{post.blog_author}, {post.blog_publication.slice(0, 10)}</p>
+              <p>{post.blog_author}, {post.blog_publication?.slice(0, 10)}</p>
               <Grid style={{ display: 'flex', marginTop: '0px' }}>
                 <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
                 <div className='like_comment_padding'>{post.blog_viewer_counter}</div>

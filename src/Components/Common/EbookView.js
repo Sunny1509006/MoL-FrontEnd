@@ -24,7 +24,7 @@ function EbookView() {
     return (
         <div className='ebook_view_main'>
             {/* {laws_name} */}
-            <div dangerouslySetInnerHTML={{ __html: post.ebook_description }}/>
+            <div dangerouslySetInnerHTML={{ __html: post.ebook_description }} style={{ background: 'white', marginTop: '40px'}}/>
         </div>
     )
 }
