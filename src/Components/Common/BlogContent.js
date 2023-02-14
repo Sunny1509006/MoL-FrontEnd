@@ -24,6 +24,7 @@ const BlogContent = () => {
       const response = await axios.get(
         "http://143.110.241.20:5000/api/blogs/"
       );
+      console.log(response);
       setPosts(response.data);
       setTotal(response.data.length);
 

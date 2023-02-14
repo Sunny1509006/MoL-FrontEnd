@@ -44,3 +44,15 @@
     margin-left: 100px;
     margin-top: -5px;
 }
+
+.blog_inner_cover_image {
+    float: left;
+    height: 20vh;
+    width: 17vh;
+    margin: 10px;
+}
+
+.content_scroll {
+        max-height: 400px;
+        overflow-y: scroll;
+}

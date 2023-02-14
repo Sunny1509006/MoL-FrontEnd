@@ -44,8 +44,11 @@ const BlogInner = () => {
                             </Button>
                         </div>
                     </Grid>
-                    <div dangerouslySetInnerHTML={{ __html: post.blog_content }} />
-                    <Grid style={{ display: 'flex', marginTop: '0px' }}>
+                    <div className='content_scroll'>
+                        <img src={post.blog_cover} className='blog_inner_cover_image' />
+                        <div dangerouslySetInnerHTML={{ __html: post.blog_content }} />
+                    </div>
+                    <Grid style={{ display: 'flex', marginTop: '0px', padding: '10px' }}>
                         <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
                         <div className='like_comment_padding'>{post.blog_viewer_counter}</div>
                         <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />

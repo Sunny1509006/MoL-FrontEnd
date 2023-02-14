@@ -66,7 +66,7 @@ export default function BodyHead() {
             </Link>
           </div>
           <div className='vumibid'>
-            <Link to='/'><p style={{ fontSize: '20px', marginBottom: '2px' }}>ভূমিবিদ</p></Link>
+            <Link to='/'><p style={{ fontSize: '20px', marginBottom: '2px' }}>ভূমিপিডিয়া</p></Link>
             <p style={{ fontSize: '12px', marginBottom: '0px' }}>কৃত্রিম বুদ্ধিমত্তায় ভূমি সংক্রান্ত তথ্য</p>
           </div>
         </div>

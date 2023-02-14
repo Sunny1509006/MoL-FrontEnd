@@ -31,7 +31,7 @@ const routes = [
     },
     {
         path: "/ain",
-        name: "রাস্ট্রপতির আদেশ",
+        name: "রাষ্ট্রপতির আদেশ",
         icon: <RuleRoundedIcon fontSize='6px' />,
     },
     {
