@@ -18,7 +18,7 @@ const BlogInner = () => {
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:5000/api/blogs/${params.blog_id}`
+            `http://143.110.241.20:4000/api/blogs/${params.id}`
         )
             .then(res => {
                 console.log(res)
@@ -35,9 +35,9 @@ const BlogInner = () => {
             <div className='blog_content_inner_div'>
                 <Grid className='blog_content_inner_div_header'><h6>ব্লগ</h6></Grid>
                 <Grid className='blog_content_inner_padding'>
-                    <div><h3>{post.blog_title_name}</h3></div>
+                    <div><h3>{post.title_name}</h3></div>
                     <Grid style={{ display: 'flex' }}>
-                        <p>{post.blog_author}, {post.blog_publication?.slice(0, 10)}</p>
+                        <p>{post.author}, {post.created_date?.slice(0, 10)}</p>
                         <div className='Blog_follow_button'>
                             <Button style={{ margin: '7px', fontSize: '10px' }}>
                                 <SlUserFollow style={{ marginTop: '-3px' }} /> Follow
@@ -45,20 +45,20 @@ const BlogInner = () => {
                         </div>
                     </Grid>
                     <div className='content_scroll'>
-                        <img src={post.blog_cover} className='blog_inner_cover_image' />
-                        <div dangerouslySetInnerHTML={{ __html: post.blog_content }} />
+                        <img src={post.cover} className='blog_inner_cover_image' />
+                        <div dangerouslySetInnerHTML={{ __html: post.content }} />
                     </div>
                     <Grid style={{ display: 'flex', marginTop: '0px', padding: '10px' }}>
                         <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
-                        <div className='like_comment_padding'>{post.blog_viewer_counter}</div>
+                        <div className='like_comment_padding'>{post.viewer_counter}</div>
                         <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                        <div className='like_comment_padding'>{post.blog_like_user_counter}</div>
+                        <div className='like_comment_padding'>{post.like_user_counter}</div>
                         <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                        <div className='like_comment_padding'>{post.blog_dislike_user_counter}</div>
+                        <div className='like_comment_padding'>{post.dislike_user_counter}</div>
                         <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
-                        <div className='like_comment_padding'>{post.blog_comment_counter}</div>
+                        <div className='like_comment_padding'>{post.comment_counter}</div>
                         <ShareIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                        <div className='like_comment_padding'>{post.blog_share_user_counter}</div>
+                        <div className='like_comment_padding'>{post.share_user_counter}</div>
 
                     </Grid>
                 </Grid>

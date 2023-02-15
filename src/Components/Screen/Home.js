@@ -21,6 +21,7 @@ import {
     Routes
 } from "react-router-dom";
 import BlogInner from "../Common/BlogInner";
+import EbookComment from "../Common/EbookComment";
 
 function Home() {
     return (
@@ -33,8 +34,9 @@ function Home() {
                 <Route exact path="/blog" element={<BlogContent />} />
                 <Route exact path="/forum" element={<ForumContent />} />
                 <Route exact path="/SignUp" element={<SignUp />} />
-                <Route path="/ebook/:ebook_id" element={<EbookView />} />
-                <Route path="/blog/:blog_id" element={<BlogInner />} />
+                <Route path="/ebook/view/:id" element={<EbookView />} />
+                <Route path="/ebook/comment/:id" element={<EbookComment />} />
+                <Route path="/blog/:id" element={<BlogInner />} />
                 <Route
                     path="*"
                     element={

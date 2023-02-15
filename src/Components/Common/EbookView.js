@@ -5,11 +5,14 @@ import { useParams } from 'react-router-dom';
 
 function EbookView() {
     const params = useParams();
+    console.log(params);
     const [post, setPost] = useState({});
+    console.log(post);
+    console.log(post.name);
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:5000/api/ebooks/${params.ebook_id }`
+            `http://143.110.241.20:4000/api/ebooks/${params.id}`
         )
             .then(res => {
                 console.log(res)
@@ -19,12 +22,14 @@ function EbookView() {
                 console.log(err)
             })
 
-    }, [params.id])
+    }, [params.id]);
 
     return (
         <div className='ebook_view_main'>
-            {/* {laws_name} */}
-            <div dangerouslySetInnerHTML={{ __html: post.ebook_description }} style={{ background: 'white', marginTop: '40px'}}/>
+            <div style={{ marginTop: '10px', fontFamily: 'Kalpurush' }}>
+                <h1>{post.name}</h1>
+            </div>
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
     )
 }

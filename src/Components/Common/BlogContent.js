@@ -22,7 +22,7 @@ const BlogContent = () => {
   useEffect(() => {
     const loadPosts = async () => {
       const response = await axios.get(
-        "http://143.110.241.20:5000/api/blogs/"
+        "http://143.110.241.20:4000/api/blogs/"
       );
       console.log(response);
       setPosts(response.data);
@@ -62,21 +62,21 @@ const BlogContent = () => {
           {currentPosts.map((post) => (
             // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
             // <h6 key={post.ebook_id} className='book_content'><div dangerouslySetInnerHTML={{ __html: post.blog_content}} /></h6>
-            <div key={post.blog_id} className='blog_each_div'>
-              <img src={post.blog_cover} className="blog_cover" />
-              <Link to={"/blog/"+post.blog_id}><h6>{post.blog_title_name.slice(0, 100)}</h6></Link>
-              <p>{post.blog_author}, {post.blog_publication?.slice(0, 10)}</p>
+            <div key={post.id} className='blog_each_div'>
+              <img src={post.cover} className="blog_cover" />
+              <Link to={"/blog/"+post.id}><h6>{post.title_name.slice(0, 100)}</h6></Link>
+              <p>{post.author}, {post.created_date?.slice(0, 10)}</p>
               <Grid style={{ display: 'flex', marginTop: '0px' }}>
                 <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
-                <div className='like_comment_padding'>{post.blog_viewer_counter}</div>
+                <div className='like_comment_padding'>{post.viewer_counter}</div>
                 <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                <div className='like_comment_padding'>{post.blog_like_user_counter}</div>
+                <div className='like_comment_padding'>{post.like_user_counter}</div>
                 <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                <div className='like_comment_padding'>{post.blog_dislike_user_counter}</div>
+                <div className='like_comment_padding'>{post.dislike_user_counter}</div>
                 <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
-                <div className='like_comment_padding'>{post.blog_comment_counter}</div>
+                <div className='like_comment_padding'>{post.comment_counter}</div>
                 <ShareIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                <div className='like_comment_padding'>{post.blog_share_user_counter}</div>
+                <div className='like_comment_padding'>{post.share_user_counter}</div>
 
               </Grid>
             </div>
