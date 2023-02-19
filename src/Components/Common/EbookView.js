@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './EbookView.css'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import { Table } from 'react-bootstrap';
 
 function EbookView() {
     const params = useParams();
@@ -12,7 +13,7 @@ function EbookView() {
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:4000/api/ebooks/${params.id}`
+            `http://143.110.241.20:4000/api/ebooks/${params.id}/`
         )
             .then(res => {
                 console.log(res)
@@ -29,7 +30,7 @@ function EbookView() {
             <div style={{ marginTop: '10px', fontFamily: 'Kalpurush' }}>
                 <h1>{post.name}</h1>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <Table dangerouslySetInnerHTML={{ __html: post.content }} ></Table>
         </div>
     )
 }

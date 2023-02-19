@@ -1,6 +1,59 @@
+.most_read_blog_body {
+    display: flex;
+    background-color: #FDFBFB;
+}
+
+.blog_box {
+    margin: 10px;
+    /* border: 0.5px solid rgba(0, 0, 0, 0.2); */
+    /* border-radius: 5px; */
+    max-width: calc(50% - 20px);
+    width: 48%;
+    
+}
+
+.most_read_blog_cover {
+    height: 130px;
+    width: 180px;
+    padding-right: 7px;
+    padding-top: 7px;
+    float: left;
+}
+
+.most_read_blog_title {
+    font-size: 20px;
+    font-family: Kalpurush;
+
+    color: #0C6395;
+}
+
+.most_read_blog_author {
+    font-size: 12px;
+    font-family: Kalpurush;
+}
+
+.most_read_blog_content {
+    padding-top: 15px;
+    font-size: 12px;
+    font-family: Kalpurush;
+}
+
+
 .box_div {
     background: #FFFFFF;
     /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25); */
+}
+
+.most_read_blog_like {
+    padding: 0px 2px;
+    margin-top: -3px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.mostread_Blog_follow_button {
+    /* align-items: right; */
+    margin-top: -5px;
 }
 
 .tittle_read_blog {
@@ -34,3 +87,4 @@
     width: 17vh;
     margin: 10px;
 }
+

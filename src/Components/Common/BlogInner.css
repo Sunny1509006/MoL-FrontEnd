@@ -23,6 +23,7 @@
     background: #CEE9FD;
     width: 100%;
     /* height: 10px; */
+    padding: 5px;
 }
 
 .blog_content_inner_div_header h6 {
@@ -47,8 +48,8 @@
 
 .blog_inner_cover_image {
     float: left;
-    height: 20vh;
-    width: 17vh;
+    height: 300px;
+    width: 500px;
     margin: 10px;
 }
 

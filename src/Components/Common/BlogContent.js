@@ -9,6 +9,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
+import { BiLeftArrowAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
 
 
@@ -58,13 +59,25 @@ const BlogContent = () => {
         <PageLink />
       </div>
       <div className='blog_content'>
+        <div className='blog_content_header'>
+
+          <div style={{color: '#0C6395'}}>
+            <Link to='/'>
+              <BiLeftArrowAlt style={{ marginTop: '-3px', fontSize: '25px' }} />
+            </Link>
+            &nbsp;&nbsp;ব্লগ&nbsp;&nbsp;
+          </div>
+
+        </div>
         <div className='blog_inner_content'>
           {currentPosts.map((post) => (
             // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
             // <h6 key={post.ebook_id} className='book_content'><div dangerouslySetInnerHTML={{ __html: post.blog_content}} /></h6>
             <div key={post.id} className='blog_each_div'>
-              <img src={post.cover} className="blog_cover" />
-              <Link to={"/blog/"+post.id}><h6>{post.title_name.slice(0, 100)}</h6></Link>
+              <Paper elevation={2}>
+                <img src={post.cover !== null ? post.cover : '../images/no_image.png'} className="blog_cover" />
+              </Paper>
+              <Link to={"/blog/" + post.id}><h6>{post.title_name.slice(0, 100)}</h6></Link>
               <p>{post.author}, {post.created_date?.slice(0, 10)}</p>
               <Grid style={{ display: 'flex', marginTop: '0px' }}>
                 <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />

@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import './HomePage.css';
 import MostReadBlog from './MostReadBlog';
 import { Link } from 'react-router-dom';
 import PageLink from './PageLink';
+import axios from 'axios';
 
 function Article_div(props) {
     const article = props.article;
@@ -27,6 +28,7 @@ function Article_div(props) {
 }
 
 const HomePage = () => {
+
     const articles = [
         {
             title: 'ব্লগ শিরোনাম এখানে 1',
@@ -45,9 +47,8 @@ const HomePage = () => {
             </div>
             <div className='container_margin' style={{ flex: 1 }}>
                 <div className='container_div_header'>সর্বাধিক পঠিত ব্লগ</div>
-                <div className='container_div_body'>
-                    {/* <MostReadBlog/> */}
-                    <div className='blog_box'>
+                {/* <div className='container_div_body'> */}
+                {/* <div className='blog_box'>
                         {FilterArticles.map((article, index) => {
                             return <Article_div key={index} article={article} />;
                         })}
@@ -57,8 +58,9 @@ const HomePage = () => {
                         {FilterArticles.map((article, index) => {
                             return <Article_div key={index} article={article} />;
                         })}
-                    </div>
-                </div>
+                    </div> */}
+                <MostReadBlog />
+                {/* </div> */}
             </div>
             <div className='ain_forum'>
                 <div className='container_margin flex_div' style={{ flex: 1 }}>

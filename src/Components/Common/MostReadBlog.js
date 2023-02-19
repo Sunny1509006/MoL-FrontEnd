@@ -1,49 +1,116 @@
-import React, { useMemo }  from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './MostReadBlog.css';
-import { useState } from 'react';
+import axios from 'axios';
+
+import { Avatar, Grid, Paper } from '@mui/material'
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import { FaComments } from 'react-icons/fa';
+import ShareIcon from '@mui/icons-material/Share';
+
+import { Button } from 'react-bootstrap';
+import { SlUserFollow } from 'react-icons/sl'
+
+import { Link } from 'react-router-dom';
 
 
+const MostReadBlog = (props) => {
 
-function Article_div(props) {
-    const article = props.article;
+    const [mostReadBlog, setMostReadBlog] = useState({});
 
-    const [isReadMore, setIsReadMore] = useState(false);
+    useEffect(() => {
+        axios.get(
+            `http://143.110.241.20:4000/api/blogs/topviewer/`
+        )
+            .then(res => {
+                console.log(res)
+                setMostReadBlog(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
-    const handleClickAction = () => {
-        setIsReadMore(!isReadMore);
-    }
+    }, []);
 
+    const FilterMostReadBlogFirst = useMemo(
+        () => Object.values(mostReadBlog).filter((mostReadBlog, index) => index === 0), [mostReadBlog]);
+
+    const FilterMostReadBlogSecond = useMemo(
+        () => Object.values(mostReadBlog).filter((mostReadBlog, index) => index === 1), [mostReadBlog]);
+
+    console.log(FilterMostReadBlogFirst);
     return (
-        // <div style={{ width: '50%' }}>
-        <div className='col-md-6 col-sm-12 box_div' style={{ textAlign: 'left' }}>
-            <img src='images/blog_land.png' className='bank_logo' />
-            <p className='tittle_read_blog'>{article.title}</p>
-            <p className='body_read_blog'>
-                {isReadMore ? article.description : article.description.substring(0, 200)}
-                <button onClick={handleClickAction} className='button_style'>{isReadMore ? '...বিস্তারিত' : '...বিস্তারিত'}</button>
-            </p>
-        </div>
-    )
-}
+        <div className='most_read_blog_body'>
+            <div className='blog_box'>
+                {FilterMostReadBlogFirst.map((readBlog) => (
+                    <>
+                        <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
+                        <Link to={"/blog/" + readBlog.id}>
+                            <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
+                        </Link>
+                        <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <div className='most_read_blog_author'>{readBlog.author}, {readBlog.created_date?.slice(0, 10)}</div>
+                            <div className='mostread_Blog_follow_button'>
+                                <Button style={{ margin: '2px', fontSize: '7px' }}>
+                                    {/* <SlUserFollow style={{ marginTop: '-3px' }} /> */}
+                                    Follow
+                                </Button>
+                            </div>
+                        </Grid>
+                        <div>
+                            <div dangerouslySetInnerHTML={{ __html: readBlog.content?.slice(0, 800) }} className='most_read_blog_content' />
+                        </div>
 
-const MostReadBlog = () => {
-    const articles = [
-        {
-            title: 'ব্লগ শিরোনাম এখানে 1',
-            description: 'বড় বড় গ্রামীণ পরিবার বা জমির মালিকদের সম্পদ ও আয় বৃদ্ধি পাচ্ছে, নানা ধরনের কাজের সঙ্গে জড়িয়ে পড়ছেন তাঁরা। জমির ইজারা দিয়ে তাঁরা অর্থ পাচ্ছেন, তাঁরাই আবার রাইস মিল দিচ্ছেন, শহরে বাড়ি-গাড়ি কিনছেন। আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের আরেক দিকে গ্রামীণ সমাজের'
-        },
-        {
-            title: 'ব্লগ শিরোনাম এখানে 2',
-            description: 'বড় বড় গ্রামীণ পরিবার বা জমির মালিকদের সম্পদ ও আয় বৃদ্ধি পাচ্ছে, নানা ধরনের কাজের সঙ্গে জড়িয়ে পড়ছেন তাঁরা। জমির ইজারা দিয়ে তাঁরা অর্থ পাচ্ছেন, তাঁরাই আবার রাইস মিল দিচ্ছেন, শহরে বাড়ি-গাড়ি কিনছেন। আরেক দিকে গ্রামীণ সমাজের'
-        },
-    ];
-    const FilterArticles = useMemo(() => articles.filter((article, index) => (index >= 0 & index <= 1)), [articles]);
-    return (
-        <div>
-            <div className='main_bar row'>
-                {FilterArticles.map((article, index) => {
-                    return <Article_div key={index} article={article} />;
-                })}
+                        <Grid style={{ display: 'flex', marginTop: '0px' }}>
+                            <VisibilityIcon sx={{ fontSize: 16, marginTop: '-2px', color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
+                            <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.like_user_counter}</div>
+                            <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div>
+                            {/* <FaComments style={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.comment_counter}</div> */}
+                            <ShareIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.share_user_counter}</div>
+                        </Grid>
+                    </>
+                ))}
+            </div>
+            <div className='divider_line'></div>
+            <div className='blog_box'>
+                {FilterMostReadBlogSecond.map((readBlog) => (
+                    <>
+                        <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
+                        <Link to={"/blog/" + readBlog.id}>
+                            <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
+                        </Link>
+                        <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <div className='most_read_blog_author'>{readBlog.author}, {readBlog.created_date?.slice(0, 10)}</div>
+                            <div className='mostread_Blog_follow_button'>
+                                <Button style={{ margin: '2px', fontSize: '7px' }}>
+                                    {/* <SlUserFollow style={{ marginTop: '-3px' }} /> */}
+                                    Follow
+                                </Button>
+                            </div>
+                        </Grid>
+                        <div>
+                            <div dangerouslySetInnerHTML={{ __html: readBlog.content?.slice(0, 800) }} className='most_read_blog_content' />
+                        </div>
+                        <Grid style={{ display: 'flex', marginTop: '0px' }}>
+                            <VisibilityIcon sx={{ fontSize: 16, marginTop: '-2px', color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
+                            <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.like_user_counter}</div>
+                            <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div>
+                            {/* <FaComments style={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.comment_counter}</div> */}
+                            <ShareIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <div className='most_read_blog_like'>{readBlog.share_user_counter}</div>
+                        </Grid>
+                    </>
+                ))}
             </div>
         </div>
     )

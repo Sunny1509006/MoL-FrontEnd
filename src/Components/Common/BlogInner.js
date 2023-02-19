@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './BlogInner.css'
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Avatar, Grid, Paper } from '@mui/material'
 import { Button } from 'react-bootstrap';
 import { SlUserFollow } from 'react-icons/sl'
@@ -10,6 +10,8 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
+import { BiLeftArrowAlt } from 'react-icons/bi'
+import { IoIosArrowForward } from 'react-icons/io'
 
 const BlogInner = () => {
 
@@ -18,7 +20,7 @@ const BlogInner = () => {
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:4000/api/blogs/${params.id}`
+            `http://143.110.241.20:4000/api/blogs/${params.id}/`
         )
             .then(res => {
                 console.log(res)
@@ -33,7 +35,18 @@ const BlogInner = () => {
     return (
         <div className='Blog_Inner_main'>
             <div className='blog_content_inner_div'>
-                <Grid className='blog_content_inner_div_header'><h6>ব্লগ</h6></Grid>
+                <Grid className='blog_content_inner_div_header'>
+                    <Link to='/blog'>
+                        <div>
+                            <BiLeftArrowAlt style={{ marginTop: '-3px' }} />
+                            &nbsp;&nbsp;ব্লগ&nbsp;&nbsp;
+                        </div>
+                    </Link>
+                    <div style={{ color: '#0C6395' }}>
+                        <IoIosArrowForward />
+                        &nbsp;&nbsp;বিস্তারিত
+                    </div>
+                </Grid>
                 <Grid className='blog_content_inner_padding'>
                     <div><h3>{post.title_name}</h3></div>
                     <Grid style={{ display: 'flex' }}>
@@ -45,8 +58,13 @@ const BlogInner = () => {
                         </div>
                     </Grid>
                     <div className='content_scroll'>
-                        <img src={post.cover} className='blog_inner_cover_image' />
-                        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                        {post.cover !== null ?
+                            <>
+                                <img src={post.cover} className='blog_inner_cover_image' />
+                                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                            </> :
+                            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                        }
                     </div>
                     <Grid style={{ display: 'flex', marginTop: '0px', padding: '10px' }}>
                         <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
