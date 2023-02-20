@@ -24,8 +24,6 @@ const SignUp = () => {
                     inputProps={{ style: { height: '15px' } }}/>
                     <TextField fullWidth label="ইমেইল" variant="outlined" className='text_field'
                     inputProps={{ style: { height: '15px' } }}/>
-                    <TextField required fullWidth label="এন.আই.ডি" variant="outlined" className='text_field'
-                    inputProps={{ style: { height: '15px' } }}/>
                     <TextField required fullWidth type='password' label="পাসওয়ার্ড" variant="outlined" className='text_field'
                     inputProps={{ style: { height: '15px' } }}/>
                     <TextField required fullWidth type='password' label="পাসওয়ার্ড নিশ্চিত করুন" variant="outlined" className='text_field'

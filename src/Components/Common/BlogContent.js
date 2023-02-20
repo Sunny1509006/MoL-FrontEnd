@@ -61,7 +61,7 @@ const BlogContent = () => {
       <div className='blog_content'>
         <div className='blog_content_header'>
 
-          <div style={{color: '#0C6395'}}>
+          <div style={{ color: '#0C6395' }}>
             <Link to='/'>
               <BiLeftArrowAlt style={{ marginTop: '-3px', fontSize: '25px' }} />
             </Link>

@@ -14,7 +14,7 @@
 .ebook_comment_content {
     display: flex;
     flex-direction: column;
-    min-height: 400px;
+    /* min-height: 400px; */
     width: 100%;
     background: white;
 }
@@ -38,7 +38,7 @@
     /* justify-content: center; */
 
     margin: 20px;
-    height: 400px;
+    /* height: 400px; */
     width: 250px;
 }
 
@@ -49,4 +49,9 @@
 
 .ebook_comment_book_details {
     margin: 20px;
+}
+
+.ebook_comment_book_details p {
+    font-family: Kalpurush;
+    font-size: 12px;
 }

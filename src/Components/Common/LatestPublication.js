@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import './LeftSidebar.css';
+import React, { useState, useEffect, useMemo } from 'react'
+import './LatestPublication.css'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-import { motion } from "framer-motion";
-import { FaBars, FaHome } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
 import { GoLaw } from 'react-icons/go';
 import { GiClawHammer } from 'react-icons/gi';
 import { MdPolicy, MdBlurCircular, MdMenuBook } from 'react-icons/md';
@@ -14,9 +13,6 @@ import { FaRegHandshake } from 'react-icons/fa';
 import { TfiBookmarkAlt } from 'react-icons/tfi';
 import { TbDotsCircleHorizontal } from 'react-icons/tb';
 import RuleRoundedIcon from '@mui/icons-material/RuleRounded';
-import { RxDoubleArrowRight, RxDoubleArrowLeft } from 'react-icons/rx'
-import HomePage from './HomePage';
-
 
 const routes = [
     {
@@ -92,41 +88,44 @@ const routes = [
 
 ]
 
-const LeftSidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
+const LatestPublication = () => {
 
-    const toggle = () => setIsOpen(!isOpen);
+    const [lastPublication, setLastPublication] = useState({});
+
+    useEffect(() => {
+        axios.get(
+            `http://143.110.241.20:4000/api/ebooks/topviewer/`
+        )
+            .then(res => {
+                console.log(res)
+                setLastPublication(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }, []);
+
     return (
-        <div className='main_container'>
-            <div>
-                <motion.div animate={{ width: isOpen ? "140px" : "35px" }} className="Left_Sidebar">
-                    <div className='top_section'>
-                        {isOpen ? < div className='bars' style={{ marginLeft: '60px'}}>
-                            <RxDoubleArrowLeft onClick={toggle} />
-                        </div> :
-                            <div className='bars' style={{ marginLeft: '-42px'}}>
-                                <RxDoubleArrowRight onClick={toggle} />
-                            </div>
-                        }
-                    </div>
-                    <section style={{ marginTop: '-20px'}}>
-                        {routes.map((route) => (
-                            <NavLink to={route.path} key={route.name} className='link_div'>
-                                <div>
-                                    {route.icon}
-                                </div>
-                                {isOpen &&
-                                    <div>
-                                        {route.name}
-                                    </div>
+        <div className='latest_publication_main'>
+            {Object.values(lastPublication).map((publication) =>
+                <div className='publication_list'>
+                    <div>
+                        {routes.map((route)=>
+                            
+                            {if (route.name === publication.category_name)
+                                {
+                                    return (<div className='publication_icon'>{route.icon}</div>)
                                 }
-                            </NavLink>
-                        ))}
-                    </section>
-                </motion.div>
-            </div >
-        </div >
+                            }
+                        
+                        )}
+                    </div>
+                    <Link to={"/ebook/comment/"+publication.id}><h6>{publication.name}</h6></Link>
+                </div>
+            )}
+        </div>
     )
 }
 
-export default LeftSidebar
+export default LatestPublication

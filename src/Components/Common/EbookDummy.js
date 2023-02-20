@@ -77,7 +77,7 @@ const EbookDummy = () => {
                             </Paper>
                             {/* <ShareIcon sx={{ fontSize: 10, color: "#0C6395" }} /> */}
                             <Grid style={{ margin: '10px 0px' }}>
-                                <Link to={"/ebook/comment/"+post.id}><h6>{post.name?.slice(0, 50)}...</h6></Link>
+                                <Link to={"/ebook/comment/"+post.id}><h6>{post.name?.slice(0, 20)}...</h6></Link>
                             </Grid>
                             <Grid style={{ display: 'flex', marginTop: '-10px' }}>
                                 <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />

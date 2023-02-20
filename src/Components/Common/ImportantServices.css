@@ -1,0 +1,27 @@
+.important_services_main {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    
+}
+
+.important_services_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    height: 50%;
+    width: 33.3%;
+}
+
+.important_services_div p {
+    font-family: Kalpurush;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.important_services_image {
+    height: 60%;
+    width: 40%;
+}
