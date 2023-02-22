@@ -76,7 +76,9 @@ const HomePage = () => {
                 <div className='container_margin flex_div' style={{ flex: 1 }}>
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'>আলোচিত ফোরাম</div>
-                        <div className='container_div_body'>second div</div>
+                        <div className='container_div_body'>
+                            
+                        </div>
                     </div>
                 </div>
             </div>

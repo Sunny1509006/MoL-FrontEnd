@@ -27,10 +27,10 @@ function EbookView() {
 
     return (
         <div className='ebook_view_main'>
-            <div style={{ marginTop: '10px', fontFamily: 'Kalpurush' }}>
-                <h1>{post.name}</h1>
+            <div style={{ marginTop: '10px', fontFamily: 'Kalpurush', padding: '0px 20px' }}>
+                <h3><b>{post.name}</b></h3>
             </div>
-            <Table dangerouslySetInnerHTML={{ __html: post.content }} ></Table>
+            <div dangerouslySetInnerHTML={{ __html: post.content }} style={{ padding: '0px 20px' }} />
         </div>
     )
 }

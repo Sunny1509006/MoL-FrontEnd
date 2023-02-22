@@ -57,7 +57,7 @@ const EbookComment = () => {
                 </div>
                 <div className='ebook_comment_content_body'>
                     <div className='ebook_comment_cover'>
-                        <Paper  elevation={4}>
+                        <Paper elevation={4}>
                             <img src={post.cover} className='ebook_comment_cover_size' />
                         </Paper>
                     </div>
@@ -67,7 +67,9 @@ const EbookComment = () => {
                         <p>প্রকাশের তারিখঃ {post.publication_date}</p>
                         <div dangerouslySetInnerHTML={{ __html: post.content?.slice(0, 700) }} />
                         <Grid style={{ display: 'flex', marginTop: '0px' }}>
-                            <Button style={{ marginTop: '-5px', marginRight: '50px' }}>সম্পূর্ণ পড়ুন</Button>
+                            <Link to={"/ebook/view/"+post.id}>
+                                <Button style={{ marginTop: '-5px', marginRight: '50px' }}>সম্পূর্ণ পড়ুন</Button>
+                            </Link>
                             <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.viewer_counter}</div>
                             <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
