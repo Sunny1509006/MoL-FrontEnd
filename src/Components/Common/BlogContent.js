@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './BlogContent.css'
 import PageLink from './PageLink'
-import axios from 'axios';
+import axios from '../axios/axios';
 import { Pagination } from 'antd';
 import { Avatar, Grid, Paper } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -23,7 +23,7 @@ const BlogContent = () => {
   useEffect(() => {
     const loadPosts = async () => {
       const response = await axios.get(
-        "http://143.110.241.20:4000/api/blogs/"
+        "/api/blogs/"
       );
       console.log(response);
       setPosts(response.data);

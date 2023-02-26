@@ -4,7 +4,7 @@ import { BiLeftArrowAlt } from 'react-icons/bi'
 import { IoIosArrowForward } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
-import axios from 'axios'
+import axios from '../axios/axios'
 
 import { Avatar, Grid, Paper } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -25,7 +25,7 @@ const EbookComment = () => {
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:4000/api/ebooks/${params.id}/`
+            `/api/ebooks/${params.id}/`
         )
             .then(res => {
                 console.log(res)
@@ -62,7 +62,7 @@ const EbookComment = () => {
                         </Paper>
                     </div>
                     <div className='ebook_comment_book_details'>
-                        <h6 style={{ fontWeight: 'bold' }}>{post.name}</h6>
+                        <h6 style={{ fontWeight: 'bold' }}>{post.heading}</h6>
                         <p>লেখকঃ {post.author}</p>
                         <p>প্রকাশের তারিখঃ {post.publication_date}</p>
                         <div dangerouslySetInnerHTML={{ __html: post.content?.slice(0, 700) }} />

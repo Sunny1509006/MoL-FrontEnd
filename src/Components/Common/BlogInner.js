@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './BlogInner.css'
-import axios from 'axios'
+import axios from '../axios/axios'
 import { Link, useParams } from 'react-router-dom';
 import { Avatar, Grid, Paper } from '@mui/material'
 import { Button } from 'react-bootstrap';
@@ -20,7 +20,7 @@ const BlogInner = () => {
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:4000/api/blogs/${params.id}/`
+            `/api/blogs/${params.id}/`
         )
             .then(res => {
                 console.log(res)

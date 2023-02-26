@@ -1,0 +1,10 @@
+.chatbot_div_main {
+    position: fixed;
+    bottom: 300px;
+    right: 0px;
+    height: 40px;
+    width: 50px;
+    background: #0C6395;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}

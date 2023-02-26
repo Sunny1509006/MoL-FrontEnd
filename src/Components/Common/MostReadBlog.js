@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './MostReadBlog.css';
-import axios from 'axios';
+import axios from '../axios/axios';
 
 import { Avatar, Grid, Paper } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -21,7 +21,7 @@ const MostReadBlog = (props) => {
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:4000/api/blogs/topviewer/`
+            `/api/blogs/topviewer/`
         )
             .then(res => {
                 console.log(res)

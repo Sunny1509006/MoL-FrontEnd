@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Avatar, Grid, Paper } from '@mui/material'
-import axios from 'axios'
+import axios from '../axios/axios'
 import { Pagination } from 'antd'
 
 import './EbookDummy.css'
@@ -29,7 +29,7 @@ const EbookDummy = () => {
     useEffect(() => {
         const loadEbookPosts = async () => {
             const response = await axios.get(
-                "http://143.110.241.20:4000/api/ebooks/"
+                "/api/ebooks/"
             );
             setPosts(response.data);
             setTotal(response.data.length);
@@ -77,7 +77,7 @@ const EbookDummy = () => {
                             </Paper>
                             {/* <ShareIcon sx={{ fontSize: 10, color: "#0C6395" }} /> */}
                             <Grid style={{ margin: '10px 0px' }}>
-                                <Link to={"/ebook/comment/"+post.id}><h6>{post.name?.slice(0, 20)}...</h6></Link>
+                                <Link to={"/ebook/comment/"+post.id}><h6>{post.heading?.slice(0, 20)}...</h6></Link>
                             </Grid>
                             <Grid style={{ display: 'flex', marginTop: '-10px' }}>
                                 <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />

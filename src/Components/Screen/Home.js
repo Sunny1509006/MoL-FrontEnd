@@ -22,6 +22,7 @@ import {
 } from "react-router-dom";
 import BlogInner from "../Common/BlogInner";
 import EbookComment from "../Common/EbookComment";
+import Chatbot from "../Common/Chatbot";
 
 function Home() {
     return (
@@ -46,6 +47,7 @@ function Home() {
                     }
                 />
             </Routes>
+            <Chatbot />
             <Footer />
         </div>
     )

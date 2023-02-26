@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import './LatestPublication.css'
-import axios from 'axios';
+import axios from '../axios/axios';
 import { Link } from 'react-router-dom';
 
 import { GoLaw } from 'react-icons/go';
@@ -94,7 +94,7 @@ const LatestPublication = () => {
 
     useEffect(() => {
         axios.get(
-            `http://143.110.241.20:4000/api/ebooks/topviewer/`
+            `/api/ebooks/topviewer/`
         )
             .then(res => {
                 console.log(res)
@@ -121,7 +121,7 @@ const LatestPublication = () => {
                         
                         )}
                     </div>
-                    <Link to={"/ebook/comment/"+publication.id}><h6>{publication.name}</h6></Link>
+                    <Link to={"/ebook/comment/"+publication.id}><h6>{publication.heading}</h6></Link>
                 </div>
             )}
         </div>
