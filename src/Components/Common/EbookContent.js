@@ -17,47 +17,47 @@ const EbookContent = () => {
     const books = [
         {
             title: 'ব্লগ শিরোনাম এখানে ব্লগ শিরোনাম এখানে ব্লগ শিরোনাম এখানে 1',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 2',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 3',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 4',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 5',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 6',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 4',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 5',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 6',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 4',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
         {
             title: 'ব্লগ শিরোনাম এখানে 5',
-            image: 'images/gadget.png'
+            image: '/images/gadget.png'
         },
 
     ];

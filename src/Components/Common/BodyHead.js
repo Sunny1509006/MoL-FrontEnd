@@ -62,7 +62,7 @@ export default function BodyHead() {
         <div className='Header_logo'>
           <div >
             <Link to='/'>
-              <img src="images/iLKMS_Logo.png" className='ilkms_logo' />
+              <img src="/images/iLKMS_Logo.png" className='ilkms_logo' />
             </Link>
           </div>
           <div className='vumibid'>

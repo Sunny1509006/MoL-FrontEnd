@@ -24,7 +24,7 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton> */}
                     <div className='Bangladesh_logo_div'>
-                        <img src='images/Bangladesh_Logo.png' className='Bangladesh_logo' />
+                        <img src='/images/Bangladesh_Logo.png' className='Bangladesh_logo' />
                     </div>
                     <div className='ilkms_title_div'>
                         <p className='ilkms_title_p'><b>Intelligent Land Knowledge Management System</b></p>

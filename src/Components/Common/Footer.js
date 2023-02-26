@@ -8,21 +8,21 @@ const Footer = () => {
                 <div>
                     <p>Planning & Implementation</p>
                     <div className='footer_left'>
-                        <img src='images/Bangladesh_Logo.png' className='footer_bangladesh' />
+                        <img src='/images/Bangladesh_Logo.png' className='footer_bangladesh' />
                         <p>Ministry of Land</p>
                     </div>
                 </div>
                 <div className='border_div'></div>
                 <div >
                     <p>System Development</p>
-                    <img src='images/Dream71.png' className='footer_dream' />
+                    <img src='/images/Dream71.png' className='footer_dream' />
                 </div>
                 <div className='border_div'></div>
                 <div>
                     <p>Download App</p>
                     <div className='footer_right'>
-                        <img src='images/googleplay.png' className='footer_google' />
-                        <img src='images/applestore.png' className='footer_apple' />
+                        <img src='/images/googleplay.png' className='footer_google' />
+                        <img src='/images/applestore.png' className='footer_apple' />
                     </div>
                 </div>
             </div>
