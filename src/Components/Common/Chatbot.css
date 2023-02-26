@@ -1,10 +1,35 @@
 .chatbot_div_main {
     position: fixed;
-    bottom: 300px;
+    bottom: 70px;
     right: 0px;
     height: 40px;
     width: 50px;
     background: #0C6395;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
+
+}
+
+.chatbot_hi {
+    position: fixed;
+    bottom: 87px;
+    right: 55px;
+    height: 25px;
+    width: 50px;
+    border-radius: 10px;
+    background: #d5feff;
+
+}
+
+.chatbot_hi p {
+    font-size: 15px;
+    padding-left: 18px;
+    /* color: #0C6395; */
+    font-weight: bold;
+}
+
+.transition_div {
+    transition: all 0.33s ease;
+    -webkit-transition: all 0.33s ease;
+    -moz-transition: all 0.33s ease;
 }

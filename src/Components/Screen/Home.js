@@ -23,8 +23,11 @@ import {
 import BlogInner from "../Common/BlogInner";
 import EbookComment from "../Common/EbookComment";
 import Chatbot from "../Common/Chatbot";
+import SupportWindow from "../SupportWindow/SupportWindow";
+import ChatbotView from "../SupportWindow/ChatbotView";
 
 function Home() {
+    
     return (
         <div>
             <BodyHead />
@@ -47,7 +50,7 @@ function Home() {
                     }
                 />
             </Routes>
-            <Chatbot />
+            <ChatbotView />
             <Footer />
         </div>
     )
