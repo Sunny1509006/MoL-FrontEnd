@@ -45,24 +45,35 @@ const MostReadBlog = (props) => {
             <div className='blog_box'>
                 {FilterMostReadBlogFirst.map((readBlog) => (
                     <>
-                        <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
-                        <Link to={"/blog/" + readBlog.id}>
-                            <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
-                        </Link>
-                        <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <div className='most_read_blog_author'>{readBlog.author}, {readBlog.created_date?.slice(0, 10)}</div>
-                            <div className='mostread_Blog_follow_button'>
-                                <Button style={{ margin: '2px', fontSize: '7px' }}>
-                                    {/* <SlUserFollow style={{ marginTop: '-3px' }} /> */}
-                                    Follow
-                                </Button>
+                        <div className='overflowDiv'>
+                            <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
+                            <Link to={"/blog/" + readBlog.id}>
+                                <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
+                            </Link>
+                            <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <div className='most_read_blog_author'>
+                                    {readBlog.author}
+                                    <SlUserFollow style={{
+                                        marginTop: '0px',
+                                        color: '#0C6395',
+                                        fontSize: '13px',
+                                        marginLeft: '10px'
+                                    }} />
+                                </div>
+                                <div className='mostread_Blog_follow_button'>
+                                </div>
+                            </Grid>
+                            <Grid style={{
+                                fontSize: '10px'
+                            }}>
+                                {readBlog.created_date?.slice(0, 10)}
+                            </Grid>
+                            <div>
+                                <div dangerouslySetInnerHTML={{ __html: readBlog.content }} className='most_read_blog_content' />
+                                <p class="read-more"></p>
                             </div>
-                        </Grid>
-                        <div>
-                            <div dangerouslySetInnerHTML={{ __html: readBlog.content?.slice(0, 800) }} className='most_read_blog_content' />
                         </div>
-
-                        <Grid style={{ display: 'flex', marginTop: '0px' }}>
+                        <Grid style={{ display: 'flex', marginTop: '10px' }}>
                             <VisibilityIcon sx={{ fontSize: 16, marginTop: '-2px', color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
                             <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
@@ -73,6 +84,16 @@ const MostReadBlog = (props) => {
                             <div className='most_read_blog_like'>{readBlog.comment_counter}</div> */}
                             <ShareIcon sx={{ fontSize: 12, color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.share_user_counter}</div>
+                            <Link to={"/blog/" + readBlog.id}
+                                style={{ marginLeft: '60%' }}>
+                                <Button variant="outline-info" style={{
+                                    fontSize: '10px',
+                                    padding: '3px 10px',
+                                    marginTop: '-15px',
+                                }}>
+                                    আরও পড়ুন
+                                </Button>
+                            </Link>
                         </Grid>
                     </>
                 ))}
@@ -81,23 +102,36 @@ const MostReadBlog = (props) => {
             <div className='blog_box'>
                 {FilterMostReadBlogSecond.map((readBlog) => (
                     <>
-                        <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
-                        <Link to={"/blog/" + readBlog.id}>
-                            <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
-                        </Link>
-                        <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <div className='most_read_blog_author'>{readBlog.author}, {readBlog.created_date?.slice(0, 10)}</div>
-                            <div className='mostread_Blog_follow_button'>
-                                <Button style={{ margin: '2px', fontSize: '7px' }}>
-                                    {/* <SlUserFollow style={{ marginTop: '-3px' }} /> */}
-                                    Follow
-                                </Button>
+                        <div className='overflowDiv'>
+                            <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
+                            <Link to={"/blog/" + readBlog.id}>
+                                <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
+                            </Link>
+                            <Grid style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <div className='most_read_blog_author'>
+                                    {readBlog.author}
+                                    <SlUserFollow style={{
+                                        marginTop: '0px',
+                                        color: '#0C6395',
+                                        fontSize: '13px',
+                                        marginLeft: '10px'
+                                    }} />
+                                </div>
+                                <div className='mostread_Blog_follow_button'>
+                                </div>
+                            </Grid>
+                            <Grid style={{
+                                fontSize: '10px'
+                            }}>
+                                {readBlog.created_date?.slice(0, 10)}
+                            </Grid>
+                            <div>
+                                <div dangerouslySetInnerHTML={{ __html: readBlog.content }} className='most_read_blog_content' />
+                                <p class="read-more">
+                                </p>
                             </div>
-                        </Grid>
-                        <div>
-                            <div dangerouslySetInnerHTML={{ __html: readBlog.content?.slice(0, 800) }} className='most_read_blog_content' />
                         </div>
-                        <Grid style={{ display: 'flex', marginTop: '0px' }}>
+                        <Grid style={{ display: 'flex', marginTop: '10px' }}>
                             <VisibilityIcon sx={{ fontSize: 16, marginTop: '-2px', color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
                             <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
@@ -108,6 +142,16 @@ const MostReadBlog = (props) => {
                             <div className='most_read_blog_like'>{readBlog.comment_counter}</div> */}
                             <ShareIcon sx={{ fontSize: 12, color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.share_user_counter}</div>
+                            <Link to={"/blog/" + readBlog.id}
+                                style={{ marginLeft: '60%' }}>
+                                <Button variant="outline-info" style={{
+                                    fontSize: '10px',
+                                    padding: '3px 10px',
+                                    marginTop: '-15px',
+                                }}>
+                                    আরও পড়ুন
+                                </Button>
+                            </Link>
                         </Grid>
                     </>
                 ))}

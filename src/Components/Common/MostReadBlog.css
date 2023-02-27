@@ -4,14 +4,33 @@
 }
 
 .blog_box {
-    margin: 10px;
+    margin: 0px 10px;
     /* border: 0.5px solid rgba(0, 0, 0, 0.2); */
     /* border-radius: 5px; */
     max-width: calc(50% - 20px);
-    width: 48%;
-    
+    width: 48%;   
 }
 
+.overflowDiv {
+    overflow: hidden;
+    max-height: 250px;
+    position: relative;
+}
+
+.overflowDiv .read-more { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    width: 100%; 
+    text-align: center; 
+    margin: 0; padding: 15px 0;
+    font-size: 15px; 
+      
+    /* "transparent" only works here because == rgba(0,0,0,0) */
+    background-image: linear-gradient(to bottom, transparent, rgb(248, 251, 253));
+  }
+
+  
 .most_read_blog_cover {
     height: 130px;
     width: 180px;

@@ -8,7 +8,7 @@ const Chatbot = props => {
     return (
         <>
             <div className='chatbot_hi transition_div' style={{ opacity: hovered? '1': '0' }}>
-                <p>Hi</p>
+                <p>ভূমিপিডিয়াতে আপনাকে স্বাগতম</p>
             </div>
             <div className='chatbot_div_main'
                 onMouseEnter={() => setHovered(true)}
