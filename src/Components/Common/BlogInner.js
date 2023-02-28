@@ -50,13 +50,17 @@ const BlogInner = () => {
                 <Grid className='blog_content_inner_padding'>
                     <div><h3>{post.title_name}</h3></div>
                     <Grid style={{ display: 'flex' }}>
-                        <p>{post.author}, {post.created_date?.slice(0, 10)}</p>
+                        <p>{post.author}</p>
                         <div className='Blog_follow_button'>
-                            <Button style={{ margin: '7px', fontSize: '10px' }}>
+                            <Button style={{ margin: '0px', fontSize: '6px' }}>
                                 <SlUserFollow style={{ marginTop: '-3px' }} /> Follow
                             </Button>
-                        </div>
+                        </div>    
                     </Grid>
+                    <p style={{
+                        marginTop: '-10px',
+                        fontSize: '10px',
+                    }}>{post.created_date?.slice(0, 10)}</p>
                     <div className='content_scroll'>
                         {post.cover !== null ?
                             <>
@@ -71,8 +75,8 @@ const BlogInner = () => {
                         <div className='like_comment_padding'>{post.viewer_counter}</div>
                         <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
                         <div className='like_comment_padding'>{post.like_user_counter}</div>
-                        <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                        <div className='like_comment_padding'>{post.dislike_user_counter}</div>
+                        {/* <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                        <div className='like_comment_padding'>{post.dislike_user_counter}</div> */}
                         <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
                         <div className='like_comment_padding'>{post.comment_counter}</div>
                         <ShareIcon sx={{ fontSize: 15, color: "#0C6395" }} />

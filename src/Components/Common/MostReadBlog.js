@@ -78,8 +78,8 @@ const MostReadBlog = (props) => {
                             <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
                             <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.like_user_counter}</div>
-                            <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} />
-                            <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div>
+                            {/* <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} /> */}
+                            {/* <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div> */}
                             {/* <FaComments style={{ fontSize: 12, color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.comment_counter}</div> */}
                             <ShareIcon sx={{ fontSize: 12, color: "#0C6395" }} />
@@ -136,8 +136,8 @@ const MostReadBlog = (props) => {
                             <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
                             <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.like_user_counter}</div>
-                            <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} />
-                            <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div>
+                            {/* <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} /> */}
+                            {/* <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div> */}
                             {/* <FaComments style={{ fontSize: 12, color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.comment_counter}</div> */}
                             <ShareIcon sx={{ fontSize: 12, color: "#0C6395" }} />

@@ -84,10 +84,10 @@ const EbookDummy = () => {
                                 <div className='like_comment_padding'>{post.viewer_counter}</div>
                                 <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
                                 <div className='like_comment_padding'>{post.like_user_counter}</div>
-                                <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                                <div className='like_comment_padding'>{post.dislike_user_counter}</div>
-                                {/* <FaComments style={{ fontSize: 10, color: "#0C6395"}}/>
-                                <div className='like_comment_padding'>{post.ebook_comment_counter}</div> */}
+                                {/* <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} /> */}
+                                {/* <div className='like_comment_padding'>{post.dislike_user_counter}</div> */}
+                                <FaComments style={{ fontSize: 15, color: "#0C6395"}}/>
+                                <div className='like_comment_padding'>{post.comment_counter}</div>
 
                             </Grid>
                         </div>

@@ -62,22 +62,27 @@ const EbookComment = () => {
                         </Paper>
                     </div>
                     <div className='ebook_comment_book_details'>
-                        <h6 style={{ fontWeight: 'bold' }}>{post.heading}</h6>
-                        <p>লেখকঃ {post.author}</p>
-                        <p>প্রকাশের তারিখঃ {post.publication_date}</p>
-                        <div dangerouslySetInnerHTML={{ __html: post.content?.slice(0, 700) }} />
-                        <Grid style={{ display: 'flex', marginTop: '0px' }}>
-                            <Link to={"/ebook/view/"+post.id}>
+                        <div className='overflow_ebook'>
+                            <h6 style={{ fontWeight: 'bold' }}>{post.heading}</h6>
+                            <p>লেখকঃ {post.author}</p>
+                            <p>প্রকাশের তারিখঃ {post.publication_date}</p>
+                            <div>
+                                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                                <p className='read_more'></p>
+                            </div>
+                        </div>
+                        <Grid style={{ display: 'flex', marginTop: '10px' }}>
+                            <Link to={"/ebook/view/" + post.id}>
                                 <Button style={{ marginTop: '-5px', marginRight: '50px' }}>সম্পূর্ণ পড়ুন</Button>
                             </Link>
                             <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.viewer_counter}</div>
                             <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.like_user_counter}</div>
-                            <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
-                            <div className='like_comment_padding'>{post.dislike_user_counter}</div>
-                            {/* <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
-                            <div className='like_comment_padding'>{post.comment_counter}</div> */}
+                            {/* <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                            <div className='like_comment_padding'>{post.dislike_user_counter}</div> */}
+                            <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
+                            <div className='like_comment_padding'>{post.comment_counter}</div>
                             <ShareIcon sx={{ fontSize: 15, color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.share_user_counter}</div>
 
