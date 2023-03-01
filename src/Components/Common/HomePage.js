@@ -4,6 +4,7 @@ import MostReadBlog from './MostReadBlog';
 import PageLink from './PageLink';
 import LatestPublication from './LatestPublication';
 import ImportantServices from './ImportantServices';
+import { Helmet } from 'react-helmet';
 
 // function Article_div(props) {
 //     const article = props.article;
@@ -42,11 +43,14 @@ const HomePage = () => {
     // const FilterArticles = useMemo(() => articles.filter((article, index) => index === 0), [articles]);
     return (
         <div className='Homepage_div'>
+                  <Helmet>
+        <title>নাগরিক কর্নার</title>
+      </Helmet>
             <div>
                 <PageLink />
             </div>
             <div className='container_margin' style={{ flex: 1 }}>
-                <div className='container_div_header'>সর্বাধিক পঠিত ব্লগ</div>
+                <div className='container_div_header'><b>সর্বাধিক পঠিত ব্লগ</b></div>
                 {/* <div className='container_div_body'> */}
                 {/* <div className='blog_box'>
                         {FilterArticles.map((article, index) => {
@@ -65,7 +69,7 @@ const HomePage = () => {
             <div className='ain_forum'>
                 <div className='container_margin flex_div' style={{ flex: 1 }}>
                     <div style={{ flex: 1 }}>
-                        <div className='container_div_header'>সর্বশেষ প্রকাশনা</div>
+                        <div className='container_div_header'><b>সর্বশেষ প্রকাশনা</b></div>
                         <div className='container_div_body'>
                             <LatestPublication />
                         </div>
@@ -73,7 +77,7 @@ const HomePage = () => {
                 </div>
                 <div className='container_margin flex_div' style={{ flex: 1 }}>
                     <div style={{ flex: 1 }}>
-                        <div className='container_div_header'>আলোচিত ফোরাম</div>
+                        <div className='container_div_header'><b>আলোচিত ফোরাম</b></div>
                         <div className='container_div_body'>
                             
                         </div>
@@ -83,7 +87,7 @@ const HomePage = () => {
             <div className='ain_forum'>
                 <div className='container_margin flex_div' style={{ flex: 1 }}>
                     <div style={{ flex: 1 }}>
-                        <div className='container_div_header'>গুরুত্বপূর্ণ সেবাসমূহের লিংক</div>
+                        <div className='container_div_header'><b>গুরুত্বপূর্ণ সেবাসমূহ</b></div>
                         <div className='container_div_body'>
                             <ImportantServices />
                         </div>
@@ -91,8 +95,8 @@ const HomePage = () => {
                 </div>
                 <div className='container_margin flex_div' style={{ flex: 1 }}>
                     <div style={{ flex: 1 }}>
-                        <div className='container_div_header'>ব্যবহারকারীর ম্যানুয়াল</div>
-                        <div className='container_div_body'>second div</div>
+                        <div className='container_div_header'><b>সেবাসমূহ ব্যবহারের নির্দেশিকা</b></div>
+                        <div className='container_div_body'></div>
                     </div>
                 </div>
             </div>

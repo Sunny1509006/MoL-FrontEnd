@@ -11,6 +11,7 @@ import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 import { BiLeftArrowAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
 const BlogContent = () => {
@@ -55,6 +56,9 @@ const BlogContent = () => {
 
   return (
     <div className='blog_content_main'>
+      <Helmet>
+        <title>ব্লগ লিস্ট</title>
+      </Helmet>
       <div>
         <PageLink />
       </div>

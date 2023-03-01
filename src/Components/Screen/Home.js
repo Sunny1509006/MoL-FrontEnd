@@ -25,6 +25,7 @@ import EbookComment from "../Common/EbookComment";
 import Chatbot from "../Common/Chatbot";
 import SupportWindow from "../SupportWindow/SupportWindow";
 import ChatbotView from "../SupportWindow/ChatbotView";
+import Login from "../Common/Login";
 
 function Home() {
     
@@ -38,6 +39,7 @@ function Home() {
                 <Route exact path="/blog" element={<BlogContent />} />
                 <Route exact path="/forum" element={<ForumContent />} />
                 <Route exact path="/SignUp" element={<SignUp />} />
+                <Route exact path="/Login" element={<Login />} />
                 <Route path="/ebook/view/:id" element={<EbookView />} />
                 <Route path="/ebook/comment/:id" element={<EbookComment />} />
                 <Route path="/blog/:id" element={<BlogInner />} />

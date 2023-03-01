@@ -3,6 +3,8 @@
     flex-direction: column;
     gap: 1em;
     margin-top: 60px;
+    /* vh means display height */
+    min-height: calc(100vh - 225px);
     padding: relative;
     margin-left: 140px;
 }
@@ -56,8 +58,8 @@
 }
 
 
-@media screen and (max-width: 1040px){
-    .container_div_body{
+@media screen and (max-width: 1040px) {
+    .container_div_body {
         flex-direction: column;
         justify-content: center;
         align-items: center;

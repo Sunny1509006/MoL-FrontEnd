@@ -3,6 +3,7 @@ import './EbookView.css'
 import axios from '../axios/axios'
 import { useParams } from 'react-router-dom';
 import { Table } from 'react-bootstrap';
+import { Helmet } from 'react-helmet';
 
 function EbookView() {
     const params = useParams();
@@ -27,6 +28,9 @@ function EbookView() {
 
     return (
         <div className='ebook_view_main'>
+                  <Helmet>
+        <title>বিস্তারিত ই-বুক</title>
+      </Helmet>
             <div style={{ marginTop: '10px', fontFamily: 'Kalpurush', padding: '0px 20px' }}>
                 <h3><b>{post.heading}</b></h3>
             </div>

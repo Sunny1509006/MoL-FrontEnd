@@ -4,6 +4,7 @@ import './SignUp.css'
 import { AddCircleOutlineOutlined } from '@mui/icons-material'
 import TextField from '@mui/material/TextField';
 import Button from 'react-bootstrap/Button';
+import { Helmet } from 'react-helmet';
 
 // style={{ backgroundImage: `url(${process.env.PUBLIC_URL + "images/vumisignin.png"})`,
 // backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}
@@ -11,7 +12,9 @@ import Button from 'react-bootstrap/Button';
 const SignUp = () => {
     return (
         <Grid className='sign_up_dummy_div'>
-
+            <Helmet>
+                <title>সাইন আপ</title>
+            </Helmet>
             <Paper elevation={20} className='sign_up_content'>
                 <Grid align='center' style={{ display: 'flex', marginTop: '-10px' }}>
                     <Avatar className='avatar_style' >
@@ -30,7 +33,7 @@ const SignUp = () => {
                         inputProps={{ style: { height: '15px' } }} />
                     <TextField required fullWidth type='password' label="পাসওয়ার্ড নিশ্চিত করুন" variant="outlined" className='text_field'
                         inputProps={{ style: { height: '15px' } }} />
-                    <Button type='submit' variant='contained' className='text_field'>সাইন আপ</Button>
+                    <Button type='submit' variant='contained' className='text_field_sign'>সাইন আপ</Button>
                 </form>
 
             </Paper>

@@ -3,7 +3,8 @@
     flex-direction: column;
     padding: relative;
     margin-left: 40px;
-    min-height: 700px;
+    /* vh means display height */
+    min-height: calc(100vh - 225px);
     margin-top: 60px;
     gap: 1em;
 }

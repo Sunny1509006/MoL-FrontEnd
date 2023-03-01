@@ -15,6 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 
 import PageLink from './PageLink'
 import { Button } from 'react-bootstrap'
+import { Helmet } from 'react-helmet';
 
 const EbookComment = () => {
     const params = useParams();
@@ -39,6 +40,9 @@ const EbookComment = () => {
 
     return (
         <div className='ebook_comment_main'>
+            <Helmet>
+                <title>ই-বুক</title>
+            </Helmet>
             <div>
                 <PageLink />
             </div>

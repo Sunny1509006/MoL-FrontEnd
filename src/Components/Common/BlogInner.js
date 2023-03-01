@@ -12,6 +12,7 @@ import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 import { BiLeftArrowAlt } from 'react-icons/bi'
 import { IoIosArrowForward } from 'react-icons/io'
+import { Helmet } from 'react-helmet';
 
 const BlogInner = () => {
 
@@ -34,6 +35,9 @@ const BlogInner = () => {
 
     return (
         <div className='Blog_Inner_main'>
+            <Helmet>
+                <title>বিস্তারিত ব্লগ</title>
+            </Helmet>
             <div className='blog_content_inner_div'>
                 <Grid className='blog_content_inner_div_header'>
                     <Link to='/blog'>
@@ -55,7 +59,7 @@ const BlogInner = () => {
                             <Button style={{ margin: '0px', fontSize: '6px' }}>
                                 <SlUserFollow style={{ marginTop: '-3px' }} /> Follow
                             </Button>
-                        </div>    
+                        </div>
                     </Grid>
                     <p style={{
                         marginTop: '-10px',

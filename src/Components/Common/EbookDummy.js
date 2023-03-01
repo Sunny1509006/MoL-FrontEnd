@@ -11,6 +11,8 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 import { maxWidth } from '@mui/system'
+import { Helmet } from 'react-helmet';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -59,34 +61,43 @@ const EbookDummy = () => {
 
     return (
         <div className='ebook_dummy_main'>
+            <Helmet>
+                <title>ই-বুক লিস্ট</title>
+            </Helmet>
             <div>
                 <PageLink />
             </div>
 
-            <div className='blog_content'>
-                
-                <div className='book_content_div'>
+            <div className='ebook_content'>
+
+                <div className='book_content_div' >
                     {currentPosts.map((post) => (
                         // <h6 key={post.ebook_id} className='book_content'><img src={post.ebook_cover} className='blog_cover'/></h6>
                         // <h6 key={post.ebook_id} className='book_content'>{post.ebook_description}</h6>
                         // book_content classname can be added
-                        <div key={post.id} className='book_content_div book_content_margin_div'>
-                            <Paper elevation={5}>
-                                <img src={post.cover} className='book_image' />
+                        <div key={post.id} className='book_content_margin_div'>
+                            <Paper elevation={5} className='book_image_div'>
+                                <Link to={"/ebook/comment/" + post.id}> <img src={post.cover} className='book_image' /></Link>
 
                             </Paper>
                             {/* <ShareIcon sx={{ fontSize: 10, color: "#0C6395" }} /> */}
-                            <Grid style={{ margin: '10px 0px' }}>
-                                <Link to={"/ebook/comment/"+post.id}><h6>{post.heading?.slice(0, 20)}...</h6></Link>
+                            <Grid className='book_title_div'>
+                                <Link to={"/ebook/comment/" + post.id}>
+                                    <h6 style={{
+                                        fontSize: '12px',
+                                    }}>
+                                        {post.heading}
+                                    </h6>
+                                </Link>
                             </Grid>
-                            <Grid style={{ display: 'flex', marginTop: '-10px' }}>
-                                <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
+                            <Grid style={{ display: 'flex', marginTop: '5px' }}>
+                                <VisibilityIcon sx={{ fontSize: 16, marginTop: '4px', color: "#0C6395" }} />
                                 <div className='like_comment_padding'>{post.viewer_counter}</div>
-                                <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                                <ThumbUpIcon sx={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                                 <div className='like_comment_padding'>{post.like_user_counter}</div>
                                 {/* <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} /> */}
                                 {/* <div className='like_comment_padding'>{post.dislike_user_counter}</div> */}
-                                <FaComments style={{ fontSize: 15, color: "#0C6395"}}/>
+                                <FaComments style={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                                 <div className='like_comment_padding'>{post.comment_counter}</div>
 
                             </Grid>
