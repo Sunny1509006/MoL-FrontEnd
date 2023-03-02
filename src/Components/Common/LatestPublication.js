@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import './LatestPublication.css'
 import axios from '../axios/axios';
 import { Link } from 'react-router-dom';

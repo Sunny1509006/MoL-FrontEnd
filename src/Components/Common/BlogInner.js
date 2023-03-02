@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './BlogInner.css'
 import axios from '../axios/axios'
 import { Link, useParams } from 'react-router-dom';
-import { Avatar, Grid, Paper } from '@mui/material'
+import { Grid } from '@mui/material'
 import { Button } from 'react-bootstrap';
 import { SlUserFollow } from 'react-icons/sl'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 import { BiLeftArrowAlt } from 'react-icons/bi'

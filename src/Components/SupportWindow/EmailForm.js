@@ -71,7 +71,7 @@ const EmailForm = () => {
                         border: '1px solid #0C6395',
                     }}
                         onChange={e => setEmail(e.target.value)}
-                        placeholder='ইমেইল দিন'
+                        placeholder='মোবাইল নম্বর দিন'
                         type="email"
                     >
 
@@ -111,6 +111,7 @@ const EmailForm = () => {
                     fontSize: '10px',
                     fontWeight: '600',
                     left: '25%',
+                    // left: 'calc(50% - 40px)'
 
                 }}>
                     অ্যাকাউন্ট নেই? <Link to="/SignUp" style={{ color: '#0C6395' }}>সাইন আপ</Link> করুন

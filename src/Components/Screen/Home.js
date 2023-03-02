@@ -3,7 +3,6 @@ import BodyHead from "../Common/BodyHead";
 import LeftSidebar from "../Common/LeftSidebar";
 import HomePage from "../Common/HomePage";
 import BlogContent from "../Common/BlogContent";
-import EbookContent from "../Common/EbookContent";
 import EbookDummy from "../Common/EbookDummy";
 import ForumContent from "../Common/ForumContent";
 import SignUp from "../Common/SignUp";

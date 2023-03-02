@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import PageLink from './PageLink';
 import './SearchText.css';
-import { Users } from './User';
 
 const SearchText = () => {
     const [query, setQuery] = useState("");

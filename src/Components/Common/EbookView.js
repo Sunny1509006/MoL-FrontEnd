@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './EbookView.css'
 import axios from '../axios/axios'
 import { useParams } from 'react-router-dom';
-import { Table } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 
 function EbookView() {

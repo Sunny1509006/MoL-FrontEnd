@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Grid, Paper } from '@mui/material'
+import { Grid, Paper } from '@mui/material'
 import axios from '../axios/axios'
 import { Pagination } from 'antd'
 
@@ -7,10 +7,7 @@ import './EbookDummy.css'
 import PageLink from './PageLink'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
-import ShareIcon from '@mui/icons-material/Share';
-import { maxWidth } from '@mui/system'
 import { Helmet } from 'react-helmet';
 
 import {

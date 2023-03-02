@@ -5,6 +5,8 @@ import PageLink from './PageLink';
 import LatestPublication from './LatestPublication';
 import ImportantServices from './ImportantServices';
 import { Helmet } from 'react-helmet';
+import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 // function Article_div(props) {
 //     const article = props.article;
@@ -41,6 +43,13 @@ const HomePage = () => {
     //     },
     // ];
     // const FilterArticles = useMemo(() => articles.filter((article, index) => index === 0), [articles]);
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            Navigate('/Login')
+        }
+    }, [])
+
     return (
         <div className='Homepage_div'>
                   <Helmet>

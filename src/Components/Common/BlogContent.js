@@ -3,10 +3,9 @@ import './BlogContent.css'
 import PageLink from './PageLink'
 import axios from '../axios/axios';
 import { Pagination } from 'antd';
-import { Avatar, Grid, Paper } from '@mui/material'
+import { Grid, Paper } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 import { BiLeftArrowAlt } from 'react-icons/bi'

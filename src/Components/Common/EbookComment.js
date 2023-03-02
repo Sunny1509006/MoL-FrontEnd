@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
 import axios from '../axios/axios'
 
-import { Avatar, Grid, Paper } from '@mui/material'
+import { Grid, Paper } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 
