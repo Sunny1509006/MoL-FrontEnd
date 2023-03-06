@@ -5,13 +5,15 @@ import { AddCircleOutlineOutlined } from '@mui/icons-material'
 import TextField from '@mui/material/TextField';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet';
-import axios from 'axios';
+import axios from '../axios/axios';
+import { useNavigate } from 'react-router-dom';
 
 // style={{ backgroundImage: `url(${process.env.PUBLIC_URL + "images/vumisignin.png"})`,
 // backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}
 
 const SignUp = () => {
 
+    const navigate = useNavigate() 
     const [fullName, setFullName] = useState('')
     const [mobile, setMobile] = useState('')
     const [email, setEmail] = useState('')
@@ -40,16 +42,17 @@ const SignUp = () => {
 
     const handleApi = () => {
         console.log(fullName, mobile, email, password, confirmPassword)
-        axios.post("", {
-            fullname: fullName,
-            mobile: mobile,
+        axios.post("/api/register/", {
+            first_name: fullName,
+            username: mobile,
             email: email,
             password: password,
-            confirmpassword: confirmPassword, 
+            // confirmpassword: confirmPassword, 
         })
             .then(result => {
                 console.log(result.data)
                 alert("success")
+                navigate("/login")
             })
             .catch(err=> {
                 console.log(err)
@@ -78,8 +81,8 @@ const SignUp = () => {
                         value={email} onChange={handleEmail} inputProps={{ style: { height: '15px' } }} />
                     <TextField required={true} fullWidth type='password' label="পাসওয়ার্ড" variant="outlined" className='text_field'
                         value={password} onChange={handlePassword} inputProps={{ style: { height: '15px' } }} />
-                    <TextField required={true} fullWidth type='password' label="পাসওয়ার্ড নিশ্চিত করুন" variant="outlined" className='text_field'
-                        value={confirmPassword} onChange={handleConfirmPassword} inputProps={{ style: { height: '15px' } }} />
+                    {/* <TextField required={true} fullWidth type='password' label="পাসওয়ার্ড নিশ্চিত করুন" variant="outlined" className='text_field'
+                        value={confirmPassword} onChange={handleConfirmPassword} inputProps={{ style: { height: '15px' } }} /> */}
                     <Button variant='contained' className='text_field_sign'
                         onClick={handleApi}
                     >সাইন আপ</Button>

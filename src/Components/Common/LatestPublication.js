@@ -97,7 +97,7 @@ const LatestPublication = () => {
             `/api/ebooks/topviewer/`
         )
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setLastPublication(res.data)
             })
             .catch(err => {

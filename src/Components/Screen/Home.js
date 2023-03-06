@@ -25,6 +25,8 @@ import Chatbot from "../Common/Chatbot";
 import SupportWindow from "../SupportWindow/SupportWindow";
 import ChatbotView from "../SupportWindow/ChatbotView";
 import Login from "../Common/Login";
+import SpeechToText from "../SupportWindow/speechToText";
+import ChatbotDummy from "../SupportWindow/ChatbotDummy";
 
 function Home() {
     
@@ -42,6 +44,7 @@ function Home() {
                 <Route path="/ebook/view/:id" element={<EbookView />} />
                 <Route path="/ebook/comment/:id" element={<EbookComment />} />
                 <Route path="/blog/:id" element={<BlogInner />} />
+                <Route exact path="/chatbot" element={<ChatbotDummy />} />
                 <Route
                     path="*"
                     element={

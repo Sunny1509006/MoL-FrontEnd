@@ -1,19 +1,56 @@
 import React, { useState } from 'react'
 import './EmailForm.css'
+import axios from '../axios/axios'
+import useAuth from '../../hooks/authHooks'
+import Button from 'react-bootstrap/Button';
 
 import { LoadingOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 const EmailForm = () => {
-
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const authContext = useAuth();
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
 
     function handleSubmit(event) {
         event.preventDefault();
         setLoading(true)
-        console.log('sending email', email)
+        // console.log('sending email', email)
     }
+
+    const [mobile, setMobile] = useState("")
+    const [password, setPassword] = useState("")
+
+    const handleMobile = (e) => {
+        setMobile(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const handleApi = () => {
+        console.log(mobile, password)
+        axios.post("http://143.110.241.20:5000/api/login/", {
+            username: mobile,
+            password: password,
+        })
+            .then(result => {
+                // alert("login success1")
+                console.log(result.data)
+                localStorage.setItem('access', result.data.access);
+                authContext.setToken(result.data.access);
+                // if (localStorage.getItem('access')) {
+                //     navigate('/')
+                // }
+            })
+            .catch(error => {
+                console.log(error)
+                alert("error")
+            })
+    }
+
+
     return (
         <div className='email_form_div'>
             <div style={{ height: '0px' }}>
@@ -56,7 +93,8 @@ const EmailForm = () => {
                 </div>
 
                 <form
-                    onSubmit={e => handleSubmit(e)}
+                    // onSubmit={e => handleSubmit(e)}
+                    // onSubmit={e => handleApi(e)}
                     style={{
                         position: 'relative',
                         width: '100%',
@@ -70,7 +108,9 @@ const EmailForm = () => {
                         borderRadius: '12px',
                         border: '1px solid #0C6395',
                     }}
-                        onChange={e => setEmail(e.target.value)}
+                        // onChange={e => setEmail(e.target.value)}
+                        value={mobile}
+                        onChange={handleMobile}
                         placeholder='মোবাইল নম্বর দিন'
                         type="email"
                     >
@@ -84,12 +124,17 @@ const EmailForm = () => {
                         border: '1px solid #0C6395',
                         marginTop: '10px'
                     }}
-                        onChange={e => setPassword(e.target.value)}
+                        // onChange={e => setPassword(e.target.value)}
+                        value={password}
+                        onChange={handlePassword}
                         placeholder='পাসওয়ার্ড দিন'
                         type="password"
                     >
 
                     </input>
+                    <Button variant='contained' className='login_button'
+                        onClick={handleApi}
+                    >লগইন</Button>
                 </form>
 
                 <div style={{
@@ -110,8 +155,8 @@ const EmailForm = () => {
                     color: 'black',
                     fontSize: '10px',
                     fontWeight: '600',
-                    left: '25%',
-                    // left: 'calc(50% - 40px)'
+                    // left: '25%',
+                    left: 'calc(40% - 40px)'
 
                 }}>
                     অ্যাকাউন্ট নেই? <Link to="/SignUp" style={{ color: '#0C6395' }}>সাইন আপ</Link> করুন

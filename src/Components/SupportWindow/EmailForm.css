@@ -49,3 +49,8 @@
     font-size: 15px; 
     font-weight: 600;
 }
+
+.login_button {
+    margin-top: 10px !important;
+    margin-left: calc(26% - 55px);
+}

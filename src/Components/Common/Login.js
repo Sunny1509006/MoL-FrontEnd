@@ -7,8 +7,10 @@ import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../hooks/authHooks';
 
-const Login = () => {
+const Login = (props) => {
+    const authContext = useAuth();
     const navigate = useNavigate() 
 
     const [mobile, setMobile] = useState("")
@@ -24,15 +26,18 @@ const Login = () => {
 
     const handleApi = () => {
         console.log(mobile, password)
-        axios.post("", {
-            mobile: mobile,
+        axios.post("http://143.110.241.20:5000/api/login/", {
+            username: mobile,
             password: password,
         })
             .then(result => {
+                // alert("login success1")
                 console.log(result.data)
-                alert("login success")
-                localStorage.setItem('token', result.data.token)
-                navigate('/')
+                localStorage.setItem('access', result.data.access);
+                authContext.setToken(result.data.access);
+                if (localStorage.getItem('access')) {
+                    navigate('/')
+                }
             })
             .catch(error => {
                 console.log(error)
@@ -61,7 +66,7 @@ const Login = () => {
                         value={password}
                         onChange={handlePassword}
                         inputProps={{ style: { height: '15px' } }} />
-                    <Button type='submit' variant='contained' className='text_field_login'
+                    <Button variant='contained' className='text_field_login'
                         onClick={handleApi}
                     >লগইন</Button>
                 </form>

@@ -2,11 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import './MostReadBlog.css';
 import axios from '../axios/axios';
 
-import { Avatar, Grid, Paper } from '@mui/material'
+import { Grid } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 
 import { Button } from 'react-bootstrap';
@@ -24,7 +22,7 @@ const MostReadBlog = (props) => {
             `/api/blogs/topviewer/`
         )
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setMostReadBlog(res.data)
             })
             .catch(err => {
@@ -39,13 +37,13 @@ const MostReadBlog = (props) => {
     const FilterMostReadBlogSecond = useMemo(
         () => Object.values(mostReadBlog).filter((mostReadBlog, index) => index === 1), [mostReadBlog]);
 
-    console.log(FilterMostReadBlogFirst);
+    // console.log(FilterMostReadBlogFirst);
     return (
         <div className='most_read_blog_body'>
             <div className='blog_box'>
                 {FilterMostReadBlogFirst.map((readBlog) => (
                     <>
-                        <div className='overflowDiv'>
+                        <div className='overflowDiv' key={readBlog.id}>
                             <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
                             <Link to={"/blog/" + readBlog.id}>
                                 <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
@@ -70,7 +68,7 @@ const MostReadBlog = (props) => {
                             </Grid>
                             <div>
                                 <div dangerouslySetInnerHTML={{ __html: readBlog.content }} className='most_read_blog_content' />
-                                <p class="read-more"></p>
+                                <p className="read-more"></p>
                             </div>
                         </div>
                         <Grid style={{ display: 'flex', marginTop: '10px' }}>
@@ -102,7 +100,7 @@ const MostReadBlog = (props) => {
             <div className='blog_box'>
                 {FilterMostReadBlogSecond.map((readBlog) => (
                     <>
-                        <div className='overflowDiv'>
+                        <div className='overflowDiv' key={readBlog.id}>
                             <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
                             <Link to={"/blog/" + readBlog.id}>
                                 <div className='most_read_blog_title'>{readBlog.title_name?.slice(0, 100)}</div>
@@ -127,7 +125,7 @@ const MostReadBlog = (props) => {
                             </Grid>
                             <div>
                                 <div dangerouslySetInnerHTML={{ __html: readBlog.content }} className='most_read_blog_content' />
-                                <p class="read-more">
+                                <p className="read-more">
                                 </p>
                             </div>
                         </div>
