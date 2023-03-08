@@ -21,8 +21,8 @@ const SupportWindow = props => {
     <div
       className='Support_window_transition'
       style={{
-        height: '350px',
-        width: '250px',
+        height: '450px',
+        width: '300px',
         background: 'white',
         bottom: '120px',
         right: props.visible ? '15px' : '-500px',

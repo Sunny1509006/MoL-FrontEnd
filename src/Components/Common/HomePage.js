@@ -59,7 +59,7 @@ const HomePage = (props) => {
                 <PageLink />
             </div>
             <div className='container_margin' style={{ flex: 1 }}>
-                <div className='container_div_header'><b>সর্বাধিক পঠিত ব্লগ</b></div>
+                <div className='container_div_header'><b>সর্বাধিক পঠিত</b></div>
                 {/* <div className='container_div_body'> */}
                 {/* <div className='blog_box'>
                         {FilterArticles.map((article, index) => {

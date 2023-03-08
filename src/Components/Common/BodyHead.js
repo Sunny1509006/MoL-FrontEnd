@@ -11,6 +11,7 @@ export default function BodyHead() {
   const [localAccess, setLocalAccess] = useState(false)
   // console.log('localAccess', localAccess);
 
+
   useEffect(() => {
     if (localStorage.getItem('access')) {
       setLocalAccess(true)
@@ -47,16 +48,36 @@ export default function BodyHead() {
           <SearchText />
         </div>
         <div className='header_button'>
-          <div>
+          {/* <div>
             <Button variant="outline-info" className='btn btn-light'>বাংলা</Button>
-          </div>
+          </div> */}
           {isAuthenticated ?
+          <>
             <div>
-              <Button variant="outline-info"
+              <Button variant="outline-info" style={{
+                marginTop: 'calc(50% - 25px)',
+                marginRight: '10px',
+              }}
                 onClick={removeToken}
                 type="submit"
               >লগ আউট</Button>
             </div>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+              <img src="/images/profile.png" style={{
+                height: '40px',
+                width: '40px',
+              }}/>
+              <p style={{
+                fontSize: '12px',
+                margin: '0px 0px 0px',
+              }}>Mr. Nahid</p>
+            </div>
+            </>
             :
             <>
               <div>

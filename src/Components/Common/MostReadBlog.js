@@ -89,7 +89,7 @@ const MostReadBlog = (props) => {
                                     padding: '3px 10px',
                                     marginTop: '-15px',
                                 }}>
-                                    আরও পড়ুন
+                                    বিস্তারিত
                                 </Button>
                             </Link>
                         </Grid>
@@ -147,7 +147,7 @@ const MostReadBlog = (props) => {
                                     padding: '3px 10px',
                                     marginTop: '-15px',
                                 }}>
-                                    আরও পড়ুন
+                                    বিস্তারিত 
                                 </Button>
                             </Link>
                         </Grid>

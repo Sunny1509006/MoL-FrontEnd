@@ -78,15 +78,15 @@ const EbookComment = () => {
                             <Link to={"/ebook/view/" + post.id}>
                                 <Button style={{ marginTop: '-5px', marginRight: '50px' }}>সম্পূর্ণ পড়ুন</Button>
                             </Link>
-                            <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
+                            <VisibilityIcon sx={{ fontSize: 16, marginTop: '4px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.viewer_counter}</div>
-                            <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                            <ThumbUpIcon sx={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.like_user_counter}</div>
                             {/* <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.dislike_user_counter}</div> */}
-                            <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
+                            <FaComments style={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.comment_counter}</div>
-                            <ShareIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                            <ShareIcon sx={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.share_user_counter}</div>
 
                         </Grid>

@@ -82,16 +82,16 @@ const BlogContent = () => {
               </Paper>
               <Link to={"/blog/" + post.id}><h6>{post.title_name.slice(0, 100)}</h6></Link>
               <p>{post.author}, {post.created_date?.slice(0, 10)}</p>
-              <Grid style={{ display: 'flex', marginTop: '0px' }}>
-                <VisibilityIcon sx={{ fontSize: 20, marginTop: '-2px', color: "#0C6395" }} />
+              <Grid style={{ display: 'flex', marginTop: '-6px' }}>
+                <VisibilityIcon sx={{ fontSize: 16, marginTop: '4px', color: "#0C6395" }} />
                 <div className='like_comment_padding'>{post.viewer_counter}</div>
-                <ThumbUpIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                <ThumbUpIcon sx={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                 <div className='like_comment_padding'>{post.like_user_counter}</div>
                 {/* <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
                 <div className='like_comment_padding'>{post.dislike_user_counter}</div> */}
-                <FaComments style={{ fontSize: 15, color: "#0C6395" }} />
+                <FaComments style={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                 <div className='like_comment_padding'>{post.comment_counter}</div>
-                <ShareIcon sx={{ fontSize: 15, color: "#0C6395" }} />
+                <ShareIcon sx={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />
                 <div className='like_comment_padding'>{post.share_user_counter}</div>
 
               </Grid>

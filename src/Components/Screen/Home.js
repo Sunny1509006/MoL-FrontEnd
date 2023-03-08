@@ -27,6 +27,7 @@ import ChatbotView from "../SupportWindow/ChatbotView";
 import Login from "../Common/Login";
 import SpeechToText from "../SupportWindow/speechToText";
 import ChatbotDummy from "../SupportWindow/ChatbotDummy";
+import AddComment from "../Common/AddComment";
 
 function Home() {
     
@@ -45,6 +46,7 @@ function Home() {
                 <Route path="/ebook/comment/:id" element={<EbookComment />} />
                 <Route path="/blog/:id" element={<BlogInner />} />
                 <Route exact path="/chatbot" element={<ChatbotDummy />} />
+                <Route exact path="/comment" element={<AddComment />} />
                 <Route
                     path="*"
                     element={

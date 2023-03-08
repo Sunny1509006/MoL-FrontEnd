@@ -97,8 +97,12 @@ const EmailForm = () => {
                     // onSubmit={e => handleApi(e)}
                     style={{
                         position: 'relative',
-                        width: '100%',
-                        top: '13%',
+                        width: '90%',
+                        top: '17%',
+                        left: '5%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
                     }}
                 >
                     <input style={{

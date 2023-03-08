@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './Conversation.css'
 import axios from '../axios/axios'
 import { BsMicFill, BsMicMuteFill } from 'react-icons/bs'
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 const speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 const mic = new speechRecognition()
@@ -10,52 +11,61 @@ mic.continuous = true
 mic.interimResults = true
 mic.lang = "bn-BD"
 
+
 const Conversation = () => {
 
-    const [isListening, setIsListening] = useState(false)
+    const [isListening, setIsListening] = useState(true)
     const [note, setNote] = useState(null)
     const [savedNotes, setSavedNotes] = useState([])
 
     const [question, setQuestion] = useState("")
-    const [answer, setAnswer] = useState("")
+    const [answer, setAnswer] = useState([])
+
+    const messagesEndRef = useRef(null);
 
     const handleQuestion = (e) => {
         setQuestion(e.target.value)
     }
 
-    const handleAnswer = (e) => {
-        setAnswer(e.target.value)
-    }
+    useEffect(() => {
+        if (answer.length > 0) {
+            const lastAnswer = answer[answer.length - 1];
+            console.log(lastAnswer)
+            if (lastAnswer.author === "user") {
+                axios.post("http://143.110.241.20:5050/api/response/",
+                    lastAnswer.content,
+                    {
+
+                        "headers": {
+
+                            "content-type": "application/json",
+
+                        },
 
 
-    const handleApi = () => {
-        // console.log(question)
-        axios.post("http://143.110.241.20:5050/api/response/",
-            question,
-            {
+                    })
+                    .then(result => {
+                        // console.log(result.data.response)
+                        setAnswer([...answer, { author: 'bot', content: result.data.response }]);
 
-                "headers": {
+                    })
+                    .catch(error => {
+                        alert("error")
+                    });
 
-                    "content-type": "application/json",
+            }
+        }
+    }, [answer]);
 
-                },
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (question.trim() !== "") {
+            setAnswer([...answer, { author: "user", content: question }]);
+            setQuestion("");
+        }
+    };
 
 
-            })
-            .then(result => {
-                console.log(result.data)
-                setAnswer(result.data.response)
-            })
-            .catch(error => {
-                console.log(error)
-                alert("error")
-            })
-    }
-
-    // const getData = () => {
-    //     handleQuestion,
-    //     handleApi
-    // }
     useEffect(() => {
         handleListen()
 
@@ -85,10 +95,10 @@ const Conversation = () => {
                 .map(result => result.transcript)
                 .join('')
             setNote(transcript)
-            console.log(transcript)
+            // console.log(transcript)
             setQuestion(transcript)
             mic.onerror = event => {
-                console.log(event.error)
+                // console.log(event.error)
             }
         }
     }
@@ -97,7 +107,6 @@ const Conversation = () => {
         setSavedNotes([...savedNotes, note])
         setNote('')
     }
-
 
     return (
         <div className='ConversationMainDiv'>
@@ -111,16 +120,24 @@ const Conversation = () => {
                     padding: '3px 10px'
                 }}>ভূমিবিদ</p>
             </div>
-            <div className='conversation_chat_div'>
-                <div className='right'>
-                    {question}
-                </div>
-                <div className='left'>
-                    {answer}
-                </div>
-            </div>
-            <form>
-                {/* <input></input> */}
+            <ScrollToBottom className='conversation_chat_div' >
+
+                {answer.map((answer, index) => (
+                    <div key={index}>
+                        {(answer.author === "bot") ?
+                            <div className='left' >
+                                {answer.content}
+                            </div>
+                            :
+                            <div className='right'>
+                                {answer.content}
+                            </div>
+                        }
+                    </div>
+                ))}
+
+            </ScrollToBottom>
+            <form onSubmit={handleSubmit}>
 
                 <div className="conversation_input">
                     <button type="button"
@@ -133,9 +150,9 @@ const Conversation = () => {
 
                         }}>
                         {isListening ?
-                            <BsMicFill fontSize={18} style={{ color: 'blue' }} />
-                            :
                             <BsMicMuteFill fontSize={18} style={{ color: 'blue' }} />
+                            :
+                            <BsMicFill fontSize={18} style={{ color: 'blue' }} />
 
                         }
                     </button>
@@ -144,7 +161,7 @@ const Conversation = () => {
                         onChange={handleQuestion}
                     />
                     <button type="button" className="send" id="reply"
-                        onClick={handleApi}
+                        onClick={handleSubmit}
                     >পাঠান <i className="fas fa-paper-plane"></i></button>
                 </div>
             </form>
