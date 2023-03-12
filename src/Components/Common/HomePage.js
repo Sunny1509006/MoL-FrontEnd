@@ -7,6 +7,7 @@ import ImportantServices from './ImportantServices';
 import { Helmet } from 'react-helmet';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { width } from '@mui/system';
 
 // function Article_div(props) {
 //     const article = props.article;
@@ -88,7 +89,10 @@ const HomePage = (props) => {
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'><b>আলোচিত ফোরাম</b></div>
                         <div className='container_div_body'>
-                            
+                            <img src="/images/alochitoforum.png" style={{
+                                height: '350px',
+                                width: '100%',
+                            }}/>
                         </div>
                     </div>
                 </div>
@@ -105,7 +109,12 @@ const HomePage = (props) => {
                 <div className='container_margin flex_div' style={{ flex: 1 }}>
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'><b>সেবাসমূহ ব্যবহারের নির্দেশিকা</b></div>
-                        <div className='container_div_body'></div>
+                        <div className='container_div_body'>
+                        <img src="/images/seba.png" style={{
+                                height: '320px',
+                                width: '100%',
+                            }}/>
+                        </div>
                     </div>
                 </div>
             </div>

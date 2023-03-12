@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react';
 import './BodyHead.css'
 import SearchText from './SearchText';
 import Button from 'react-bootstrap/Button';
+import axios from '../axios/axios';
 
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/authHooks';
+import { BsThreeDotsVertical } from 'react-icons/bs'
 
 export default function BodyHead() {
-  const {isAuthenticated, removeToken} = useAuth();
+  const { isAuthenticated, removeToken, user } = useAuth();
   const [localAccess, setLocalAccess] = useState(false)
-  // console.log('localAccess', localAccess);
+  console.log(user);
+  const [userProfile, setUserProfile] = useState('')
+  const handleApi = () => {
+    axios.post("/api/logout/")
+    setShowMenu(!showMenu);
+    removeToken();
+    
+  }
 
 
   useEffect(() => {
@@ -17,6 +26,23 @@ export default function BodyHead() {
       setLocalAccess(true)
     }
   }, [])
+
+  // useEffect(() => {
+  //   axios.get('/api/profile/')
+  //     .then(response => {
+  //       console.log(response.data);
+  //       setUserProfile(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  const handleMenuClick = () => {
+    setShowMenu(!showMenu);
+  };
   return (
     <>
       <div className='header_main'>
@@ -52,31 +78,61 @@ export default function BodyHead() {
             <Button variant="outline-info" className='btn btn-light'>বাংলা</Button>
           </div> */}
           {isAuthenticated ?
-          <>
-            <div>
-              <Button variant="outline-info" style={{
-                marginTop: 'calc(50% - 25px)',
-                marginRight: '10px',
-              }}
-                onClick={removeToken}
-                type="submit"
-              >লগ আউট</Button>
-            </div>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-              <img src="/images/profile.png" style={{
-                height: '40px',
-                width: '40px',
-              }}/>
-              <p style={{
-                fontSize: '12px',
-                margin: '0px 0px 0px',
-              }}>Mr. Nahid</p>
-            </div>
+            <>
+              {/* <div>
+                <Button variant="outline-info" style={{
+                  marginTop: 'calc(50% - 25px)',
+                  marginRight: '10px',
+                }}
+                  onClick={handleApi}
+                  type="submit"
+                >লগ আউট</Button>
+              </div> */}
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+                <img src="/images/profile.png" style={{
+                  height: '40px',
+                  width: '40px',
+                }} />
+                <p style={{
+                  fontSize: '12px',
+                  margin: '0px 0px 0px',
+                }}>
+                  {user?.full_name}
+                  </p>
+              </div>
+              <div>
+                <Button onClick={handleMenuClick} style={{ 
+                  padding: '0px',
+                  backgroundColor: 'var(--secondary-bg)',
+                }}>
+                  <BsThreeDotsVertical 
+                    fontSize={24}
+                    className='dotColor'
+                  />
+                </Button>
+                {showMenu && (
+                  <div style={{ position: 'fixed', right: '0px', background: 'white' }}>
+                    {/* <button onClick={() => console.log('Go to profile page')}>
+                    profile
+                  </button> */}
+                    <Link to="/profile" onClick={()=> { setShowMenu(!showMenu)}}><div>প্রোফাইল</div></Link>
+                    <div>
+                      <Button variant="outline-info" style={{
+                        marginTop: 'calc(50% - 25px)',
+                        marginRight: '10px',
+                      }}
+                        onClick={handleApi}
+                        type="submit"
+                      >লগ আউট</Button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </>
             :
             <>

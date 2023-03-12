@@ -26,6 +26,10 @@
     display: flex;
 } 
 
+.dotColor {
+    color: var(--primary-color);
+}
+
 @media screen and (max-width: 1040px){
     .header_main{
         flex-direction: column;

@@ -1,5 +1,5 @@
 import { Avatar, Grid, Paper } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Login.css'
 import { AddCircleOutlineOutlined } from '@mui/icons-material'
 import TextField from '@mui/material/TextField';
@@ -8,10 +8,14 @@ import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/authHooks';
+// import Cookies from 'universal-cookie'
+// import jwt from "jwt-decode"
 
 const Login = (props) => {
     const authContext = useAuth();
     const navigate = useNavigate() 
+
+    // const cookies = new Cookies();
 
     const [mobile, setMobile] = useState("")
     const [password, setPassword] = useState("")
@@ -27,15 +31,17 @@ const Login = (props) => {
     const handleApi = () => {
         console.log(mobile, password)
         axios.post("http://143.110.241.20:5000/api/login/", {
-            username: mobile,
+            phone_number: "+88"+mobile,
             password: password,
         })
             .then(result => {
                 // alert("login success1")
-                console.log(result.data)
-                localStorage.setItem('access', result.data.access);
-                authContext.setToken(result.data.access);
-                if (localStorage.getItem('access')) {
+                // console.log(result.data)
+                localStorage.setItem('jwt', result.data.jwt);
+                // cookies.set("jwt", result.data.jwt);
+                authContext.setToken(result.data.jwt);
+                authContext.handleSetUser(result.data.jwt);
+                if (localStorage.getItem('jwt')) {
                     navigate('/')
                 }
             })
@@ -44,6 +50,23 @@ const Login = (props) => {
                 alert("error")
             })
     }
+
+    // useEffect(() => {
+    //     axios.post('/api/profile/',
+    //         // { "jwt": localStorage.getItem('jwt') }
+    //         {"jwt": authContext.token}
+
+    //     )
+    //         .then(response => {
+    //             console.log(response.data);
+    //             authContext.setUser(response.data);
+    //             localStorage.setItem('user', response.data);
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         });
+
+    // }, []);
 
     return (
         <Grid className='login_up_dummy_div'>

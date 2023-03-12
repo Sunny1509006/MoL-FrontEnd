@@ -78,6 +78,9 @@ const EbookComment = () => {
                             <Link to={"/ebook/view/" + post.id}>
                                 <Button style={{ marginTop: '-5px', marginRight: '50px' }}>সম্পূর্ণ পড়ুন</Button>
                             </Link>
+                            <Link to={"/ebook/pdf/" + post.id}>
+                                <Button style={{ marginTop: '-5px', marginRight: '50px' }}>বই আকারে পড়ুন</Button>
+                            </Link>
                             <VisibilityIcon sx={{ fontSize: 16, marginTop: '4px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.viewer_counter}</div>
                             <ThumbUpIcon sx={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} />

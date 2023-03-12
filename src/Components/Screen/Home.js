@@ -28,6 +28,9 @@ import Login from "../Common/Login";
 import SpeechToText from "../SupportWindow/speechToText";
 import ChatbotDummy from "../SupportWindow/ChatbotDummy";
 import AddComment from "../Common/AddComment";
+import FlippingPdf from "../Common/FlippingPdf";
+import FlipBook from "../Common/FlipBook";
+import Profile from "../Common/Profile";
 
 function Home() {
     
@@ -47,6 +50,8 @@ function Home() {
                 <Route path="/blog/:id" element={<BlogInner />} />
                 <Route exact path="/chatbot" element={<ChatbotDummy />} />
                 <Route exact path="/comment" element={<AddComment />} />
+                <Route path ="/ebook/pdf/:id" element={<FlipBook />} />
+                <Route exact path="/profile" element={<Profile />} />
                 <Route
                     path="*"
                     element={

@@ -31,15 +31,15 @@ const EmailForm = () => {
 
     const handleApi = () => {
         console.log(mobile, password)
-        axios.post("http://143.110.241.20:5000/api/login/", {
-            username: mobile,
+        axios.post("/api/login/", {
+            phone_number: "+88"+mobile,
             password: password,
         })
             .then(result => {
                 // alert("login success1")
                 console.log(result.data)
-                localStorage.setItem('access', result.data.access);
-                authContext.setToken(result.data.access);
+                localStorage.setItem('jwt', result.data.jwt);
+                authContext.setToken(result.data.jwt);
                 // if (localStorage.getItem('access')) {
                 //     navigate('/')
                 // }

@@ -43,11 +43,11 @@ const SignUp = () => {
     const handleApi = () => {
         console.log(fullName, mobile, email, password, confirmPassword)
         axios.post("/api/register/", {
-            first_name: fullName,
-            username: mobile,
+            full_name: fullName,
+            phone_number: "+88"+mobile,
             email: email,
             password: password,
-            // confirmpassword: confirmPassword, 
+            confirm_password: confirmPassword, 
         })
             .then(result => {
                 console.log(result.data)
@@ -81,8 +81,8 @@ const SignUp = () => {
                         value={email} onChange={handleEmail} inputProps={{ style: { height: '15px' } }} />
                     <TextField required={true} fullWidth type='password' label="পাসওয়ার্ড" variant="outlined" className='text_field'
                         value={password} onChange={handlePassword} inputProps={{ style: { height: '15px' } }} />
-                    {/* <TextField required={true} fullWidth type='password' label="পাসওয়ার্ড নিশ্চিত করুন" variant="outlined" className='text_field'
-                        value={confirmPassword} onChange={handleConfirmPassword} inputProps={{ style: { height: '15px' } }} /> */}
+                    <TextField required={true} fullWidth type='password' label="পাসওয়ার্ড নিশ্চিত করুন" variant="outlined" className='text_field'
+                        value={confirmPassword} onChange={handleConfirmPassword} inputProps={{ style: { height: '15px' } }} />
                     <Button variant='contained' className='text_field_sign'
                         onClick={handleApi}
                     >সাইন আপ</Button>
