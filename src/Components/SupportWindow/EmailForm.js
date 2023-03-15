@@ -79,13 +79,13 @@ const EmailForm = () => {
                 width: '100%',
                 textAlign: 'center',
             }}>
-                <img src="/images/iLKMS_Logo.png"
+                <img src="/images/vumipedia_logo.png"
                     style={{
                         position: 'relative',
                         left: 'calc(50%-40px)',
                         top: '4%',
                         height: '50px',
-                        width: '50px',
+                        width: '70px',
                     }}
                 />
                 <div className='topText'>

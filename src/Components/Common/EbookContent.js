@@ -1,6 +1,7 @@
 import React, {useMemo} from 'react';
 import './EbookContent.css';
 import PageLink from './PageLink';
+import useAuth from '../../hooks/authHooks';
 
 
 function BookList_div(props) {
@@ -14,6 +15,7 @@ function BookList_div(props) {
 }
 
 const EbookContent = () => {
+    const {marginDiv} = useAuth()
     const books = [
         {
             title: 'ব্লগ শিরোনাম এখানে ব্লগ শিরোনাম এখানে ব্লগ শিরোনাম এখানে 1',
@@ -63,7 +65,7 @@ const EbookContent = () => {
     ];
     const FilterBooks = useMemo(() => books.filter((book, index) => index >= 0 ), [books]);
     return (
-        <div className='ebook_content_main'>
+        <div className='ebook_content_main' style={{ marginLeft: marginDiv? '140px': '37px' }}>
             <div>
                 <PageLink />
             </div>

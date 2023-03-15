@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import PhoneInput from 'react-phone-number-input/input'
 
 const Profile = () => {
-  const { user, fetchUser } = useAuth();
+  const { user, fetchUser, marginDiv } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
@@ -102,7 +102,7 @@ const Profile = () => {
 
 
   return (
-    <div className='profile_div'>
+    <div className='profile_div' style={{ marginLeft: marginDiv? '155px': '50px' }}>
       <div className='profile_header'>
         <div>প্রোফাইল</div>
         <Button onClick={handleEdit} style={{ background: 'none' }}>
@@ -207,7 +207,9 @@ const Profile = () => {
               }
             </div>
           </div>
-          <Button onClick={handleEditData} style={{ right: '10px' }}>সংরক্ষণ করুন</Button>
+          <Button onClick={handleEditData} style={{ 
+            marginBottom: '15px', marginLeft: '50%',
+            }}>সংরক্ষণ করুন</Button>
         </form>
       </div>
     </div>

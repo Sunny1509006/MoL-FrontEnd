@@ -16,6 +16,7 @@ import { TbDotsCircleHorizontal } from 'react-icons/tb';
 import RuleRoundedIcon from '@mui/icons-material/RuleRounded';
 import { RxDoubleArrowRight, RxDoubleArrowLeft } from 'react-icons/rx'
 import HomePage from './HomePage';
+import useAuth from '../../hooks/authHooks';
 
 
 const routes = [
@@ -92,24 +93,31 @@ const routes = [
 
 ]
 
-const LeftSidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
 
-    const toggle = () => setIsOpen(!isOpen);
+const LeftSidebar = () => {
+    const {setMarginDiv} = useAuth();
+    const [isOpen, setIsOpen] = useState(false);
+    localStorage.setItem("isOpen", isOpen);
+    setMarginDiv(isOpen);
+    const toggle = () => {
+        setIsOpen(!isOpen)
+        localStorage.setItem("isOpen", !isOpen)
+        setMarginDiv(!isOpen)
+    };
     return (
         <div className='main_container'>
             <div>
                 <motion.div animate={{ width: isOpen ? "140px" : "35px" }} className="Left_Sidebar">
                     <div className='top_section'>
-                        {isOpen ? < div className='bars' style={{ marginLeft: '60px'}}>
+                        {isOpen ? < div className='bars' style={{ marginLeft: '60px' }}>
                             <RxDoubleArrowLeft onClick={toggle} />
                         </div> :
-                            <div className='bars' style={{ marginLeft: '-42px'}}>
+                            <div className='bars' style={{ marginLeft: '-42px' }}>
                                 <RxDoubleArrowRight onClick={toggle} />
                             </div>
                         }
                     </div>
-                    <section style={{ marginTop: '-20px'}}>
+                    <section style={{ marginTop: '-20px' }}>
                         {routes.map((route) => (
                             <NavLink to={route.path} key={route.name} className='link_div'>
                                 <div>

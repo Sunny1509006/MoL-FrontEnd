@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './HomePage.css';
 import MostReadBlog from './MostReadBlog';
 import PageLink from './PageLink';
 import LatestPublication from './LatestPublication';
 import ImportantServices from './ImportantServices';
 import { Helmet } from 'react-helmet';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { width } from '@mui/system';
+import useAuth from '../../hooks/authHooks';
 
 // function Article_div(props) {
 //     const article = props.article;
@@ -50,9 +49,10 @@ const HomePage = (props) => {
     //         navigate('/')
     //     }
     // }, [])
+    const {marginDiv} = useAuth()
 
     return (
-        <div className='Homepage_div'>
+        <div className='Homepage_div' style={{ marginLeft: marginDiv? '140px': '37px' }}>
                   <Helmet>
         <title>নাগরিক কর্নার</title>
       </Helmet>

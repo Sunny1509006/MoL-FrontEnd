@@ -9,12 +9,13 @@ import useAuth from '../../hooks/authHooks';
 import { BsThreeDotsVertical } from 'react-icons/bs'
 
 export default function BodyHead() {
-  const { isAuthenticated, removeToken, user } = useAuth();
+  const { isAuthenticated, removeToken, user, token } = useAuth();
   const [localAccess, setLocalAccess] = useState(false)
   console.log(user);
   const [userProfile, setUserProfile] = useState('')
+
   const handleApi = () => {
-    axios.post("/api/logout/")
+    axios.post("/api/logout/", {jwt: token})
     setShowMenu(!showMenu);
     removeToken();
     
@@ -67,7 +68,7 @@ export default function BodyHead() {
                 marginTop: '-16px',
               }} />
               &nbsp;পিডিয়া</p></Link>
-            <p style={{ fontSize: '12px', marginBottom: '0px' }}>কৃত্রিম বুদ্ধিমত্তায় ভূমি সংক্রান্ত তথ্য</p>
+            <p style={{ fontSize: '12px', marginBottom: '0px' }}>কথোপকথনেই তাৎক্ষনিক ভূমি তথ্য</p>
           </div>
         </div>
         <div>

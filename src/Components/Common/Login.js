@@ -5,7 +5,7 @@ import { AddCircleOutlineOutlined } from '@mui/icons-material'
 import TextField from '@mui/material/TextField';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet';
-import axios from 'axios';
+import axios from '../axios/axios';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/authHooks';
 // import Cookies from 'universal-cookie'
@@ -30,17 +30,14 @@ const Login = (props) => {
 
     const handleApi = () => {
         console.log(mobile, password)
-        axios.post("http://143.110.241.20:5000/api/login/", {
+        axios.post("/api/login/", {
             phone_number: "+88"+mobile,
             password: password,
         })
             .then(result => {
-                // alert("login success1")
-                // console.log(result.data)
                 localStorage.setItem('jwt', result.data.jwt);
                 // cookies.set("jwt", result.data.jwt);
                 authContext.setToken(result.data.jwt);
-                authContext.handleSetUser(result.data.jwt);
                 if (localStorage.getItem('jwt')) {
                     navigate('/')
                 }
@@ -51,25 +48,8 @@ const Login = (props) => {
             })
     }
 
-    // useEffect(() => {
-    //     axios.post('/api/profile/',
-    //         // { "jwt": localStorage.getItem('jwt') }
-    //         {"jwt": authContext.token}
-
-    //     )
-    //         .then(response => {
-    //             console.log(response.data);
-    //             authContext.setUser(response.data);
-    //             localStorage.setItem('user', response.data);
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //         });
-
-    // }, []);
-
     return (
-        <Grid className='login_up_dummy_div'>
+        <Grid className='login_up_dummy_div' style={{ marginLeft: authContext.marginDiv? '155px': '50px' }}>
             <Helmet>
                 <title>লগইন</title>
             </Helmet>

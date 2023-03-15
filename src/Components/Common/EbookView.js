@@ -3,8 +3,10 @@ import './EbookView.css'
 import axios from '../axios/axios'
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import useAuth from '../../hooks/authHooks';
 
 function EbookView() {
+    const {marginDiv} = useAuth()
     const params = useParams();
     console.log(params);
     const [post, setPost] = useState({});
@@ -26,7 +28,7 @@ function EbookView() {
     }, [params.id]);
 
     return (
-        <div className='ebook_view_main'>
+        <div className='ebook_view_main' style={{ marginLeft: marginDiv? '155px': '50px' }}>
                   <Helmet>
         <title>বিস্তারিত ই-বুক</title>
       </Helmet>

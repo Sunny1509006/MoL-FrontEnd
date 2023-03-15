@@ -109,13 +109,13 @@ const LatestPublication = () => {
     return (
         <div className='latest_publication_main'>
             {Object.values(lastPublication).map((publication) =>
-                <div className='publication_list'>
+                <div className='publication_list' key={publication.id}>
                     <div>
                         {routes.map((route)=>
                             
                             {if (route.name === publication.category_name)
                                 {
-                                    return (<div className='publication_icon'>{route.icon}</div>)
+                                    return (<div className='publication_icon' key={publication.id}>{route.icon}</div>)
                                 }
                             }
                         

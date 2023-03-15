@@ -3,6 +3,7 @@ import './Conversation.css'
 import axios from '../axios/axios'
 import { BsMicFill, BsMicMuteFill } from 'react-icons/bs'
 import ScrollToBottom from 'react-scroll-to-bottom';
+import { Button } from 'react-bootstrap';
 
 const speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 const mic = new speechRecognition()
@@ -108,6 +109,18 @@ const Conversation = () => {
         setNote('')
     }
 
+    const handleSpeakClick = () => {
+        const utterance = new SpeechSynthesisUtterance("আমি ");
+        utterance.lang = 'bn-BD';
+        window.speechSynthesis.speak(utterance);
+      };
+
+      const [text, setText] = useState("");
+
+    //   const handleTextChange = (event) => {
+    //     setText(answer.content);
+    //   };
+
 
 
     return (
@@ -128,7 +141,19 @@ const Conversation = () => {
                     <div key={index}>
                         {(answer.author === "bot") ?
                             <div className='left' >
-                                {answer.content}
+                                {Array.isArray(answer.content)? 
+                                <>
+                                {(answer.content).map((item, index)=> (
+
+                                     <div style={{paddingBottom: '4px'}} key={index}>{item}<br/></div>
+                                ))}
+                                </>
+                            : 
+                            <>
+                                {answer.content}  
+                            </> 
+                            }
+                                
                             </div>
                             :
                             <div className='right'>
@@ -137,6 +162,7 @@ const Conversation = () => {
                         }
                     </div>
                 ))}
+                {/* <Button type="button" onClick={handleSpeakClick}>Speak</Button> */}
 
             </ScrollToBottom>
             <form onSubmit={handleSubmit}>

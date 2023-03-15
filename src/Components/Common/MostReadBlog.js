@@ -11,25 +11,48 @@ import { Button } from 'react-bootstrap';
 import { SlUserFollow } from 'react-icons/sl'
 
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/authHooks';
 
 
 const MostReadBlog = (props) => {
+    const { token, mostReadBlog, fetchMostReadBlog } = useAuth();
 
-    const [mostReadBlog, setMostReadBlog] = useState({});
+    const handleLikeBlog = (id) => {
+        if (token) {
+            axios.post("/api/blogs/userlike/",
+                {
+                    jwt: token,
+                    blog_id: id,
+                }
+            )
+                .then(response => {
+                    // fetchUser();
+                    fetchMostReadBlog();
+                })
+                .catch(err =>
+                    console.log(err)
+                )
+        }
+    }
+
+
 
     useEffect(() => {
-        axios.get(
-            `/api/blogs/topviewer/`
-        )
-            .then(res => {
-                // console.log(res)
-                setMostReadBlog(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        // axios.get(
+        //     `/api/blogs/topviewer/`
+        // )
+        //     .then(res => {
+        //         // console.log(res)
+        //         setMostReadBlog(res.data)
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
+
+        fetchMostReadBlog();
 
     }, []);
+
 
     const FilterMostReadBlogFirst = useMemo(
         () => Object.values(mostReadBlog).filter((mostReadBlog, index) => index === 0), [mostReadBlog]);
@@ -42,7 +65,7 @@ const MostReadBlog = (props) => {
         <div className='most_read_blog_body'>
             <div className='blog_box'>
                 {FilterMostReadBlogFirst.map((readBlog) => (
-                    <>
+                    < div key={readBlog.id}>
                         <div className='overflowDiv' key={readBlog.id}>
                             <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
                             <Link to={"/blog/" + readBlog.id}>
@@ -74,7 +97,7 @@ const MostReadBlog = (props) => {
                         <Grid style={{ display: 'flex', marginTop: '10px' }}>
                             <VisibilityIcon sx={{ fontSize: 16, marginTop: '-2px', color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
-                            <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} onClick={() => { handleLikeBlog(readBlog.id) }} />
                             <div className='most_read_blog_like'>{readBlog.like_user_counter}</div>
                             {/* <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} /> */}
                             {/* <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div> */}
@@ -93,13 +116,13 @@ const MostReadBlog = (props) => {
                                 </Button>
                             </Link>
                         </Grid>
-                    </>
+                    </div>
                 ))}
             </div>
             <div className='divider_line'></div>
             <div className='blog_box'>
                 {FilterMostReadBlogSecond.map((readBlog) => (
-                    <>
+                    <div key={readBlog.id}>
                         <div className='overflowDiv' key={readBlog.id}>
                             <img src={readBlog.cover !== null ? readBlog.cover : '../images/no_image.png'} className="most_read_blog_cover" />
                             <Link to={"/blog/" + readBlog.id}>
@@ -132,7 +155,7 @@ const MostReadBlog = (props) => {
                         <Grid style={{ display: 'flex', marginTop: '10px' }}>
                             <VisibilityIcon sx={{ fontSize: 16, marginTop: '-2px', color: "#0C6395" }} />
                             <div className='most_read_blog_like'>{readBlog.viewer_counter}</div>
-                            <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} />
+                            <ThumbUpIcon sx={{ fontSize: 12, color: "#0C6395" }} onClick={() => { handleLikeBlog(readBlog.id) }} />
                             <div className='most_read_blog_like'>{readBlog.like_user_counter}</div>
                             {/* <ThumbDownIcon sx={{ fontSize: 12, color: "#0C6395" }} /> */}
                             {/* <div className='most_read_blog_like'>{readBlog.dislike_user_counter}</div> */}
@@ -147,11 +170,11 @@ const MostReadBlog = (props) => {
                                     padding: '3px 10px',
                                     marginTop: '-15px',
                                 }}>
-                                    বিস্তারিত 
+                                    বিস্তারিত
                                 </Button>
                             </Link>
                         </Grid>
-                    </>
+                    </div>
                 ))}
             </div>
         </div>

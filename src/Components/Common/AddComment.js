@@ -1,38 +1,35 @@
-import React, { useState } from 'react';
+import { useState } from "react";
+import { Button } from "react-bootstrap";
 
-const AddComment = ({ onAddComment }) => {
-  const [name, setName] = useState('');
-  const [comment, setComment] = useState('');
+function AddComment() {
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (!name || !comment) {
-      alert('Please fill in all fields');
-      return;
-    }
-    onAddComment({ name, comment });
-    setName('');
-    setComment('');
+  const onClickHandler = () => {
+    setComments((comments) => [...comments, comment]);
   };
-
+  const onChangeHandler = (e) => {
+    setComment(e.target.value);
+  };
   return (
-    <form 
-    style={{
-        margin: '300px'
-    }} onSubmit={onSubmit}>
-      <div>
-        <label>Name</label>
-        <input type='text' placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)} />
+    <div className="main-container">
+      {comments.map((text) => (
+        <div className="comment-container">{text}</div>
+      ))}
+      <div className="comment-flexbox">
+        <h3 className="comment-text" style={{ fontSize: '16px'}}><b>কমেন্ট করুন</b></h3>
+        <textarea
+          value={comment}
+          onChange={onChangeHandler}
+          className="input-box"
+          style={{width: '300px'}}
+        />
+        <Button onClick={onClickHandler} className="comment-button" style={{marginTop: '-20px', marginLeft: '10px'}}>
+          সাবমিট
+        </Button>
       </div>
-      <div>
-        <label>Comment</label>
-        <textarea placeholder='Enter your comment' value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
-      </div>
-      <button type='submit'>Add Comment</button>
-      <p>{comment}</p>
-    </form>
-
+    </div>
   );
-};
+}
 
 export default AddComment;

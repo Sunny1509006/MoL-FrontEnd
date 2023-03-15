@@ -11,10 +11,11 @@ import ShareIcon from '@mui/icons-material/Share';
 import { BiLeftArrowAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import useAuth from '../../hooks/authHooks';
 
 
 const BlogContent = () => {
-
+  const {marginDiv} = useAuth()
   const [posts, setPosts] = useState([]);
   const [total, setTotal] = useState("");
   const [page, setPage] = useState(0);
@@ -54,7 +55,7 @@ const BlogContent = () => {
   }
 
   return (
-    <div className='blog_content_main'>
+    <div className='blog_content_main' style={{ marginLeft: marginDiv? '155px': '50px' }}>
       <Helmet>
         <title>ব্লগ লিস্ট</title>
       </Helmet>

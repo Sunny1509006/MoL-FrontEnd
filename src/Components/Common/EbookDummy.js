@@ -9,6 +9,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { FaComments } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
+import useAuth from '../../hooks/authHooks';
 
 import {
     BrowserRouter as Router,
@@ -19,7 +20,7 @@ import {
 } from "react-router-dom";
 
 const EbookDummy = () => {
-
+    const {marginDiv} = useAuth()
     const [posts, setPosts] = useState([]);
     const [total, setTotal] = useState("");
     const [page, setPage] = useState(0);
@@ -57,7 +58,7 @@ const EbookDummy = () => {
     }
 
     return (
-        <div className='ebook_dummy_main'>
+        <div className='ebook_dummy_main' style={{ marginLeft: marginDiv? '155px': '50px' }}>
             <Helmet>
                 <title>ই-বুক লিস্ট</title>
             </Helmet>

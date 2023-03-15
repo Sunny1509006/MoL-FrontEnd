@@ -6,7 +6,7 @@
     /* vh means display height */
     min-height: calc(100vh - 225px);
     padding: relative;
-    margin-left: 140px;
+    margin-left: 40px;
 }
 
 .container_margin {

@@ -1,9 +1,11 @@
 import React from 'react';
 import './Footer.css';
+import useAuth from '../../hooks/authHooks';
 
 const Footer = () => {
+    const {marginDiv} = useAuth()
     return (
-        <div className='footer_div'>
+        <div className='footer_div' style={{ marginLeft: marginDiv? '140px': '37px' }}>
             <div className='footer_content'>
                 <div>
                     <p>Planning & Implementation</p>
