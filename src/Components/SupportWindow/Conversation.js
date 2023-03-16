@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Conversation.css'
 import axios from '../axios/axios'
 import { BsMicFill, BsMicMuteFill } from 'react-icons/bs'
+import {AiFillPlayCircle, AiFillPauseCircle} from 'react-icons/ai'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { Button } from 'react-bootstrap';
 
@@ -21,6 +22,10 @@ const Conversation = () => {
 
     const [question, setQuestion] = useState("")
     const [answer, setAnswer] = useState([])
+
+    const [audioSrc, setAudioSrc] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = React.useRef(null);
 
     const messagesEndRef = useRef(null);
 
@@ -48,6 +53,7 @@ const Conversation = () => {
                     .then(result => {
                         // console.log(result.data.response)
                         setAnswer([...answer, { author: 'bot', content: result.data.response }]);
+                        handleFetchAudio(result.data.response)
 
                     })
                     .catch(error => {
@@ -57,6 +63,40 @@ const Conversation = () => {
             }
         }
     }, [answer]);
+
+    const handleFetchAudio = async (data) => {
+        try {
+            const response = await axios.post("http://143.110.241.20:5050/api/tts/",
+                data,
+                {
+                    responseType: "blob",
+                },
+                {
+
+                    "headers": {
+
+                        "content-type": "application/json",
+
+                    },
+                }
+            );
+            const blob = new Blob([response.data], { type: "audio/mpeg" });
+            setAudioSrc(URL.createObjectURL(blob));
+            // setIsPlaying(true);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handlePlayPause = () => {
+        if (!audioRef.current) return;
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -113,14 +153,13 @@ const Conversation = () => {
         const utterance = new SpeechSynthesisUtterance("আমি ");
         utterance.lang = 'bn-BD';
         window.speechSynthesis.speak(utterance);
-      };
+    };
 
-      const [text, setText] = useState("");
+    const [text, setText] = useState("");
 
     //   const handleTextChange = (event) => {
     //     setText(answer.content);
     //   };
-
 
 
     return (
@@ -141,19 +180,19 @@ const Conversation = () => {
                     <div key={index}>
                         {(answer.author === "bot") ?
                             <div className='left' >
-                                {Array.isArray(answer.content)? 
-                                <>
-                                {(answer.content).map((item, index)=> (
+                                {Array.isArray(answer.content) ?
+                                    <>
+                                        {(answer.content).map((item, index) => (
 
-                                     <div style={{paddingBottom: '4px'}} key={index}>{item}<br/></div>
-                                ))}
-                                </>
-                            : 
-                            <>
-                                {answer.content}  
-                            </> 
-                            }
-                                
+                                            <div style={{ paddingBottom: '4px' }} key={index}>{item}<br /></div>
+                                        ))}
+                                    </>
+                                    :
+                                    <>
+                                        {answer.content}
+                                    </>
+                                }
+
                             </div>
                             :
                             <div className='right'>
@@ -163,7 +202,27 @@ const Conversation = () => {
                     </div>
                 ))}
                 {/* <Button type="button" onClick={handleSpeakClick}>Speak</Button> */}
+                {audioSrc && (
+                    <div style={{
+                        marginLeft: '77%',
+                        marginTop: '-50px',
 
+                    }}>
+                        <audio src={audioSrc} ref={audioRef} />
+                        <Button onClick={handlePlayPause} style={{
+                            background: 'white',
+                        }}>
+                            {isPlaying ?
+                             <AiFillPauseCircle fontSize={24}  style={{
+                                color: 'blue',
+                             }}/> 
+                             : 
+                             <AiFillPlayCircle fontSize={24} style={{
+                                color: 'blue',
+                             }}/>}
+                             </Button>
+                    </div>
+                )}
             </ScrollToBottom>
             <form onSubmit={handleSubmit}>
 

@@ -21,72 +21,72 @@ import useAuth from '../../hooks/authHooks';
 
 const routes = [
     {
-        path: "/",
+        path: "/acts",
         name: "আইন",
         icon: <GoLaw />,
     },
     {
-        path: "/ain",
+        path: "/ordinances",
         name: "অধ্যাদেশ",
         icon: <GiClawHammer />,
     },
     {
-        path: "/ain",
+        path: "/presidentorders",
         name: "রাষ্ট্রপতির আদেশ",
         icon: <RuleRoundedIcon fontSize='6px' />,
     },
     {
-        path: "/ain",
+        path: "/rules",
         name: "বিধিমালা",
         icon: <RuleRoundedIcon fontSize='6px' />,
     },
     {
-        path: "/ain",
+        path: "/regulations",
         name: "প্রবিধান",
         icon: <RuleRoundedIcon fontSize='6px' />,
     },
     {
-        path: "/ain",
+        path: "/policies",
         name: "নীতিমালা",
         icon: <MdPolicy />,
     },
     {
-        path: "/ain",
+        path: "/guidelines",
         name: "নির্দেশিকা",
         icon: <RiGuideLine />,
     },
     {
-        path: "/ain",
+        path: "/circulars",
         name: "পরিপত্র",
         icon: <MdBlurCircular />,
     },
     {
-        path: "/ain",
+        path: "/notifications",
         name: "প্রজ্ঞাপন",
         icon: <AiOutlineNotification />,
     },
     {
-        path: "/ain",
+        path: "/officeorders",
         name: "অফিস আদেশ",
         icon: <SiLibreoffice />,
     },
     {
-        path: "/ain",
+        path: "/mous",
         name: "সমঝোতা স্মারক",
         icon: <FaRegHandshake />,
     },
     {
-        path: "/ain",
+        path: "/manuals",
         name: "ম্যানুয়াল",
         icon: <MdMenuBook />,
     },
     {
-        path: "/ain",
+        path: "/gazettes",
         name: "গেজেট",
         icon: <TfiBookmarkAlt />,
     },
     {
-        path: "/ain",
+        path: "/others",
         name: "অন্যান্য",
         icon: <TbDotsCircleHorizontal />,
     },
