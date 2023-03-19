@@ -7,6 +7,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { Link, useParams } from 'react-router-dom';
 import AddComment from './AddComment';
 import axios from '../axios/axios';
+import Comments from './Comment/Comments';
 
 const ForumView = () => {
   const { marginDiv } = useAuth();
@@ -66,7 +67,8 @@ const ForumView = () => {
           </div>
         </div>
       </div>
-      <AddComment />
+      {/* <AddComment /> */}
+      <Comments id={params.id}/>
     </div >
   )
 }
