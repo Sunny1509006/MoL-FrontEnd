@@ -60,6 +60,7 @@ function Home() {
                 <Route exact path="/forum" element={<ForumContent />} />
                 <Route exact path="/SignUp" element={<SignUp />} />
                 <Route exact path="/Login" element={<Login />} />
+                <Route exact path="/profile" element={<Profile />} />
                 <Route path="/ebook/view/:id" element={<EbookView />} />
                 <Route path="/ebook/comment/:id" element={<EbookComment />} />
                 <Route exact path="/forum/view/:id" element={<ForumView />} />

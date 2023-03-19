@@ -7,6 +7,7 @@ import ImportantServices from './ImportantServices';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/authHooks';
+import MostDiscussedForum from './MostDiscussedForum';
 
 // function Article_div(props) {
 //     const article = props.article;
@@ -77,7 +78,7 @@ const HomePage = (props) => {
                 {/* </div> */}
             </div>
             <div className='ain_forum'>
-                <div className='container_margin flex_div' style={{ flex: 1 }}>
+                <div className='container_margin flex_div' style={{ flex: 1, height: '100%' }}>
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'><b>সর্বশেষ প্রকাশনা</b></div>
                         <div className='container_div_body'>
@@ -85,20 +86,21 @@ const HomePage = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className='container_margin flex_div' style={{ flex: 1 }}>
+                <div className='container_margin flex_div' style={{ flex: 1, height: '100%' }}>
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'><b>আলোচিত ফোরাম</b></div>
                         <div className='container_div_body'>
-                            <img src="/images/alochitoforum.png" style={{
-                                height: '350px',
+                            {/* <img src="/images/alochitoforum.png" style={{
+                                height: '380px',
                                 width: '100%',
-                            }}/>
+                            }}/> */}
+                            <MostDiscussedForum />
                         </div>
                     </div>
                 </div>
             </div>
             <div className='ain_forum'>
-                <div className='container_margin flex_div' style={{ flex: 1 }}>
+                <div className='container_margin flex_div' style={{ flex: 1, height: '100%' }}>
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'><b>গুরুত্বপূর্ণ সেবাসমূহ</b></div>
                         <div className='container_div_body'>
@@ -106,12 +108,12 @@ const HomePage = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className='container_margin flex_div' style={{ flex: 1 }}>
+                <div className='container_margin flex_div' style={{ flex: 1, height: '100%' }}>
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'><b>সেবাসমূহ ব্যবহারের নির্দেশিকা</b></div>
                         <div className='container_div_body'>
                         <img src="/images/seba.png" style={{
-                                height: '320px',
+                                height: '360px',
                                 width: '100%',
                             }}/>
                         </div>

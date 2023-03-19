@@ -6,6 +6,7 @@
 
 .publication_list {
     display: flex;
+    padding: 3px;
 }
 
 .publication_list h6 {

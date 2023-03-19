@@ -7,10 +7,17 @@ import useAuth from '../../hooks/authHooks';
 import { Helmet } from 'react-helmet';
 import { Button } from 'react-bootstrap';
 import axios from '../axios/axios';
+import CreateForum from './CreateForum';
+import { ImCross } from 'react-icons/im'
 
 const ForumContent = () => {
   const { marginDiv, token } = useAuth();
   const [forums, setForums] = useState([])
+  const [showCreateForum, setCreateForum] = useState(false);
+
+  const handleCreateForum = () => {
+    setCreateForum(!showCreateForum);
+  };
 
   useEffect(() => {
     const loadForums = async () => {
@@ -45,11 +52,19 @@ const ForumContent = () => {
         <div className='forum_inner_content'>
           {token &&
             <div className="create_new">
-              <Button>
+              <Button onClick={handleCreateForum}>
                 <BiPlus fontSize={20} /> নতুন আলোচনা
               </Button>
             </div>
           }
+          {showCreateForum && (
+            <div style={{ position: 'fixed', marginLeft: '30%', background: 'white', marginTop: '-80px' }}>
+              <div style={{ background: '#0C6395', width: '100%', height: '40px' }}>
+                <ImCross style={{marginLeft: '93%', color: 'white', marginTop: '10px'}} onClick={handleCreateForum}/>
+              </div>
+              <CreateForum />
+            </div>
+          )}
           <div className='forum_loop_div'>
             {forums.map((forum) => (
               <div className='single_forum' key={forum.id}>
@@ -61,7 +76,7 @@ const ForumContent = () => {
                     }}></img>
                 </div>
                 <div className='forum_ques_writer'>
-                  <Link to={"/forum/view/"+ forum.id}><p>{forum.name}</p></Link>
+                  <Link to={"/forum/view/" + forum.id}><p>{forum.name}</p></Link>
                   <p>প্রশ্নকারী: {forum.owner__full_name}</p>
                 </div>
                 <div className='forum_ans_view'>
