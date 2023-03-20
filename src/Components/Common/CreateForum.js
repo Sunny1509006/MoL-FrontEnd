@@ -49,7 +49,7 @@ const CreateForum = () => {
                 // }
                 {
                     headers: { 'Content-Type': 'multipart/form-data' }
-                  }
+                }
             )
                 .then(response => {
                     // fetchUser();

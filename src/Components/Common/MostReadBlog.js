@@ -23,7 +23,7 @@ const MostReadBlog = (props) => {
                 {
                     jwt: token,
                     blog_id: id,
-                }
+                },
             )
                 .then(response => {
                     // fetchUser();
