@@ -7,15 +7,15 @@ import { Button } from 'react-bootstrap';
 import PhoneInput from 'react-phone-number-input/input'
 
 const Profile = () => {
-  const { user, fetchUser, marginDiv } = useAuth();
+  const { user, fetchUser, marginDiv, token } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [birthDate, setBirthDate] = useState('');
   const [nationalID, setNationalID] = useState('');
-  const [image, setImage] = useState('');
   const [address, setAddress] = useState('');
   const [edit, setEdit] = useState(false);
+  const [image, setImage] = useState(null);
   // console.log(localStorage.getItem("jwt"))
   // axios.defaults.headers.common['Cookie'] = `jwt=${localStorage.getItem("jwt")}`;
 
@@ -47,6 +47,10 @@ const Profile = () => {
   const handleAddressChange = (e) => {
     setAddress(e.target.value)
   }
+
+  const handleImageChange = (event) => {
+    setImage(event.target.files[0]);
+  };
 
   useEffect(() => {
     if (user) {
@@ -83,16 +87,32 @@ const Profile = () => {
 
   // }, []);
   const handleEditData = () => {
-    axios.post("/api/profile_editing/",
+    const formData = new FormData();
+    formData.append('full_name', name);
+    formData.append('jwt', token);
+    formData.append('email', email);
+    formData.append('date_of_birth', birthDate);
+    formData.append('national_id', nationalID);
+    formData.append('address', address);
+    if (image) {
+      formData.append('profile_image', image, image.name);
+    }
+    else {
+      formData.append('profile_image', image);
+    }
+    axios.post("/api/profile_editing/", formData,
       {
-        jwt: localStorage.getItem("jwt"),
-        profile_image: image,
-        full_name: name,
-        email: email,
-        date_of_birth: birthDate,
-        national_id: nationalID,
-        address: address,
+        headers: { 'Content-Type': 'multipart/form-data' }
       }
+      // {
+      //   jwt: localStorage.getItem("jwt"),
+      //   profile_image: image,
+      //   full_name: name,
+      //   email: email,
+      //   date_of_birth: birthDate,
+      //   national_id: nationalID,
+      //   address: address,
+      // }
     )
       .then(response => {
         setEdit(false);
@@ -102,7 +122,7 @@ const Profile = () => {
 
 
   return (
-    <div className='profile_div' style={{ marginLeft: marginDiv? '155px': '50px' }}>
+    <div className='profile_div' style={{ marginLeft: marginDiv ? '155px' : '50px' }}>
       <div className='profile_header'>
         <div>প্রোফাইল</div>
         <Button onClick={handleEdit} style={{ background: 'none' }}>
@@ -116,7 +136,20 @@ const Profile = () => {
       <div className='profile_body'>
         <form >
           <div className='profile_img_name'>
-            <img src={image ? image : "/images/profile.png"} />
+            {edit ?
+              <>
+                <input
+                  accept="image/*"
+                  // className={classes.input}
+                  id="image-upload"
+                  type="file"
+                  onChange={handleImageChange}
+                />
+              </>
+              :
+              <img src={image ? `http://143.110.241.20:5000${image}` : "/images/profile.png"} />
+
+            }
             <div className='name_email_phone'>
               <div className='profile_name_color' style={{
                 height: '33%'
@@ -207,9 +240,9 @@ const Profile = () => {
               }
             </div>
           </div>
-          <Button onClick={handleEditData} style={{ 
+          <Button onClick={handleEditData} style={{
             marginBottom: '15px', marginLeft: '50%',
-            }}>সংরক্ষণ করুন</Button>
+          }}>সংরক্ষণ করুন</Button>
         </form>
       </div>
     </div>

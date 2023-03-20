@@ -35,11 +35,16 @@ const CreateForum = () => {
         formData.append('name', name);
         formData.append('jwt', token);
         formData.append('description', description);
+        
         if (image) {
           formData.append('thumbnail', image, image.name);
         }
+        else {
+            formData.append("thumbnail", image);
+        }
 
         if (token) {
+            console.log(formData);
             axios.post("/api/forums/create/", formData,
                 // {
                 //     jwt: token,
@@ -54,6 +59,8 @@ const CreateForum = () => {
                 .then(response => {
                     // fetchUser();
                     alert("created successfully");
+                    setImage(null);
+
 
                 })
                 .catch(err =>
