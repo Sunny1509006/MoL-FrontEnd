@@ -43,7 +43,8 @@ const FlippingPdf = () => {
     setNumPages(numPages);
   };
 
-  useEffect(() => { pdfjs.GlobalWorkerOptions.workerSrc =`https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;});
+  useEffect(() => { 
+    pdfjs.GlobalWorkerOptions.workerSrc =`https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;});
 
   return (
     <div className="flipping-pdf" style={{

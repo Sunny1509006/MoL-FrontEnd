@@ -47,28 +47,37 @@ const ForumView = () => {
             &nbsp;&nbsp;বিস্তারিত
           </div>
         </div>
-        <div className='forum_content_inner_padding'>
-          <div><h5><b>{post.name}</b></h5></div>
-          <div style={{ display: 'flex' }}>
-            <p>{post.owner__full_name}</p>
-          </div>
-          <p style={{
+        <div style={{display: 'flex', justifyContent: 'space-between'}}>
+          <div className='forum_content_inner_padding'>
+            <div><h5><b>{post.name}</b></h5></div>
+            <div style={{ display: 'flex' }}>
+              <p style={{ fontSize: '12px', fontFamily: 'Kalpurush' }}>লেখকঃ {post.owner__full_name}, প্রকাশের তারিখঃ {post.created_date?.slice(0, 10)}</p>
+            </div>
+            {/* <p style={{
             marginTop: '-10px',
             fontSize: '10px',
-          }}>{post.created_date?.slice(0, 10)}</p>
-          <div>
-            {post.thumbnail !== null ?
-              <>
-                <img src={post.thumbnail} className='forum_inner_cover_image' />
+          }}></p> */}
+            {/* <div>
+              {post.thumbnail !== null ?
+                <>
+                  <img src={post.thumbnail} className='forum_inner_cover_image' />
+                  <div>{post.description}</div>
+                </> :
                 <div>{post.description}</div>
-              </> :
-              <div>{post.description}</div>
-            }
+              }
+            </div> */}
+            <div>{post.description}</div>
           </div>
+          {post.thumbnail !== null ?
+            <>
+              <img src={post.thumbnail} className='forum_inner_cover_image' />
+            </> :
+            <></>
+          }
         </div>
       </div>
       {/* <AddComment /> */}
-      <Comments id={params.id}/>
+      <Comments id={params.id} />
     </div >
   )
 }
