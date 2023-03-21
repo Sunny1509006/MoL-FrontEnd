@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Conversation.css'
 import axios from '../axios/axios'
 import { BsMicFill, BsMicMuteFill } from 'react-icons/bs'
-import {AiFillPlayCircle, AiFillPauseCircle} from 'react-icons/ai'
+import { AiFillPlayCircle, AiFillPauseCircle } from 'react-icons/ai'
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { Button } from 'react-bootstrap';
 
@@ -45,6 +45,9 @@ const Conversation = () => {
                         "headers": {
 
                             "content-type": "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Credentials': 'true',
+
 
                         },
 
@@ -76,6 +79,8 @@ const Conversation = () => {
                     "headers": {
 
                         "content-type": "application/json",
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Credentials': 'true',
 
                     },
                 }
@@ -213,14 +218,14 @@ const Conversation = () => {
                             background: 'white',
                         }}>
                             {isPlaying ?
-                             <AiFillPauseCircle fontSize={24}  style={{
-                                color: 'blue',
-                             }}/> 
-                             : 
-                             <AiFillPlayCircle fontSize={24} style={{
-                                color: 'blue',
-                             }}/>}
-                             </Button>
+                                <AiFillPauseCircle fontSize={24} style={{
+                                    color: 'blue',
+                                }} />
+                                :
+                                <AiFillPlayCircle fontSize={24} style={{
+                                    color: 'blue',
+                                }} />}
+                        </Button>
                     </div>
                 )}
             </ScrollToBottom>

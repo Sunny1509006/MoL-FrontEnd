@@ -50,10 +50,10 @@ export default function BodyHead() {
         <div className='Header_logo'>
           <div >
             <Link to='/'>
-              <img src="/images/iLKMS_Logo.png" className='ilkms_logo' />
+              <img src="/images/vumi_logo.png" className='ilkms_logo' />
             </Link>
           </div>
-          <div className='vumibid'>
+          {/* <div className='vumibid'>
             <Link to='/'><p style={{
               fontSize: '16px',
               marginBottom: '2px',
@@ -69,7 +69,7 @@ export default function BodyHead() {
               }} />
               &nbsp;পিডিয়া</p></Link>
             <p style={{ fontSize: '12px', marginBottom: '0px' }}>কথোপকথনেই তাৎক্ষনিক ভূমি তথ্য</p>
-          </div>
+          </div> */}
         </div>
         <div>
           <SearchText />

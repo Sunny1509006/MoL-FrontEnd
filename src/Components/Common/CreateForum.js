@@ -12,9 +12,9 @@ import axios from '../axios/axios';
 
 const CreateForum = () => {
     const [name, setName] = useState('');
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState("");
     const [description, setDescription] = useState('');
-    const { token } = useAuth();
+    const { token,showCreateForum, handleShowCreateForum } = useAuth();
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -59,7 +59,8 @@ const CreateForum = () => {
                 .then(response => {
                     // fetchUser();
                     alert("created successfully");
-                    setImage(null);
+                    // setImage(null);
+                    handleShowCreateForum(!showCreateForum);
 
 
                 })

@@ -46,9 +46,11 @@ import Policies from "../Common/Category/Policies"
 import PresidentOrders from "../Common/Category/PresidentOrders"
 import Regulations from "../Common/Category/Regulations"
 import Rules from "../Common/Category/Rules"
+import ShowSearchText from "../Common/ShowSearchText";
+import useAuth from "../../hooks/authHooks";
 
 function Home() {
-    
+    const {query} = useAuth();
     return (
         <div>
             <BodyHead />
@@ -61,6 +63,7 @@ function Home() {
                 <Route exact path="/SignUp" element={<SignUp />} />
                 <Route exact path="/Login" element={<Login />} />
                 <Route exact path="/profile" element={<Profile />} />
+                <Route exact path="/search" element={<ShowSearchText />} />
                 <Route path="/ebook/view/:id" element={<EbookView />} />
                 <Route path="/ebook/comment/:id" element={<EbookComment />} />
                 <Route exact path="/forum/view/:id" element={<ForumView />} />

@@ -15,7 +15,7 @@ const Profile = () => {
   const [nationalID, setNationalID] = useState('');
   const [address, setAddress] = useState('');
   const [edit, setEdit] = useState(false);
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   // console.log(localStorage.getItem("jwt"))
   // axios.defaults.headers.common['Cookie'] = `jwt=${localStorage.getItem("jwt")}`;
 

@@ -11,13 +11,10 @@ import CreateForum from './CreateForum';
 import { ImCross } from 'react-icons/im'
 
 const ForumContent = () => {
-  const { marginDiv, token } = useAuth();
+  const { marginDiv, token, showCreateForum, handleShowCreateForum } = useAuth();
   const [forums, setForums] = useState([])
-  const [showCreateForum, setCreateForum] = useState(false);
 
-  const handleCreateForum = () => {
-    setCreateForum(!showCreateForum);
-  };
+
 
   useEffect(() => {
     const loadForums = async () => {
@@ -52,7 +49,7 @@ const ForumContent = () => {
         <div className='forum_inner_content'>
           {token &&
             <div className="create_new">
-              <Button onClick={handleCreateForum}>
+              <Button onClick={handleShowCreateForum}>
                 <BiPlus fontSize={20} /> নতুন আলোচনা
               </Button>
             </div>
@@ -60,7 +57,7 @@ const ForumContent = () => {
           {showCreateForum && (
             <div style={{ position: 'fixed', marginLeft: '30%', background: 'white', marginTop: '-80px' }}>
               <div style={{ background: '#0C6395', width: '100%', height: '40px' }}>
-                <ImCross style={{marginLeft: '93%', color: 'white', marginTop: '10px'}} onClick={handleCreateForum}/>
+                <ImCross style={{marginLeft: '93%', color: 'white', marginTop: '10px'}} onClick={handleShowCreateForum}/>
               </div>
               <CreateForum />
             </div>

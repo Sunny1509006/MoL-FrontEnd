@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../AuthProvider';
 
 const useAuth = () => {
-  const { token, user, appInit, mostReadBlog, marginDiv,
-     setToken, fetchUser, fetchMostReadBlog, setMarginDiv } = useContext(AuthContext);
+  const { token, user, appInit, mostReadBlog, marginDiv, showCreateForum, query, searchData,
+     setToken, fetchUser, fetchMostReadBlog, setMarginDiv, handleShowCreateForum, setQuery, handleSearch } = useContext(AuthContext);
 
   return {
     user,
@@ -11,12 +11,18 @@ const useAuth = () => {
     appInit,
     mostReadBlog,
     marginDiv,
+    showCreateForum,
+    query,
+    searchData,
     isAuthenticated: Boolean(token),
     setToken,
     removeToken: setToken,
     fetchUser,
     fetchMostReadBlog,
     setMarginDiv,
+    handleShowCreateForum,
+    setQuery,
+    handleSearch,
   };
 };
 

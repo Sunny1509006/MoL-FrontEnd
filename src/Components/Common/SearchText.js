@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './SearchText.css';
 import { BsMicFill, BsMicMuteFill } from 'react-icons/bs'
+import axios from '../axios/axios';
+import useAuth from '../../hooks/authHooks';
+
+
 
 const speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 const mic = new speechRecognition()
@@ -11,11 +15,12 @@ mic.lang = "bn-BD"
 
 
 const SearchText = () => {
-    const [query, setQuery] = useState("");
+    const {query, setQuery, handleSearch} = useAuth();
 
     const [isListening, setIsListening] = useState(true)
     const [note, setNote] = useState(null)
     const [savedNotes, setSavedNotes] = useState([])
+
   
     useEffect(() => {
       handleListen()
@@ -70,6 +75,7 @@ const SearchText = () => {
     // console.log(Users.filter(user=>user.tag.toLowerCase().includes("fe")))
     return (
         <div>
+            <form onSubmit={handleSearch}>
             <button type="button"
                 onClick={() => setIsListening(prevState => !prevState)}
                 style={{
@@ -97,6 +103,7 @@ const SearchText = () => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)} />
             {/* <PageLink data={search(Users)} /> */}
+            </form>
         </div>
     )
 }
