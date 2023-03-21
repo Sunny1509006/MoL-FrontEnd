@@ -38,15 +38,15 @@ const Conversation = () => {
             const lastAnswer = answer[answer.length - 1];
             console.log(lastAnswer)
             if (lastAnswer.author === "user") {
-                axios.post("http://143.110.241.20:5050/api/response/",
+                axios.post("/api/v1/response/",
                     lastAnswer.content,
                     {
 
                         "headers": {
 
                             "content-type": "application/json",
-                            'Access-Control-Allow-Origin': '*',
-                            'Access-Control-Allow-Credentials': 'true',
+                            // 'Access-Control-Allow-Origin': '*',
+                            // 'Access-Control-Allow-Credentials': 'true',
 
 
                         },
@@ -69,7 +69,7 @@ const Conversation = () => {
 
     const handleFetchAudio = async (data) => {
         try {
-            const response = await axios.post("http://143.110.241.20:5050/api/tts/",
+            const response = await axios.post("/api/v1/tts/",
                 data,
                 {
                     responseType: "blob",
@@ -79,8 +79,8 @@ const Conversation = () => {
                     "headers": {
 
                         "content-type": "application/json",
-                        'Access-Control-Allow-Origin': '*',
-                        'Access-Control-Allow-Credentials': 'true',
+                        // 'Access-Control-Allow-Origin': '*',
+                        // 'Access-Control-Allow-Credentials': 'true',
 
                     },
                 }
