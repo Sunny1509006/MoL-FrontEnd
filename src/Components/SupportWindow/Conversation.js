@@ -16,14 +16,14 @@ mic.lang = "bn-BD"
 const URL_REGEX =
 	/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
 
-function Text( content ) {
+function Text( {content} ) {
 	const words = content.split(' ');
 	return (
 		<p>
 			{words.map((word) => {
 				return word.match(URL_REGEX) ? (
 					<>
-						<a href={word}>{word}</a>{' '}
+						<a href={word} style={{color: 'blue'}}>{word}</a>{' '}
 					</>
 				) : (
 					word + ' '
@@ -209,9 +209,9 @@ const Conversation = () => {
                                     <>
                                         {(answer.content).map((item, index) => (
 
-                                            <div style={{ paddingBottom: '4px' }} key={index}>
+                                            <div key={index}>
                                                 <Text content={item} />
-                                                <br /></div>
+                                            </div>
                                         ))}
                                     </>
                                     :
