@@ -5,9 +5,11 @@ import { Helmet } from 'react-helmet'
 import PageLink from './PageLink'
 import { Link } from 'react-router-dom'
 import { BiLeftArrowAlt, BiPlus } from 'react-icons/bi'
+import HighlightedText from './HighlightedText'
+import ShowSearchContent from './ShowSearchContent'
 
 const ShowSearchText = () => {
-    const { searchData, marginDiv } = useAuth();
+    const { searchData, marginDiv, query } = useAuth();
     console.log(searchData);
     return (
         <div className='search_text_main' style={{ marginLeft: marginDiv ? '155px' : '50px' }}>
@@ -32,12 +34,16 @@ const ShowSearchText = () => {
                             <div key={result.id} className="single_search">
                                 <div className='overflowDiv'>
                                     <div>
-                                        <b>{result.heading}</b>
+                                        <Link to={"/ebook/comment/"+result.id}>
+                                        {/* <Link to={"/search/content/"+result.id}> */}
+                                           <b><HighlightedText text={result.heading} searchKey={query} /></b>
+                                        </Link>
                                     </div>
                                     <div>
                                         <div dangerouslySetInnerHTML={{ __html: result.content }} className='most_read_blog_content' />
                                         <p className="read-more"></p>
                                     </div>
+                                    {/* <ShowSearchContent content={result.content} id={result.id}/> */}
                                 </div>
                             </div>
                         ))}

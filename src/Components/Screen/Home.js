@@ -48,6 +48,9 @@ import Regulations from "../Common/Category/Regulations"
 import Rules from "../Common/Category/Rules"
 import ShowSearchText from "../Common/ShowSearchText";
 import useAuth from "../../hooks/authHooks";
+import ShowSearchContent from "../Common/ShowSearchContent";
+import TermAndCondition from "../Common/AppPrivacy/TermAndCondition";
+import PrivacyPolicy from "../Common/AppPrivacy/PrivacyPolicy";
 
 function Home() {
     const {query} = useAuth();
@@ -64,6 +67,9 @@ function Home() {
                 <Route exact path="/Login" element={<Login />} />
                 <Route exact path="/profile" element={<Profile />} />
                 <Route exact path="/search" element={<ShowSearchText />} />
+                <Route exact path="/termsandconditions" element={<TermAndCondition />} />
+                <Route exact path="/privacypolicy" element={<PrivacyPolicy />} />
+                <Route exact path="/search/content/:id" element={<ShowSearchContent />} />
                 <Route path="/ebook/view/:id" element={<EbookView />} />
                 <Route path="/ebook/comment/:id" element={<EbookComment />} />
                 <Route exact path="/forum/view/:id" element={<ForumView />} />

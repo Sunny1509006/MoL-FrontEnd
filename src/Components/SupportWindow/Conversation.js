@@ -13,6 +13,26 @@ mic.continuous = true
 mic.interimResults = true
 mic.lang = "bn-BD"
 
+const URL_REGEX =
+	/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
+
+function Text( content ) {
+	const words = content.split(' ');
+	return (
+		<p>
+			{words.map((word) => {
+				return word.match(URL_REGEX) ? (
+					<>
+						<a href={word}>{word}</a>{' '}
+					</>
+				) : (
+					word + ' '
+				);
+			})}
+		</p>
+	);
+}
+
 
 const Conversation = () => {
 
@@ -189,12 +209,14 @@ const Conversation = () => {
                                     <>
                                         {(answer.content).map((item, index) => (
 
-                                            <div style={{ paddingBottom: '4px' }} key={index}>{item}<br /></div>
+                                            <div style={{ paddingBottom: '4px' }} key={index}>
+                                                <Text content={item} />
+                                                <br /></div>
                                         ))}
                                     </>
                                     :
                                     <>
-                                        {answer.content}
+                                        <Text content={answer.content}/>
                                     </>
                                 }
 
@@ -219,11 +241,11 @@ const Conversation = () => {
                         }}>
                             {isPlaying ?
                                 <AiFillPauseCircle fontSize={24} style={{
-                                    color: 'blue',
+                                    color: '#0C6395',
                                 }} />
                                 :
                                 <AiFillPlayCircle fontSize={24} style={{
-                                    color: 'blue',
+                                    color: '#0C6395',
                                 }} />}
                         </Button>
                     </div>

@@ -80,14 +80,14 @@
 
 .left{
     color:#000;
-      background:#8FC5CD;
+      background:#f1feff;
     border-radius:0 16px 16px 16px;
 }
 
 .right{
     float:right;
-    color:#fff;
-    background:#44BDCE;
+    color:#000;
+    background:#CEE9FD;
     border-radius:16px 16px 0 16px;
 }
 

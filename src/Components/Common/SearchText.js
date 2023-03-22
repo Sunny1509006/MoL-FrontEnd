@@ -79,7 +79,7 @@ const SearchText = () => {
             <button type="button"
                 onClick={() => setIsListening(prevState => !prevState)}
                 style={{
-                    marginTop: '2px',
+                    marginTop: '9px',
                     marginLeft: '10px',
                     position: 'fixed',
                     border: 'none',
