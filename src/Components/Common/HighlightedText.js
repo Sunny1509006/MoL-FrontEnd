@@ -21,9 +21,21 @@ function HighlightedText({ text, searchKey }) {
   //   setHighlightedText(highlightedContent);
   // }
   const parts = text.split(new RegExp(`(${searchKey})`, 'gi'));
-  return <span>{parts.map(part => part.toLowerCase() === searchKey.toLowerCase() ? <b style={{backgroundColor: 'yellow'}}>{part}</b> : part)}</span>;
+  // console.log(parts);
+  // return <span>
+   const data = parts.map((part, i) => 
+    part.toLowerCase() === searchKey.toLowerCase() ? 
+    // `<b style={{backgroundColor: 'yellow'}} key={i}>${part}</b>`
+    // <b style="background-color:yellow;" >{part}</b>
+    `<b style="background-color:yellow;">${part}</b>`
+    :
+     part)
+    //  </span>;
 
-  // return <div dangerouslySetInnerHTML={{ __html: highlightedText }} />;
+    const stringElements = data.join(' ')
+  // console.log(stringElements.slice(0, 200));
+  // return <span>{data}</span>
+  return <div dangerouslySetInnerHTML={{ __html: stringElements }} />;
 }
 
 export default HighlightedText;

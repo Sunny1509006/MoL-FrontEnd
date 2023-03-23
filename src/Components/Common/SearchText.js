@@ -17,6 +17,7 @@ mic.lang = "bn-BD"
 const SearchText = () => {
     const {query, setQuery, handleSearch} = useAuth();
 
+    const [searchValue, setSearchValue] = useState();
     const [isListening, setIsListening] = useState(true)
     const [note, setNote] = useState(null)
     const [savedNotes, setSavedNotes] = useState([])
@@ -101,7 +102,8 @@ const SearchText = () => {
                 placeholder='অনুসন্ধান করুন'
                 className='SearchText'
                 value={query}
-                onChange={(e) => setQuery(e.target.value)} />
+                onChange={(e) => setQuery(e.target.value)} 
+                />
             {/* <PageLink data={search(Users)} /> */}
             </form>
         </div>

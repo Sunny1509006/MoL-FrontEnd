@@ -11,7 +11,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 export default function BodyHead() {
   const { isAuthenticated, removeToken, user, token } = useAuth();
   const [localAccess, setLocalAccess] = useState(false)
-  console.log(user);
+  // console.log(user);
   const [userProfile, setUserProfile] = useState('')
 
   const handleApi = () => {

@@ -39,10 +39,10 @@ const AuthProvider = (props) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log(query);
+    // console.log(query);
     axios.get(`/api/search/?search=${query}`)
     .then(response=> {
-      console.log(response.data);
+      // console.log(response.data);
       setSearchData(response.data);
       setTimeout(() => {
         setAppInit(true);

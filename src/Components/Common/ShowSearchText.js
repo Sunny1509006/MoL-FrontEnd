@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useAuth from '../../hooks/authHooks'
 import "./ShowSearchText.css"
 import { Helmet } from 'react-helmet'
@@ -10,7 +10,16 @@ import ShowSearchContent from './ShowSearchContent'
 
 const ShowSearchText = () => {
     const { searchData, marginDiv, query } = useAuth();
-    console.log(searchData);
+    const [str, setStr] = useState("");
+    // console.log(searchData);
+
+    // const handleStr = (str) => {
+    //     console.log(str);
+    //     console.log(typeof(str));
+    //     const newStr = str.substring(1, str.length - 1);
+    //     return newStr;
+    // }
+
     return (
         <div className='search_text_main' style={{ marginLeft: marginDiv ? '155px' : '50px' }}>
             <Helmet>
@@ -34,16 +43,16 @@ const ShowSearchText = () => {
                             <div key={result.id} className="single_search">
                                 <div className='overflowDiv'>
                                     <div>
-                                        <Link to={"/ebook/comment/"+result.id}>
-                                        {/* <Link to={"/search/content/"+result.id}> */}
+                                        {/* <Link to={"/ebook/comment/"+result.id}> */}
+                                        <Link to={"/search/content/"+result.id} >
                                            <b><HighlightedText text={result.heading} searchKey={query} /></b>
                                         </Link>
                                     </div>
                                     <div>
                                         <div dangerouslySetInnerHTML={{ __html: result.content }} className='most_read_blog_content' />
                                         <p className="read-more"></p>
+                                        {/* <HighlightedText text={result.content} searchKey={query} /> */}
                                     </div>
-                                    {/* <ShowSearchContent content={result.content} id={result.id}/> */}
                                 </div>
                             </div>
                         ))}
