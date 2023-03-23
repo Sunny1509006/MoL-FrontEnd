@@ -4,7 +4,7 @@ import useAuth from '../../hooks/authHooks';
 import HighlightedText from "./HighlightedText"
 
 const ShowSearchContent = () => {
-  const { searchData, marginDiv, query } = useAuth();
+  const { searchData, marginDiv } = useAuth();
   // console.log(text);
   // console.log(searchData)
   const params = useParams();
@@ -26,7 +26,7 @@ const ShowSearchContent = () => {
         <div key={i} style={{ margin: '100px' }}>
           {/* <HighlightedText text={JSON.stringify(result.content)} searchKey={query} /> */}
           {/* {console.log(result.content)} */}
-          <HighlightedText text={data.content} searchKey={query} />
+          <HighlightedText text={data.content} />
         </div>
       ))}
 

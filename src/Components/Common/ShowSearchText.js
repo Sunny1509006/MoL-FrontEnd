@@ -9,8 +9,7 @@ import HighlightedText from './HighlightedText'
 import ShowSearchContent from './ShowSearchContent'
 
 const ShowSearchText = () => {
-    const { searchData, marginDiv, query } = useAuth();
-    const [str, setStr] = useState("");
+    const { searchData, marginDiv } = useAuth();
     // console.log(searchData);
 
     // const handleStr = (str) => {
@@ -45,7 +44,7 @@ const ShowSearchText = () => {
                                     <div>
                                         {/* <Link to={"/ebook/comment/"+result.id}> */}
                                         <Link to={"/search/content/"+result.id} >
-                                           <b><HighlightedText text={result.heading} searchKey={query} /></b>
+                                           <b><HighlightedText text={result.heading} /></b>
                                         </Link>
                                     </div>
                                     <div>

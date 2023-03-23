@@ -76,7 +76,9 @@ const SearchText = () => {
     // console.log(Users.filter(user=>user.tag.toLowerCase().includes("fe")))
     return (
         <div>
-            <form onSubmit={handleSearch}>
+            <form onSubmit={
+                handleSearch
+            }>
             <button type="button"
                 onClick={() => setIsListening(prevState => !prevState)}
                 style={{
@@ -102,7 +104,9 @@ const SearchText = () => {
                 placeholder='অনুসন্ধান করুন'
                 className='SearchText'
                 value={query}
-                onChange={(e) => setQuery(e.target.value)} 
+                onChange={(e) => 
+                    setQuery(e.target.value) 
+                }
                 />
             {/* <PageLink data={search(Users)} /> */}
             </form>

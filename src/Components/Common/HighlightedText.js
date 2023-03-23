@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-function HighlightedText({ text, searchKey }) {
+function HighlightedText({ text }) {
   const [highlightedText, setHighlightedText] = useState("");
-
+  const searchKey = localStorage.getItem("query")
   // // If searchKey exists in text, wrap it with <mark> tags to highlight it
   // if (searchKey && text?.toLowerCase().includes(searchKey?.toLowerCase())) {
   //   const regex = new RegExp(searchKey, 'gi');

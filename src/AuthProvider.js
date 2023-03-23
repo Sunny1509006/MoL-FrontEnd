@@ -39,7 +39,8 @@ const AuthProvider = (props) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // console.log(query);
+    localStorage.setItem("query", query);
+    
     axios.get(`/api/search/?search=${query}`)
     .then(response=> {
       // console.log(response.data);
