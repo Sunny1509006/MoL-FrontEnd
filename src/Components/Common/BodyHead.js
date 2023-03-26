@@ -71,9 +71,9 @@ export default function BodyHead() {
             <p style={{ fontSize: '12px', marginBottom: '0px' }}>কথোপকথনেই তাৎক্ষনিক ভূমি তথ্য</p>
           </div> */}
         </div>
-        <div>
+        {/* <div>
           <SearchText />
-        </div>
+        </div> */}
         <div className='header_button'>
           {/* <div>
             <Button variant="outline-info" className='btn btn-light'>বাংলা</Button>

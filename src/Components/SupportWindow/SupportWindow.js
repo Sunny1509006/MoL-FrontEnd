@@ -22,10 +22,10 @@ const SupportWindow = props => {
       className='Support_window_transition'
       style={{
         height: '450px',
-        width: '300px',
+        width: '500px',
         background: 'white',
-        bottom: '120px',
-        right: props.visible ? '15px' : '-500px',
+        bottom: '70px',
+        right: props.visible ? '100px' : '-500px',
         position: 'fixed',
         overflow: 'hidden',
         boxShadow: '0px 0px 16px 6px rgba(0, 0, 0, 0.33)',

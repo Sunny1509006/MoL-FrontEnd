@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className='footer_div' style={{ marginLeft: marginDiv? '140px': '37px' }}>
             <div className='footer_content'>
-                <div>
+                <div style={{marginTop: '15px'}}>
                     <p>Planning & Implementation</p>
                     <div className='footer_left'>
                         <img src='/images/Bangladesh_Logo.png' className='footer_bangladesh' />

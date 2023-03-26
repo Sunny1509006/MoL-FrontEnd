@@ -65,7 +65,7 @@ const EbookContent = () => {
     ];
     const FilterBooks = useMemo(() => books.filter((book, index) => index >= 0 ), [books]);
     return (
-        <div className='ebook_content_main' style={{ marginLeft: marginDiv? '140px': '37px' }}>
+        <div className='ebook_content_main' style={{ marginLeft: marginDiv? '140px': '37px', transition: '.5s' }}>
             <div>
                 <PageLink />
             </div>

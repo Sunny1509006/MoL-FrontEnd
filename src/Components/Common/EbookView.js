@@ -28,7 +28,7 @@ function EbookView() {
     }, [params.id]);
 
     return (
-        <div className='ebook_view_main' style={{ marginLeft: marginDiv? '155px': '50px' }}>
+        <div className='ebook_view_main' style={{ marginLeft: marginDiv? '155px': '50px', transition: '.5s' }}>
                   <Helmet>
         <title>বিস্তারিত ই-বুক</title>
       </Helmet>

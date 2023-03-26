@@ -10,6 +10,15 @@
     gap: 1em;
 }
 
+.topSearchDIv {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 20px;
+
+    font-family: Kalpurush;
+}
+
 .search_content {
     display: flex;
     flex-direction: column;
@@ -48,6 +57,11 @@
     width: 100%;
     /* gap: 1rem; */
     margin-bottom: 10px;
+}
+
+.search_loop_div p {
+    color: var(--primary-color);
+    padding-top: 10px;
 }
 
 .single_search {

@@ -50,13 +50,13 @@ const HomePage = (props) => {
     //         navigate('/')
     //     }
     // }, [])
-    const {marginDiv} = useAuth()
+    const { marginDiv } = useAuth()
 
     return (
-        <div className='Homepage_div' style={{ marginLeft: marginDiv? '140px': '37px' }}>
-                  <Helmet>
-        <title>নাগরিক কর্নার</title>
-      </Helmet>
+        <div className='Homepage_div' style={{ marginLeft: marginDiv ? '140px' : '37px' }}>
+            <Helmet>
+                <title>নাগরিক কর্নার</title>
+            </Helmet>
             <div>
                 <PageLink />
             </div>
@@ -112,10 +112,10 @@ const HomePage = (props) => {
                     <div style={{ flex: 1 }}>
                         <div className='container_div_header'><b>সেবাসমূহ ব্যবহারের নির্দেশিকা</b></div>
                         <div className='container_div_body'>
-                        <img src="/images/seba.png" style={{
+                            <img src="/images/seba.png" style={{
                                 height: '360px',
                                 width: '100%',
-                            }}/>
+                            }} />
                         </div>
                     </div>
                 </div>

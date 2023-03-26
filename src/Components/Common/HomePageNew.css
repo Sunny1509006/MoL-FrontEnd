@@ -1,0 +1,61 @@
+.HomePageNewMain {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1em; */
+    margin-top: 60px;
+    /* vh means display height */
+    min-height: calc(100vh - 165px);
+    /* padding: relative; */
+    /* margin-left: 40px; */
+    background: white;
+    /* width: 100%; */
+}
+
+.HomePageNewSearchDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background: var(--primary-bg);
+    box-shadow: 0px 6px 4px #CEE9FD;
+    border-radius: 0px 0px 63px 0px;
+    /* width: 100%; */
+}
+
+.HomePageNewSearchDiv h2 {
+    color: var(--primary-color);
+    padding-bottom: 20px;
+}
+
+.HomePageNewCategory {
+    /* width: 100px;
+    height: 35px; */
+    margin: 10px;
+    padding: 10px;
+    /* align-items: center; */
+    text-align: center;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 18.2419px;
+}
+
+.HomePageNewChatBot {
+    display: flex;
+}
+
+
+.HomePageNewImg {
+    height: 45%;
+    width: 45%;
+    /* border: 1px solid black; */
+    margin: 5%;
+    /* padding: 60px; */
+}
+
+.HomePageNewImgSecond {
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid black; */
+}

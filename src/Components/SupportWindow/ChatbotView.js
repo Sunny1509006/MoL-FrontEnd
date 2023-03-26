@@ -20,10 +20,11 @@ const ChatbotView = () => {
     }, [ref])
     return (
         <div ref={ref}>
-            <SupportWindow visible={visible} 
-                style={{
+            <SupportWindow 
+            visible={visible} 
+            //     style={{
                     
-                }}
+            //     }}
             />
             <Chatbot onClick={()=> setVisible(true)} />
         </div>

@@ -3,8 +3,10 @@ import './Conversation.css'
 import axios from '../axios/axios'
 import { BsMicFill, BsMicMuteFill } from 'react-icons/bs'
 import { AiFillPlayCircle, AiFillPauseCircle } from 'react-icons/ai'
+import {HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2"
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { Button } from 'react-bootstrap';
+import useAuth from '../../hooks/authHooks'
 
 const speechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 const mic = new speechRecognition()
@@ -14,27 +16,29 @@ mic.interimResults = true
 mic.lang = "bn-BD"
 
 const URL_REGEX =
-	/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
+    /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
 
-function Text( {content} ) {
-	const words = content.split(' ');
-	return (
-		<p>
-			{words.map((word) => {
-				return word.match(URL_REGEX) ? (
-					<>
-						<a href={word} style={{color: 'blue'}}>{word}</a>{' '}
-					</>
-				) : (
-					word + ' '
-				);
-			})}
-		</p>
-	);
+function Text({ content }) {
+    const words = content.split(' ');
+    return (
+        <p>
+            {words.map((word) => {
+                return word.match(URL_REGEX) ? (
+                    <>
+                        <a href={word} style={{ color: 'blue' }}>{word}</a>{' '}
+                    </>
+                ) : (
+                    word + ' '
+                );
+            })}
+        </p>
+    );
 }
 
 
 const Conversation = () => {
+
+    const { user } = useAuth()
 
     const [isListening, setIsListening] = useState(true)
     const [note, setNote] = useState(null)
@@ -129,6 +133,7 @@ const Conversation = () => {
             setAnswer([...answer, { author: "user", content: question }]);
             setQuestion("");
         }
+        setIsPlaying(false);
     };
 
 
@@ -204,47 +209,68 @@ const Conversation = () => {
                 {answer.map((answer, index) => (
                     <div key={index}>
                         {(answer.author === "bot") ?
-                            <div className='left' >
-                                {Array.isArray(answer.content) ?
-                                    <>
-                                        {(answer.content).map((item, index) => (
+                            <>
+                                <div className='left' >
+                                    {Array.isArray(answer.content) ?
+                                        <>
+                                            {(answer.content).map((item, index) => (
 
-                                            <div key={index}>
-                                                <Text content={item} />
-                                            </div>
-                                        ))}
-                                    </>
-                                    :
-                                    <>
-                                        <Text content={answer.content}/>
-                                    </>
-                                }
+                                                <div key={index}>
+                                                    <Text content={item} />
+                                                </div>
+                                            ))}
+                                        </>
+                                        :
+                                        <>
+                                            <Text content={answer.content} />
+                                        </>
+                                    }
 
-                            </div>
+                                </div>
+                                <img
+                                    src="/images/chatbot.png" style={{
+                                        height: '40px',
+                                        width: '40px',
+                                        marginTop: '12px',
+                                        marginLeft: '8px',
+                                        float: "left",
+                                    }} />
+                            </>
                             :
-                            <div className='right'>
-                                {answer.content}
-                            </div>
+                            <>
+                                <img
+                                    src={user?.profile_image ? ` https://bhumipedia.land.gov.bd${user.profile_image}` : "/images/profile.png"} style={{
+                                        height: '40px',
+                                        width: '40px',
+                                        marginTop: '12px',
+                                        marginRight: '8px',
+                                        float: "right",
+                                    }} />
+                                <div className='right'>
+                                    {answer.content}
+                                </div>
+                            </>
                         }
                     </div>
                 ))}
                 {/* <Button type="button" onClick={handleSpeakClick}>Speak</Button> */}
                 {audioSrc && (
                     <div style={{
-                        marginLeft: '77%',
-                        marginTop: '-50px',
+                        marginLeft: '45%',
+                        marginTop: '-42px',
+                        // background: 'black',
 
                     }}>
                         <audio src={audioSrc} ref={audioRef} />
                         <Button onClick={handlePlayPause} style={{
-                            background: 'white',
+                            background: 'none',
                         }}>
                             {isPlaying ?
-                                <AiFillPauseCircle fontSize={24} style={{
+                                <HiSpeakerXMark fontSize={24} style={{
                                     color: '#0C6395',
                                 }} />
                                 :
-                                <AiFillPlayCircle fontSize={24} style={{
+                                <HiSpeakerWave   fontSize={24} style={{
                                     color: '#0C6395',
                                 }} />}
                         </Button>

@@ -51,6 +51,7 @@ import useAuth from "../../hooks/authHooks";
 import ShowSearchContent from "../Common/ShowSearchContent";
 import TermAndCondition from "../Common/AppPrivacy/TermAndCondition";
 import PrivacyPolicy from "../Common/AppPrivacy/PrivacyPolicy";
+import HomePageNew from "../Common/HomePageNew";
 
 function Home() {
     const {query} = useAuth();
@@ -59,7 +60,7 @@ function Home() {
             <BodyHead />
             <LeftSidebar />
             <Routes>
-                <Route exact path="/" element={<HomePage />} />
+                <Route exact path="/" element={<HomePageNew />} />
                 <Route exact path="/ebook" element={<EbookDummy />} />
                 <Route exact path="/blog" element={<BlogContent />} />
                 <Route exact path="/forum" element={<ForumContent />} />

@@ -58,7 +58,7 @@ const EbookDummy = () => {
     }
 
     return (
-        <div className='ebook_dummy_main' style={{ marginLeft: marginDiv? '155px': '50px' }}>
+        <div className='ebook_dummy_main' style={{ marginLeft: marginDiv? '155px': '50px', transition: '.5s' }}>
             <Helmet>
                 <title>ই-বুক লিস্ট</title>
             </Helmet>

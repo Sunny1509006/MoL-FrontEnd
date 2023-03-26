@@ -107,7 +107,11 @@ const LeftSidebar = () => {
     return (
         <div className='main_container'>
             <div>
-                <motion.div animate={{ width: isOpen ? "140px" : "35px" }} className="Left_Sidebar">
+                <motion.div 
+                animate={{ width: isOpen ? "140px" : "35px" }}
+                // transition={{ duration: .5}} 
+                className="Left_Sidebar"
+                >
                     <div className='top_section'>
                         {isOpen ? < div className='bars' style={{ marginLeft: '60px' }}>
                             <RxDoubleArrowLeft onClick={toggle} />

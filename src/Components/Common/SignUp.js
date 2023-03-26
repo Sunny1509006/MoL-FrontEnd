@@ -56,7 +56,7 @@ const SignUp = () => {
             })
             .catch(err=> {
                 console.log(err)
-                alert("server error")
+                alert(err)
             })
     }
 

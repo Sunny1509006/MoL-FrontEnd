@@ -95,7 +95,7 @@ const EbookComment = () => {
     }, [params.id]);
 
     return (
-        <div className='ebook_comment_main' style={{ marginLeft: marginDiv ? '155px' : '50px' }}>
+        <div className='ebook_comment_main' style={{ marginLeft: marginDiv ? '155px' : '50px', transition: '.5s' }}>
             <Helmet>
                 <title>ই-বুক</title>
             </Helmet>

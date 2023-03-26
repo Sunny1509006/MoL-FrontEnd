@@ -10,8 +10,8 @@ import {HiNewspaper} from 'react-icons/hi'
 const LINKS = [
     { route: '/', icon: AiFillHome, name: 'নাগরিক কর্নার' },
     { route: '/ebook', icon: FaBookOpen, name: 'ই-বুক' },
-    { route: '/blog', icon: HiNewspaper, name: 'ব্লগ' },
-    { route: '/forum', icon: MdForum, name: 'ফোরাম' }
+    // { route: '/blog', icon: HiNewspaper, name: 'ব্লগ' },
+    // { route: '/forum', icon: MdForum, name: 'ফোরাম' }
   ]
 
   function LinkItem({ link }) {

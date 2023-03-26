@@ -1,9 +1,9 @@
 .chatbot_div_main {
     position: fixed;
-    bottom: 70px;
+    bottom: 70%;
     right: 0px;
-    height: 40px;
-    width: 50px;
+    height: 80px;
+    width: 80px;
     background: #0C6395;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -11,9 +11,9 @@
 }
 
 .chatbot_hi {
-    position: absolute;
-    bottom: 87px;
-    right: 55px;
+    position: fixed;
+    bottom: 84%;
+    right: 5px;
     /* height: 25px; */
     /* width: 50px; */
     padding: 5px 8px 5px 8px;
