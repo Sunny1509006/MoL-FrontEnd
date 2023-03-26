@@ -3,7 +3,7 @@ import './Conversation.css'
 import axios from '../axios/axios'
 import { BsMicFill, BsMicMuteFill } from 'react-icons/bs'
 import { AiFillPlayCircle, AiFillPauseCircle } from 'react-icons/ai'
-import {HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2"
+import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2"
 import ScrollToBottom from 'react-scroll-to-bottom';
 import { Button } from 'react-bootstrap';
 import useAuth from '../../hooks/authHooks'
@@ -204,6 +204,23 @@ const Conversation = () => {
                     padding: '3px 10px'
                 }}>ভূমিবিদ</p>
             </div>
+            <div style={{
+                height: '22px',
+                width: '100%',
+                backgroundColor: 'white',
+            }}>
+                <marquee behavior="scroll" direction="left">
+                    <p style={{
+                        color: 'red',
+                        padding: '3px 10px',
+                        fontFamily: 'Kalpurush',
+                        fontSize: '12px'
+                    }}>
+                        বিশেষ দ্রষ্টব্যঃ কৃত্তিম বুদ্ধিমত্তা বিশিষ্ট চ্যাটবটটি সর্বদা শিক্ষারত অবস্থায় রয়েছে। জিজ্ঞাসিত প্রশ্নের উত্তরে সন্তুষ্ট না হলে ক্ষমার দৃষ্টিতে দেখবেন অথবা জরুরি প্রয়োজনে ১৬১২২ নাম্বারে কল করুন।
+                    </p>
+                </marquee>
+            </div>
+
             <ScrollToBottom className='conversation_chat_div' >
 
                 {answer.map((answer, index) => (
@@ -270,7 +287,7 @@ const Conversation = () => {
                                     color: '#0C6395',
                                 }} />
                                 :
-                                <HiSpeakerWave   fontSize={24} style={{
+                                <HiSpeakerWave fontSize={24} style={{
                                     color: '#0C6395',
                                 }} />}
                         </Button>
