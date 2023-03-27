@@ -46,6 +46,7 @@ const Conversation = () => {
 
     const [question, setQuestion] = useState("")
     const [answer, setAnswer] = useState([])
+    // const [selectedItem, setSelectedItem] = useState("");
 
     const [audioSrc, setAudioSrc] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -56,11 +57,17 @@ const Conversation = () => {
     const handleQuestion = (e) => {
         setQuestion(e.target.value)
     }
+    const handleClick = (item) => {
+        // setSelectedItem(item);
+        setQuestion(item)
+        handleSubmit()
+    };
+    // console.log(selectedItem);
 
     useEffect(() => {
         if (answer.length > 0) {
             const lastAnswer = answer[answer.length - 1];
-            console.log(lastAnswer)
+            // console.log(lastAnswer)
             if (lastAnswer.author === "user") {
                 axios.post("/api/v1/response/",
                     lastAnswer.content,
@@ -232,20 +239,22 @@ const Conversation = () => {
                                         <>
                                             {(answer.content).map((item, index) => (
 
-                                                <div key={index}
-                                                    // onClick={() => {
-                                                    //     setQuestion(item)
-                                                    //     handleSubmit()
-                                                    // }}
+                                                <div key={index} onClick={() => handleClick(item)}
+                                                    style={{ cursor: "pointer" }}
+                                                    onMouseOver={(e) => (e.target.style.color = "blue")}
+                                                    onMouseOut={(e) => (e.target.style.color = "black")}
+                                                // onClick={() => {
+                                                //     setQuestion(item)
+                                                //     handleSubmit()
+                                                // }}
                                                 >
-                                                    {console.log(<Text content={item} />)}
+                                                    {/* {console.log(<Text content={item} />)} */}
                                                     <Text content={item} />
                                                 </div>
                                             ))}
                                         </>
                                         :
                                         <>
-                                        {console.log(<Text content={answer.content} />)}
                                             <Text content={answer.content} />
                                         </>
                                     }
