@@ -232,13 +232,20 @@ const Conversation = () => {
                                         <>
                                             {(answer.content).map((item, index) => (
 
-                                                <div key={index}>
+                                                <div key={index}
+                                                    // onClick={() => {
+                                                    //     setQuestion(item)
+                                                    //     handleSubmit()
+                                                    // }}
+                                                >
+                                                    {console.log(<Text content={item} />)}
                                                     <Text content={item} />
                                                 </div>
                                             ))}
                                         </>
                                         :
                                         <>
+                                        {console.log(<Text content={answer.content} />)}
                                             <Text content={answer.content} />
                                         </>
                                     }

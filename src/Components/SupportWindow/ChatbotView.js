@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
+import useAuth from '../../hooks/authHooks'
 import Chatbot from '../Common/Chatbot'
 import SupportWindow from './SupportWindow'
 
 const ChatbotView = () => {
-    const [visible, setVisible] = useState(false)
+    const {visible, setVisible} = useAuth()
     const ref = useRef(null)
 
     useEffect(()=> {
@@ -26,7 +27,7 @@ const ChatbotView = () => {
                     
             //     }}
             />
-            <Chatbot onClick={()=> setVisible(true)} />
+            <Chatbot onClick={()=> setVisible(!visible)} />
         </div>
     )
 }

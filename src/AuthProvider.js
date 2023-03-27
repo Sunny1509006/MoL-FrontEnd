@@ -9,6 +9,7 @@ export const AuthContext = React.createContext({
   mostReadBlog: null,
   marginDiv: false,
   query: null,
+  visible: false,
   searchData: null,
   appInit: false,
   setToken: () => { },
@@ -18,6 +19,7 @@ export const AuthContext = React.createContext({
   handleShowCreateForum: () => { },
   handleSearch: () => { },
   setQuery: () => { },
+  setVisible: () => { },
 });
 
 
@@ -30,6 +32,7 @@ const AuthProvider = (props) => {
   const [marginDiv, setMarginDiv] = useState(false);
   const [query, setQuery] = useState("");
   const [searchData, setSearchData] = useState([]);
+  const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
 
 
@@ -110,8 +113,9 @@ const AuthProvider = (props) => {
   return (
     <AuthContext.Provider value={{
       user, token, appInit, mostReadBlog, marginDiv, showCreateForum, query, searchData,
+      visible,
       setUser, setToken: handleSetToken, handleShowCreateForum, handleSearch,
-      fetchUser, fetchMostReadBlog, setMarginDiv, setQuery
+      fetchUser, fetchMostReadBlog, setMarginDiv, setQuery, setVisible,
     }}>
       {props.children}
     </AuthContext.Provider>

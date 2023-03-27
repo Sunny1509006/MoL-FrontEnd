@@ -37,14 +37,25 @@ const Login = (props) => {
             .then(result => {
                 localStorage.setItem('jwt', result.data.jwt);
                 // cookies.set("jwt", result.data.jwt);
+
+                console.log(result.data.detail)
                 authContext.setToken(result.data.jwt);
                 if (localStorage.getItem('jwt')) {
                     navigate('/')
                 }
             })
             .catch(error => {
-                console.log(error)
-                alert(error)
+                if (error.response && error.response.status === 403) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    alert(error.response.data.detail);
+                  } else if (error.request) {
+                    // The request was made but no response was received
+                    alert(error.request);
+                  } else {
+                    // Something happened in setting up the request that triggered an Error
+                    alert('Error', error.detail);
+                  }
             })
     }
 

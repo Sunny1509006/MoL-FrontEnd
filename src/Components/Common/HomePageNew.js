@@ -25,12 +25,11 @@ const boxVariants = {
 };
 
 const HomePageNew = () => {
-    const { marginDiv } = useAuth()
+    const { marginDiv, visible, setVisible } = useAuth()
     const [isVisible, setIsVisible] = useState(true);
     const [boxes, setBoxes] = useState([]);
     const [showFruits, setShowFruits] = useState(true);
-    const [visible, setVisible] = useState(false)
-
+    
     useEffect(() => {
         setIsVisible(true);
         setTimeout(() => {
@@ -117,7 +116,7 @@ const HomePageNew = () => {
                     whileHover={{ scale: 1.1 }}
                 // transition={{delay: .1}}
                 >
-                    <img src="/images/chatbot_home.png" className='HomePageNewImgSecond' onClick={()=> setVisible(true)}/>
+                    <Link><img src="/images/chatbot_home.png" className='HomePageNewImgSecond' onClick={()=> setVisible(!visible)}/></Link>
                 </motion.div>
                 <motion.div className='HomePageNewImg'
                     whileHover={{ scale: 1.1 }}
