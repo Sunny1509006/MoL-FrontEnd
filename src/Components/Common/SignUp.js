@@ -13,7 +13,8 @@ import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 
-    const navigate = useNavigate() 
+    const navigate = useNavigate()
+    
     const [fullName, setFullName] = useState('')
     const [mobile, setMobile] = useState('')
     const [email, setEmail] = useState('')
@@ -54,9 +55,18 @@ const SignUp = () => {
                 alert("success")
                 navigate("/login")
             })
-            .catch(err=> {
-                console.log(err)
-                alert(err)
+            .catch(error=> {
+                if (error.response && error.response.status === 403) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    alert(error.response.data.detail);
+                  } else if (error.request) {
+                    // The request was made but no response was received
+                    alert(error.request);
+                  } else {
+                    // Something happened in setting up the request that triggered an Error
+                    alert('Error', error.detail);
+                  }
             })
     }
 

@@ -32,10 +32,10 @@ function EbookView() {
                   <Helmet>
         <title>বিস্তারিত ই-বুক</title>
       </Helmet>
-            <div style={{ marginTop: '10px', fontFamily: 'Kalpurush', padding: '0px 20px' }}>
+            <div style={{ marginTop: '10px', fontFamily: 'Kalpurush', padding: '10px 30px' }}>
                 <h3><b>{post.heading}</b></h3>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: post.content }} style={{ padding: '0px 20px' }} />
+            <div dangerouslySetInnerHTML={{ __html: post.content }} style={{ padding: '0px 30px' }} />
         </div>
     )
 }

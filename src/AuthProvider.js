@@ -43,20 +43,24 @@ const AuthProvider = (props) => {
   const handleSearch = (e) => {
     e.preventDefault();
     localStorage.setItem("query", query);
-    
-    axios.get(`/api/search/?search=${query}`)
-    .then(response=> {
-      // console.log(response.data);
-      setSearchData(response.data);
-      setTimeout(() => {
-        setAppInit(true);
-      }, 500);
-      navigate("/search")
-    })
-    .catch(err=> {
+
+    // axios.get(`/api/search/?search=${query}`)
+    axios.post("/api/search/", {
+      search_key: query
+    }
+    )
+      .then(response => {
+        // console.log(response.data);
+        setSearchData(response.data);
+        setTimeout(() => {
+          setAppInit(true);
+        }, 500);
+        navigate("/search")
+      })
+      .catch(err => {
         console.log(err);
-    })
-}
+      })
+  }
 
   const handleShowCreateForum = () => {
     setCreateForum(!showCreateForum);

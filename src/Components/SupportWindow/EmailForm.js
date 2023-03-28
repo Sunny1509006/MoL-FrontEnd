@@ -6,8 +6,10 @@ import Button from 'react-bootstrap/Button';
 
 import { LoadingOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
+
 const EmailForm = () => {
-    const authContext = useAuth();
+    const {setToken, setVisible} = useAuth();
+    // const {setVisible} = useAuth(); 
     // const [email, setEmail] = useState('')
     // const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -39,7 +41,7 @@ const EmailForm = () => {
                 // alert("login success1")
                 console.log(result.data)
                 localStorage.setItem('jwt', result.data.jwt);
-                authContext.setToken(result.data.jwt);
+                setToken(result.data.jwt);
                 // if (localStorage.getItem('access')) {
                 //     navigate('/')
                 // }
@@ -163,7 +165,11 @@ const EmailForm = () => {
                     left: 'calc(40% - 40px)'
 
                 }}>
-                    অ্যাকাউন্ট নেই? <Link to="/SignUp" style={{ color: '#0C6395' }}>সাইন আপ</Link> করুন
+                    অ্যাকাউন্ট নেই? <Link to="/SignUp" style={{ color: '#0C6395' }}
+                        onClick={()=>setVisible(false)}
+                    >
+                        সাইন আপ
+                        </Link> করুন
                 </div>
             </div>
         </div>

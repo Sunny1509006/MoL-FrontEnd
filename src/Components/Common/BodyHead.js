@@ -117,7 +117,8 @@ export default function BodyHead() {
                   />
                 </Button>
                 {showMenu && (
-                  <div style={{ position: 'fixed', right: '0px', background: 'white' }}>
+                  <div style={{ position: 'fixed', right: '10px', marginTop: '10px', background: 'white',
+                   alignItems: 'center', textAlign: 'center', boxShadow: '1px 1px 1px 1px black' }}>
                     {/* <button onClick={() => console.log('Go to profile page')}>
                     profile
                   </button> */}
@@ -125,7 +126,8 @@ export default function BodyHead() {
                     <div>
                       <Button variant="outline-info" style={{
                         marginTop: 'calc(50% - 25px)',
-                        marginRight: '10px',
+                        margin: '0px 10px',
+                        marginBottom: '5px',
                       }}
                         onClick={handleApi}
                         type="submit"

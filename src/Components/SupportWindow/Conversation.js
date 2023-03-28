@@ -237,21 +237,27 @@ const Conversation = () => {
                                 <div className='left' >
                                     {Array.isArray(answer.content) ?
                                         <>
-                                            {(answer.content).map((item, index) => (
-
+                                            {(answer.content).map((item, index) => {
+                                                if (index>0 && index < answer.content.length-1){
+                                                    return (
                                                 <div key={index} onClick={() => handleClick(item)}
                                                     style={{ cursor: "pointer" }}
                                                     onMouseOver={(e) => (e.target.style.color = "blue")}
                                                     onMouseOut={(e) => (e.target.style.color = "black")}
-                                                // onClick={() => {
-                                                //     setQuestion(item)
-                                                //     handleSubmit()
-                                                // }}
                                                 >
-                                                    {/* {console.log(<Text content={item} />)} */}
                                                     <Text content={item} />
                                                 </div>
-                                            ))}
+                                                    )
+                                                }
+                                                else {
+                                                    return (
+                                                    <div key={index}>
+                                                    <Text content={item} />
+                                                    </div>
+                                                    )
+                                                }
+                                            
+                                            })}
                                         </>
                                         :
                                         <>

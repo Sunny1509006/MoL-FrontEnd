@@ -5,10 +5,10 @@
     padding: relative;
     margin-left: 160px;
     margin-right: 20px;
-    margin-top: 100px;
+    margin-top: 60px;
     gap: 1rem;
     /* vh means display height */
-    min-height: calc(100vh - 225px);
+    min-height: calc(100vh - 165px);
     /* min-height: 700px; */
     /* background-image: url("https://media.geeksforgeeks.org/wp-content/uploads/rk.png"); */
 }
