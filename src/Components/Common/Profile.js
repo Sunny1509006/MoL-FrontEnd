@@ -147,7 +147,7 @@ const Profile = () => {
                 />
               </>
               :
-              <img src={image ? `https://admin.bhumipedia.land.gov.bd${image}` : "/images/profile.png"} />
+              <img src={image ? `https://bhumipedia.land.gov.bd${image}` : "/images/profile.png"} />
 
             }
             <div className='name_email_phone'>

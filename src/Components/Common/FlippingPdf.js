@@ -57,7 +57,7 @@ const FlippingPdf = () => {
           </button>
         )}
         <div className="flipping-pdf__page-content">
-          <Document file={`https://admin.bhumipedia.land.gov.bd/uploads/${post.file_urls}`} onLoadSuccess={handleDocumentLoadSuccess}>
+          <Document file={`https://bhumipedia.land.gov.bd/uploads/${post.file_urls}`} onLoadSuccess={handleDocumentLoadSuccess}>
             <Page pageNumber={currentPage} renderTextLayer={false}/>
           </Document>
         </div>

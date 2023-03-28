@@ -92,7 +92,7 @@ function FlipBook() {
           {/* <div>Page {pageNumber} of {numPages}</div>
       <button onClick={handlePrevPage}>Previous Page</button>
       <button onClick={handleNextPage}>Next Page</button> */}
-      <Document file={`https://admin.bhumipedia.land.gov.bd/uploads/${post.file_urls}`} onLoadSuccess={handleDocumentLoadSuccess} >
+      <Document file={post.file} onLoadSuccess={handleDocumentLoadSuccess} >
       {/* <button onClick={() =>
                     book.current.getPageFlip().flipNext()}>Next page</button> */}
         <HTMLFlipBook width={width} height={height}
