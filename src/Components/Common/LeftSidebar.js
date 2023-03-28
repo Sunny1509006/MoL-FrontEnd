@@ -6,13 +6,14 @@ import { FaBars, FaHome } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import { GoLaw } from 'react-icons/go';
 import { GiClawHammer } from 'react-icons/gi';
-import { MdPolicy, MdBlurCircular, MdMenuBook } from 'react-icons/md';
+import { MdPolicy, MdBlurCircular, MdMenuBook, MdOutlineRuleFolder } from 'react-icons/md';
 import { RiGuideLine } from 'react-icons/ri';
 import { AiOutlineNotification } from 'react-icons/ai';
 import { SiLibreoffice } from 'react-icons/si';
 import { FaRegHandshake } from 'react-icons/fa';
 import { TfiBookmarkAlt } from 'react-icons/tfi';
 import { TbDotsCircleHorizontal } from 'react-icons/tb';
+import {BsFillJournalBookmarkFill} from 'react-icons/bs'
 import RuleRoundedIcon from '@mui/icons-material/RuleRounded';
 import { RxDoubleArrowRight, RxDoubleArrowLeft } from 'react-icons/rx'
 import HomePage from './HomePage';
@@ -33,7 +34,7 @@ const routes = [
     {
         path: "/presidentorders",
         name: "রাষ্ট্রপতির আদেশ",
-        icon: <RuleRoundedIcon fontSize='6px' />,
+        icon: <BsFillJournalBookmarkFill fontSize='15px' />,
     },
     {
         path: "/rules",
@@ -43,7 +44,7 @@ const routes = [
     {
         path: "/regulations",
         name: "প্রবিধান",
-        icon: <RuleRoundedIcon fontSize='6px' />,
+        icon: <MdOutlineRuleFolder fontSize='15px' />,
     },
     {
         path: "/policies",

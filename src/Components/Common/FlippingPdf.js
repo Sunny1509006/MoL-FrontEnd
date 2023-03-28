@@ -15,14 +15,14 @@ const FlippingPdf = () => {
 //   console.log(params);
   const [post, setPost] = useState({});
 //   console.log(post);
-  console.log(post.file);
+  // console.log(post.file_urls);
 
   useEffect(() => {
       axios.get(
           `/api/ebooks/${params.id}/`
       )
           .then(res => {
-              console.log(res)
+              // console.log(res)
               setPost(res.data)
           })
           .catch(err => {
@@ -57,7 +57,7 @@ const FlippingPdf = () => {
           </button>
         )}
         <div className="flipping-pdf__page-content">
-          <Document file={post.file} onLoadSuccess={handleDocumentLoadSuccess}>
+          <Document file={`https://admin.bhumipedia.land.gov.bd/uploads/${post.file_urls}`} onLoadSuccess={handleDocumentLoadSuccess}>
             <Page pageNumber={currentPage} renderTextLayer={false}/>
           </Document>
         </div>

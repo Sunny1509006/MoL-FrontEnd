@@ -23,6 +23,19 @@ const Comments = (id) => {
             )
     }, [id]);
 
+    const handleCommentList = () => {
+        axios.post("/api/ebooks/usercommentlist/",
+        { ebook_id: id.id },
+    )
+        .then(response => {
+            // console.log(response.data)
+            setData(response.data);
+        })
+        .catch(err =>
+            console.log(err)
+        )
+    }
+
     const addComment = (text, parentID=id.id) => {
         console.log("addComment", text, parentID)
         if (token) { 
@@ -35,6 +48,7 @@ const Comments = (id) => {
         )
         .then(response=> {
             // setData()
+            handleCommentList()
         })
         .catch(err=> {
             console.log(err);

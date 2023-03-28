@@ -18,8 +18,23 @@ function EbookView() {
             `/api/ebooks/${params.id}/`
         )
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setPost(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }, [params.id]);
+
+    useEffect(() => {
+        axios.post(
+            `/api/ebooks/viewercounter/`, {
+                ebook_id: params.id
+            }
+        )
+            .then(res => {
+               
             })
             .catch(err => {
                 console.log(err)

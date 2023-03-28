@@ -26,6 +26,22 @@ const Comment = ({ comment, ebookID }) => {
             )
     }, []);
 
+    const handleCommentReplyList = () => {
+        axios.post("/api/ebooks/usercommentsreplylist/",
+        {
+            ebook_id: ebookID,
+            comment_id: comment.id
+        },
+    )
+        .then(response => {
+            // console.log(response.data)
+            setReplies(response.data);
+        })
+        .catch(err =>
+            console.log(err)
+        )
+    }
+
     const handleCommentReply = (id) => {
         setCommentReply(true);
         console.log(id);
@@ -47,6 +63,7 @@ const Comment = ({ comment, ebookID }) => {
             // setData()
             setCommentID("");
             setCommentReply(false);
+            handleCommentReplyList()
         })
         .catch(err=> {
             console.log(err);

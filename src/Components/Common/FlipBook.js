@@ -35,7 +35,7 @@ function FlipBook() {
   const [currentPage, setCurrentPage] = useState(1);
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  console.log(numPages)
+  // console.log(numPages)
 
   const numbers = [];
 
@@ -92,7 +92,7 @@ function FlipBook() {
           {/* <div>Page {pageNumber} of {numPages}</div>
       <button onClick={handlePrevPage}>Previous Page</button>
       <button onClick={handleNextPage}>Next Page</button> */}
-      <Document file={post.file} onLoadSuccess={handleDocumentLoadSuccess} >
+      <Document file={`https://admin.bhumipedia.land.gov.bd/uploads/${post.file_urls}`} onLoadSuccess={handleDocumentLoadSuccess} >
       {/* <button onClick={() =>
                     book.current.getPageFlip().flipNext()}>Next page</button> */}
         <HTMLFlipBook width={width} height={height}

@@ -9,6 +9,7 @@ import axios from '../axios/axios'
 import { Grid, Paper } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import { FaComments } from 'react-icons/fa';
 import ShareIcon from '@mui/icons-material/Share';
 
@@ -36,16 +37,32 @@ import Comments from './Comment/Comments'
 const EbookComment = () => {
     const { marginDiv, token } = useAuth()
     const params = useParams();
-    console.log(params);
+    // console.log(params);
     const [post, setPost] = useState({});
-    console.log(post);
-    console.log(post.name);
+    const [liked, setLiked] = useState(false);
+    console.log(liked)
+    // console.log(post);
+    // console.log(post.name);
     const ebookURL = `http://143.110.210.43:3000/api/ebooks/${params.id}/`
 
     const [showShare, setShowShare] = useState(false);
     const handleShareClick = () => {
         setShowShare(!showShare);
     };
+
+    const handleShareCount = () => {
+        axios.post("/api/ebooks/usershare/", {
+            jwt: token,
+            ebook_id: params.id,
+            share_link: ""
+        })
+        .then(res=> {
+
+        })
+        .catch(err=> {
+            console.log(err)
+        })
+    }
 
     const handleLikeEbook = (id) => {
         if (token) {
@@ -59,6 +76,7 @@ const EbookComment = () => {
                     // fetchUser();
                     // fetchMostReadBlog();
                     handleSingleLikeEbook();
+                    handleLikedEbook()
                 })
                 .catch(err =>
                     console.log(err)
@@ -71,7 +89,7 @@ const EbookComment = () => {
             `/api/ebooks/${params.id}/`
         )
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setPost(res.data)
             })
             .catch(err => {
@@ -86,7 +104,7 @@ const EbookComment = () => {
             `/api/ebooks/${params.id}/`
         )
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setPost(res.data)
             })
             .catch(err => {
@@ -94,6 +112,50 @@ const EbookComment = () => {
             })
 
     }, [params.id]);
+
+    useEffect(() => {
+        axios.post(
+            `/api/ebooks/userbasedlike/`, {
+            jwt: token,
+            ebook_id: params.id
+        }
+        )
+            .then(res => {
+                console.log(res)
+                if (res.data.message === "Found") {
+                    setLiked(true)
+                }
+                else {
+                    setLiked(false)
+                }
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }, [params.id]);
+
+    const handleLikedEbook = () => {
+        axios.post(
+            `/api/ebooks/userbasedlike/`, {
+            jwt: token,
+            ebook_id: params.id
+        }
+        )
+            .then(res => {
+                console.log(res)
+                if (res.data.message === "Found") {
+                    setLiked(true)
+                }
+                else {
+                    setLiked(false)
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     return (
         <div className='ebook_comment_main' style={{ marginLeft: marginDiv ? '155px' : '50px', transition: '.5s' }}>
@@ -141,8 +203,13 @@ const EbookComment = () => {
                             </Link>
                             <VisibilityIcon sx={{ fontSize: 16, marginTop: '4px', color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.viewer_counter}</div>
-                            <ThumbUpIcon sx={{ fontSize: 12, marginTop: '6px', color: "#0C6395" }} 
-                            onClick={() => { handleLikeEbook(post.id) }}/>
+                            {liked ?
+                                <ThumbUpIcon sx={{ fontSize: 14, marginTop: '6px', color: "#0C6395" }}
+                                    onClick={() => { handleLikeEbook(post.id) }} />
+                                :
+                                <ThumbUpOutlinedIcon sx={{ fontSize: 14, marginTop: '6px', color: "#0C6395" }}
+                                    onClick={() => { handleLikeEbook(post.id) }} />
+                            }
                             <div className='like_comment_padding'>{post.like_user_counter}</div>
                             {/* <ThumbDownIcon sx={{ fontSize: 15, color: "#0C6395" }} />
                             <div className='like_comment_padding'>{post.dislike_user_counter}</div> */}
@@ -157,26 +224,27 @@ const EbookComment = () => {
                                         position: 'absolute',
                                         background: 'white',
                                         padding: '10px',
-                                        marginTop: '-220px'
+                                        marginTop: '-220px',
+                                        boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.25)',
 
                                     }}>
-                                        <FacebookShareButton url={ebookURL}>
-                                            <FacebookIcon size={24} style={{marginBottom: '5px'}}/>
+                                        <FacebookShareButton url={ebookURL} onClick={handleShareCount}>
+                                            <FacebookIcon size={24} style={{ marginBottom: '5px' }} />
                                         </FacebookShareButton>
-                                        <WhatsappShareButton url={ebookURL}>
-                                            <WhatsappIcon size={24} style={{marginBottom: '5px'}}/>
+                                        <WhatsappShareButton url={ebookURL} onClick={handleShareCount}>
+                                            <WhatsappIcon size={24} style={{ marginBottom: '5px' }} />
                                         </WhatsappShareButton>
-                                        <EmailShareButton url={ebookURL}>
-                                            <EmailIcon size={24} style={{marginBottom: '5px'}}/>
+                                        <EmailShareButton url={ebookURL} onClick={handleShareCount}>
+                                            <EmailIcon size={24} style={{ marginBottom: '5px' }} />
                                         </EmailShareButton>
-                                        <LinkedinShareButton url={ebookURL}>
-                                            <LinkedinIcon size={24} style={{marginBottom: '5px'}}/>
+                                        <LinkedinShareButton url={ebookURL} onClick={handleShareCount}>
+                                            <LinkedinIcon size={24} style={{ marginBottom: '5px' }} />
                                         </LinkedinShareButton>
-                                        <TelegramShareButton url={ebookURL}>
-                                            <TelegramIcon size={24} style={{marginBottom: '5px'}}/>
+                                        <TelegramShareButton url={ebookURL} onClick={handleShareCount}>
+                                            <TelegramIcon size={24} style={{ marginBottom: '5px' }} />
                                         </TelegramShareButton>
-                                        <TwitterShareButton url={ebookURL}>
-                                            <TwitterIcon size={24} style={{marginBottom: '5px'}}/>
+                                        <TwitterShareButton url={ebookURL} onClick={handleShareCount}>
+                                            <TwitterIcon size={24} style={{ marginBottom: '5px' }} />
                                         </TwitterShareButton>
                                     </div>
                                 )}
@@ -188,7 +256,7 @@ const EbookComment = () => {
                         </Grid>
                     </div>
                 </div>
-                
+
             </div>
             {/* <AddComment /> */}
             <Comments id={params.id} />
