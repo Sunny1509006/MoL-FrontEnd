@@ -95,7 +95,7 @@ export default function BodyHead() {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-                <img src={user?.profile_image? `https://bhumipedia.land.gov.bd${user.profile_image}` :"/images/profile.png"} style={{
+                <img src={user?.profile_image? `https://admin.bhumipedia.land.gov.bd${user.profile_image}` :"/images/profile.png"} style={{
                   height: '40px',
                   width: '40px',
                 }} />
