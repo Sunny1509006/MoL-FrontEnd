@@ -106,7 +106,7 @@ const HomePageNew = () => {
                 <div>
                     <SearchText />
                 </div>
-                <div style={{ display: 'flex', marginTop: '10px' }}>
+                <div style={{ display: 'flex', marginTop: '20px' }}>
                     {boxes}
                 </div>
             </div>

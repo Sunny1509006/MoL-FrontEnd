@@ -13,13 +13,13 @@ import './FlipBook.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const width = 320;
-const height = 450;
+const width = 500;
+const height = "100vh";
 
 const Page = React.forwardRef(({ pageNumber }, ref) => {
   return (
     <div ref={ref}>
-      <ReactPdfPage pageNumber={pageNumber} width={width} />
+      <ReactPdfPage pageNumber={pageNumber} width={500} />
     </div>
   );
 });
@@ -87,7 +87,8 @@ function FlipBook() {
 
   return (
     <div style={{
-      margin: '100px 300px',
+      margin: '100px',
+      height: '100vh'
     }}>
           {/* <div>Page {pageNumber} of {numPages}</div>
       <button onClick={handlePrevPage}>Previous Page</button>

@@ -41,7 +41,7 @@ const Profile = () => {
   }
 
   const handleNationalIDChange = (e) => {
-    setEmail(e.target.value)
+    setNationalID(e.target.value)
   }
 
   const handleAddressChange = (e) => {
@@ -122,9 +122,9 @@ const Profile = () => {
 
 
   return (
-    <div className='profile_div' style={{ marginLeft: marginDiv ? '155px' : '50px' }}>
+    <div className='profile_div' style={{ marginLeft: marginDiv ? '235px' : '130px' }}>
       <div className='profile_header'>
-        <div>প্রোফাইল</div>
+        <div style={{color: '#0C6395', marginLeft: '10px'}}>প্রোফাইল</div>
         <Button onClick={handleEdit} style={{ background: 'none' }}>
           <FaEdit fontSize={24} style={{
             color: 'var(--primary-color)'
@@ -170,14 +170,14 @@ const Profile = () => {
                 display: 'flex',
               }}>
                 <div className='profile_font'>মোবাইলঃ </div>
-                {edit ?
+                {/* {edit ?
                   <PhoneInput country="BD"
                     type="text" value={mobile} onChange={handleMobileChange} className='profile_font_two'
                     style={{ border: '1px solid #0C6395' }}
                   />
-                  :
+                  : */}
                   <div className='profile_font_two'>{mobile}</div>
-                }
+                {/* } */}
               </div>
               <div className='profile_name_color' style={{
                 height: '33%'

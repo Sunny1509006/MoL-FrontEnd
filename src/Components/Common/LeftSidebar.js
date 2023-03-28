@@ -41,11 +41,11 @@ const routes = [
         name: "বিধিমালা",
         icon: <RuleRoundedIcon fontSize='6px' />,
     },
-    {
-        path: "/regulations",
-        name: "প্রবিধান",
-        icon: <MdOutlineRuleFolder fontSize='15px' />,
-    },
+    // {
+    //     path: "/regulations",
+    //     name: "প্রবিধান",
+    //     icon: <MdOutlineRuleFolder fontSize='15px' />,
+    // },
     {
         path: "/policies",
         name: "নীতিমালা",
@@ -66,16 +66,16 @@ const routes = [
         name: "প্রজ্ঞাপন",
         icon: <AiOutlineNotification />,
     },
-    {
-        path: "/officeorders",
-        name: "অফিস আদেশ",
-        icon: <SiLibreoffice />,
-    },
-    {
-        path: "/mous",
-        name: "সমঝোতা স্মারক",
-        icon: <FaRegHandshake />,
-    },
+    // {
+    //     path: "/officeorders",
+    //     name: "অফিস আদেশ",
+    //     icon: <SiLibreoffice />,
+    // },
+    // {
+    //     path: "/mous",
+    //     name: "সমঝোতা স্মারক",
+    //     icon: <FaRegHandshake />,
+    // },
     {
         path: "/manuals",
         name: "ম্যানুয়াল",
