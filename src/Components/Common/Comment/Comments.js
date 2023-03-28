@@ -11,8 +11,8 @@ const Comments = (id) => {
 
     useEffect(() => {
         // console.log(id.id);
-        axios.post("/api/forums/usercommentlist/",
-            { forum_id: id.id },
+        axios.post("/api/ebooks/usercommentlist/",
+            { ebook_id: id.id },
         )
             .then(response => {
                 // console.log(response.data)
@@ -26,9 +26,9 @@ const Comments = (id) => {
     const addComment = (text, parentID=id.id) => {
         console.log("addComment", text, parentID)
         if (token) { 
-        axios.post("/api/forums/usercomment/",
+        axios.post("/api/ebooks/usercomment/",
             {
-                forum_id: parentID,
+                ebook_id: parentID,
                 user_comment: text,
                 jwt: token,
             }
@@ -46,7 +46,7 @@ const Comments = (id) => {
 return (
     <div className='comments'>
         <div className='comments-title'>কমেন্টস</div>
-        <div className='comment-form-title'>কমেন্ট লিখুন</div>
+        <div className='comment-form-title'>মতামত দিন</div>
         <CommentForm submitLabel="জমা দিন" handleSubmit={addComment} />
         <div className='comments-container'>
             {data.map((eachData) => (
@@ -55,7 +55,7 @@ return (
                     comment={eachData}
                     //  onChange = {handleReplyComment(eachData.id)}
                     //  replies = {reply}
-                    forumID={id.id}
+                    ebookID={id.id}
                 />
             ))}
 

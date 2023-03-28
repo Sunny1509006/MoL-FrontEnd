@@ -31,6 +31,7 @@ import {
     WhatsappIcon,
 } from "react-share";
 import AddComment from './AddComment'
+import Comments from './Comment/Comments'
 
 const EbookComment = () => {
     const { marginDiv, token } = useAuth()
@@ -189,7 +190,8 @@ const EbookComment = () => {
                 </div>
                 
             </div>
-            <AddComment />
+            {/* <AddComment /> */}
+            <Comments id={params.id} />
         </div>
     )
 }

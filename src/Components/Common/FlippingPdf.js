@@ -15,7 +15,7 @@ const FlippingPdf = () => {
 //   console.log(params);
   const [post, setPost] = useState({});
 //   console.log(post);
-//   console.log(post.name);
+  console.log(post.file);
 
   useEffect(() => {
       axios.get(

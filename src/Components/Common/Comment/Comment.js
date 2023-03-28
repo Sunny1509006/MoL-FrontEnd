@@ -4,16 +4,16 @@ import axios from '../../axios/axios';
 import useAuth from '../../../hooks/authHooks';
 import CommentForm from './CommentForm';
 
-const Comment = ({ comment, forumID }) => {
+const Comment = ({ comment, ebookID }) => {
     const [replies, setReplies] = useState([]);
     const { token } = useAuth();
     const [commentReply, setCommentReply] = useState(false);
     const [commentID, setCommentID] = useState("")
     // console.log
     useEffect(() => {
-        axios.post("/api/forums/usercommentsreplylist/",
+        axios.post("/api/ebooks/usercommentsreplylist/",
             {
-                forum_id: forumID,
+                ebook_id: ebookID,
                 comment_id: comment.id
             },
         )
@@ -32,12 +32,12 @@ const Comment = ({ comment, forumID }) => {
         setCommentID(id)
     }
 
-    const addReplyComment = (text, parentID=forumID, commentReplyID=commentID) => {
+    const addReplyComment = (text, parentID=ebookID, commentReplyID=commentID) => {
         console.log("addComment", text, parentID, commentReplyID)
         if (token) { 
-        axios.post("/api/forums/usercommentsreply/",
+        axios.post("/api/ebooks/usercommentsreply/",
             {
-                forum_id: parentID,
+                ebook_id: parentID,
                 reply: text,
                 comment_id: commentReplyID,
                 jwt: token,
