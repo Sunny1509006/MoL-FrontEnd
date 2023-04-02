@@ -30,10 +30,6 @@ const LINKS = [
 const PageLink = ({ data }) => {
     return (
         <div className='Homepage_header_div'>
-            {/* <Link to='/'><div className='nagorik_color'>নাগরিক কর্নার</div></Link>
-            <Link to='/ebook'><div>ই-বুক</div></Link>
-            <Link to='/blog'><div>ব্লগ</div></Link>
-            <Link to='/forum'><div>ফোরাম</div></Link> */}
             {LINKS.map(link => <LinkItem key={link.route} link={link} />)}
         </div>
     )

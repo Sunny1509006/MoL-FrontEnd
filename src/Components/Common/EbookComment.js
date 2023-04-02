@@ -43,7 +43,7 @@ const EbookComment = () => {
     console.log(liked)
     // console.log(post);
     // console.log(post.name);
-    const ebookURL = `http://143.110.210.43:3000/api/ebooks/${params.id}/`
+    const ebookURL = `https://bhumipedia.land.gov.bd/ebooks/comment/${params.id}/`
 
     const [showShare, setShowShare] = useState(false);
     const handleShareClick = () => {
