@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import useAuth from '../../hooks/authHooks';
 
 function EbookView() {
-    const {marginDiv} = useAuth()
+    const { marginDiv } = useAuth()
     const params = useParams();
     console.log(params);
     const [post, setPost] = useState({});
@@ -30,11 +30,11 @@ function EbookView() {
     useEffect(() => {
         axios.post(
             `/api/ebooks/viewercounter/`, {
-                ebook_id: params.id
-            }
+            ebook_id: params.id
+        }
         )
             .then(res => {
-               
+
             })
             .catch(err => {
                 console.log(err)
@@ -43,10 +43,10 @@ function EbookView() {
     }, [params.id]);
 
     return (
-        <div className='ebook_view_main' style={{ marginLeft: marginDiv? '155px': '50px', transition: '.5s' }}>
-                  <Helmet>
-        <title>বিস্তারিত ই-বুক</title>
-      </Helmet>
+        <div className='ebook_view_main' style={{ marginLeft: marginDiv ? '155px' : '50px', transition: '.5s' }}>
+            <Helmet>
+                <title>বিস্তারিত ই-বুক</title>
+            </Helmet>
             <div style={{ marginTop: '10px', fontFamily: 'Kalpurush', padding: '10px 30px' }}>
                 <h3><b>{post.heading}</b></h3>
             </div>

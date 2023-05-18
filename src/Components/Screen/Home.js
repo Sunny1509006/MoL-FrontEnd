@@ -52,6 +52,8 @@ import ShowSearchContent from "../Common/ShowSearchContent";
 import TermAndCondition from "../Common/AppPrivacy/TermAndCondition";
 import PrivacyPolicy from "../Common/AppPrivacy/PrivacyPolicy";
 import HomePageNew from "../Common/HomePageNew";
+import ActInitialView from "../Common/ActView/ActInitialView";
+import ActInnerView from "../Common/ActView/ActInnerView";
 
 function Home() {
     const {query} = useAuth();
@@ -92,8 +94,9 @@ function Home() {
                 <Route exact path="/manuals" element={<Manuals />} />
                 <Route exact path="/gazettes" element={<Gazzettes />} />
                 <Route exact path="/others" element={<Others />} />
-                <Route
-                    path="*"
+                <Route exact path="/ebook/temp" element={<ActInitialView />} />
+                <Route exact path="/ebook/temp/view" element={<ActInnerView />} />
+                <Route path="*"
                     element={
                         <div>
                             <h2>404 Page not found</h2>
