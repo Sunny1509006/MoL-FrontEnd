@@ -3,6 +3,7 @@ import "./ActInnerView.css"
 import useAuth from '../../../hooks/authHooks'
 import { Helmet } from 'react-helmet'
 import axios from '../../axios/axios'
+import EachSectionSingle from './EachSectionSingle'
 
 
 const ActInnerView = () => {
@@ -10,6 +11,8 @@ const ActInnerView = () => {
 
     const [post, setPost] = useState({});
     const [check, setCheck] = useState({});
+
+
 
 
     useEffect(() => {
@@ -50,8 +53,8 @@ const ActInnerView = () => {
             <div className='ActInner_middle'>
                 <div dangerouslySetInnerHTML={{ __html: post.proposal }} style={{
                     fontWeight: 'bold',
-                }}/>
-                <br/>
+                }} />
+                <br />
                 <div dangerouslySetInnerHTML={{ __html: post.objective }} />
             </div>
             <div className='ActInner_middle_two'>
@@ -61,15 +64,33 @@ const ActInnerView = () => {
                 <h3><b>ধারাসমূহ</b></h3>
             </div>
             <div className='ActInner_last'>
-                {(Object.values(post?.section)).map((value, index)=> (
-                    <div key={index} className='ActInner_last_each' style={index%2===0?{
-                        background: 'none'
-                    }:
-                    {
-                        background: '#f9f9f9',
-                        // border: '1px solid rgb(193, 193, 187)',
-                    }}>{value.heading}</div>
+                {post.section && (Object.values(post.section)).map((eachSection, index) => (
+                    <>
+
+                        <div key={index} className='ActInner_last_each'
+                            // onClick={handleOpenSection}
+                            style={index % 2 === 0 ? {
+                                background: 'none',
+                                cursor: 'pointer',
+                            } :
+                                {
+                                    background: '#f9f9f9',
+                                    cursor: 'pointer',
+                                }}>
+                            <EachSectionSingle key={index}
+                                heading={eachSection.heading}
+                                content={eachSection.content}
+                                number={eachSection.number}
+                                subSection={eachSection.sub_section ? eachSection.sub_section : ''}
+                                 />
+
+                        </div>
+
+
+                    </>
+
                 ))}
+
             </div>
         </div>
     )
