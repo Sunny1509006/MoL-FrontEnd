@@ -7,6 +7,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
     repealed, amendment_from, amendment_to, repealed_data, amendment_from_data, amendment_to_data }) => {
     const [openSection, setOpenSection] = useState(false);
 
+
     const handleOpenSection = () => {
         setOpenSection(!openSection)
     }
@@ -65,7 +66,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                         
                         {repealed === "YES" ?
                             <Repealed repealed_data={repealed_data}
-
+                            
                             />
                             :
                             <></>
