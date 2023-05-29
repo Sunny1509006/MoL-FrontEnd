@@ -4,6 +4,7 @@ import useAuth from '../../../hooks/authHooks'
 import { Helmet } from 'react-helmet'
 import axios from '../../axios/axios'
 import EachSectionSingle from './EachSectionSingle'
+import Repealed from './Repealed'
 
 
 const ActInnerView = () => {
@@ -79,10 +80,30 @@ const ActInnerView = () => {
                                 }}>
                             <EachSectionSingle key={index}
                                 heading={eachSection.heading}
-                                content={eachSection.content}
+                                content={eachSection.content? eachSection.content: ''}
                                 number={eachSection.number}
-                                subSection={eachSection.sub_section ? eachSection.sub_section : ''}
-                                 />
+                                live={eachSection.live}
+                                repealed={eachSection.repealed}
+                                amendment_from={eachSection.amendment_from}
+                                amendment_to={eachSection.amendment_to}
+                                repealed_data={eachSection.repealed_data}
+                                subSection={eachSection.sub_section ? eachSection.sub_section
+                                    :
+                                    ''}
+                                amendment_from_data = {eachSection.amendment_from_data? eachSection.amendment_from_data: ''}  
+                                amendment_to_data = {eachSection.amendment_to_data? eachSection.amendment_to_data: ''}  
+                            />
+                            {/* {eachSection.repealed === "YES" ?
+                                <Repealed act_no={eachSection.repealed_data.repealed_to_act__number}
+                                    section_no={eachSection.repealed_data.repealed_to_section__number ? eachSection.repealed_data.repealed_to_section__number : ''}
+                                    subSection_no={eachSection.repealed_data.repealed_to_sub_section__number ? eachSection.repealed_data.repealed_to_sub_section__number : ''}
+                                    schedule_no={eachSection.repealed_data.repealed_to_schedule__number ? eachSection.repealed_data.repealed_to_schedule__number : ''}
+                                    subschedule_no={eachSection.repealed_data.repealed_to_sub_schedule__number ? eachSection.repealed_data.repealed_to_sub_schedule__number : ''}
+
+                                />
+                                :
+                                <></>
+                            } */}
 
                         </div>
 

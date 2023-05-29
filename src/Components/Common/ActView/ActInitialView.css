@@ -70,3 +70,9 @@
     /* "transparent" only works here because == rgba(0,0,0,0) */
     background-image: linear-gradient(to bottom, transparent, rgb(230, 230, 231));
 }
+
+.test {
+    background: #fa6d72;
+    
+     /* background: #f8a166; */
+}
