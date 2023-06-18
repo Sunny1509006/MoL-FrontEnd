@@ -32,7 +32,7 @@ const Chatbot = props => {
                 {hovered ?
                     <motion.div>
                         <img src='/images/chatbot_icon.jpg' className='transition_div' 
-                            style={{ height: '70px', width: '71px', marginLeft: '5px', marginTop: '5px' }}
+                            style={{ height: '70px', width: '71px', marginLeft: '5px', marginTop: '5px', borderRadius: '25px' }}
                         />
                         {/* <FaComments 
                             style={{ height: '64px', width: '65px', marginLeft: '7px', marginTop: '7px', color: '#87cefa' }} /> */}
@@ -46,7 +46,7 @@ const Chatbot = props => {
                         onAnimationComplete={() => setShouldAnimate(false)}
                     >
                         <img src='/images/chatbot_icon.jpg' className='transition_div'
-                            style={{ height: '60px', width: '61px', marginLeft: '10px', marginTop: '10px' }} />
+                            style={{ height: '60px', width: '61px', marginLeft: '10px', marginTop: '10px', borderRadius: '20px' }} />
                             {/* <FaComments 
                             style={{ height: '49px', width: '50px', marginLeft: '15px', marginTop: '15px', color: '#87cefa' }}
                             /> */}
