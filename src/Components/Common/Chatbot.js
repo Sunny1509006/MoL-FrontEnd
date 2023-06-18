@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Chatbot.css'
 import { motion } from "framer-motion"
+import {FaComments} from 'react-icons/fa'
 
 const Chatbot = props => {
 
@@ -30,8 +31,11 @@ const Chatbot = props => {
 
                 {hovered ?
                     <motion.div>
-                        <img src='/images/chatbot.png' className='transition_div'
-                            style={{ height: '64px', width: '65px', marginLeft: '7px', marginTop: '7px' }} />
+                        <img src='/images/chatbot_icon.jpg' className='transition_div' 
+                            style={{ height: '70px', width: '71px', marginLeft: '5px', marginTop: '5px' }}
+                        />
+                        {/* <FaComments 
+                            style={{ height: '64px', width: '65px', marginLeft: '7px', marginTop: '7px', color: '#87cefa' }} /> */}
                     </motion.div>
                     :
                     <motion.div 
@@ -41,8 +45,11 @@ const Chatbot = props => {
                         transition={{duration: 5}}
                         onAnimationComplete={() => setShouldAnimate(false)}
                     >
-                        <img src='/images/chatbot.png' className='transition_div'
-                            style={{ height: '49px', width: '50px', marginLeft: '15px', marginTop: '15px' }} />
+                        <img src='/images/chatbot_icon.jpg' className='transition_div'
+                            style={{ height: '60px', width: '61px', marginLeft: '10px', marginTop: '10px' }} />
+                            {/* <FaComments 
+                            style={{ height: '49px', width: '50px', marginLeft: '15px', marginTop: '15px', color: '#87cefa' }}
+                            /> */}
                     </motion.div>
                 }
             </div>

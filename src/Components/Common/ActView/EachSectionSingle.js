@@ -24,25 +24,6 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                 }
             }>
                 {number}  {heading}
-                {/* {repealed === "YES" ?
-                    <Repealed act_no = {repealed_data.repealed_to_act__number} 
-                    section_no ={repealed_data.repealed_to_section__number ? repealed_data.repealed_to_section__number: ''}
-                     subSection_no = {repealed_data.repealed_to_sub_section__number ? repealed_data.repealed_to_sub_section__number: ''}
-                     schedule_no ={repealed_data.repealed_to_schedule__number ? repealed_data.repealed_to_schedule__number: ''}
-                     subschedule_no = {repealed_data.repealed_to_sub_schedule__number ? repealed_data.repealed_to_sub_schedule__number: ''}
-                     
-                     />
-                    :
-                    <></>
-                } */}
-                {/*                {amendment_from === "YES" ? <img src='/images/amendment_from.svg' style={{
-                    height: '14px',
-                    paddingLeft: '15px',
-                }} /> : <></>}
-                {amendment_to === "YES" ? <img src='/images/amendment_to.svg' style={{
-                    height: '14px',
-                    paddingLeft: '15px',
-                }} /> : <></>} */}
             </div>
             <div>
                 {openSection && (
@@ -51,7 +32,10 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                         paddingTop: '10px',
                         paddingLeft: '30px',
                     }}>
-                        <p>{content? content: ''}
+                        <p style={{
+                            color: repealed === "YES" ? '#F0232B' : "black",
+                            }}>
+                                {content? content: ''}
                             {live === "YES" ?
                                 // <Live />
                                 <img src="/images/live.png" style={{
@@ -102,7 +86,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                     }
 
                                 </p>
-                                {value.repealed === "YES" ?
+                                {(value.repealed === "YES" && repealed != "YES" ) ?
                                     <Repealed repealed_data={value.repealed_data}
 
                                     />
@@ -142,7 +126,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                 }
 
                                             </p>
-                                            {eachSchedules.repealed === "YES" ?
+                                            {( repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed === "YES") ?
                                                 <Repealed repealed_data={eachSchedules.repealed_data}
 
                                                 />
@@ -182,7 +166,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                                 }
 
                                                             </p>
-                                                            {eachSubSchedules.repealed === "YES" ?
+                                                            {( repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed != "YES" && eachSubSchedules.repealed === "YES") ?
                                                                 <Repealed repealed_data={eachSubSchedules.repealed_data}
 
                                                                 />
