@@ -42,7 +42,7 @@ const SignUp = () => {
     }
 
     const handleApi = () => {
-        console.log(fullName, mobile, email, password, confirmPassword)
+        // console.log(fullName, mobile, email, password, confirmPassword)
         axios.post("/api/register/", {
             full_name: fullName,
             phone_number: "+88"+mobile,

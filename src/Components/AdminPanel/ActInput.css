@@ -1,0 +1,45 @@
+.ActInputMain {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    justify-content: center;
+
+}
+
+.ActInputInner {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.ActInputEach {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ActInputEachSingle {
+    display: flex;
+    padding: 10px;
+    
+}
+
+table {
+    border: 2px solid forestgreen;
+    width: 800px;
+    height: 200px;
+    margin: 20px;
+}
+ 
+th {
+    text-align: center;
+    border-bottom: 1px solid black;
+    border-right: 1px solid forestgreen;
+}
+ 
+td {
+    text-align: center;
+    border-bottom: 1px solid black;
+    border-right: 1px solid forestgreen;
+}

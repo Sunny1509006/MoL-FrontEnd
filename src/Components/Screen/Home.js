@@ -55,6 +55,9 @@ import HomePageNew from "../Common/HomePageNew";
 import ActInitialView from "../Common/ActView/ActInitialView";
 import ActInnerView from "../Common/ActView/ActInnerView";
 import AdminLogin from "../AdminPanel/AdminLogin";
+import ActInput from "../AdminPanel/ActInput";
+import CreateAct from "../AdminPanel/CreateAct";
+import CreateSection from "../AdminPanel/CreateSection";
 
 function Home() {
     const {query} = useAuth();
@@ -99,6 +102,9 @@ function Home() {
                 <Route exact path="/ebook/temp" element={[<BodyHead />, <LeftSidebar />, <ActInitialView />, <ChatbotView />, <Footer />]} />
                 <Route exact path="/ebook/temp/view" element={[<BodyHead />, <LeftSidebar />, <ActInnerView />, <ChatbotView />, <Footer />]} />
                 <Route exact path="/admin" element={<AdminLogin/>} />
+                <Route exact path="/actinput" element={[<BodyHead />, <ActInput/>]} />
+                <Route exact path="/createact" element={[<BodyHead />, <CreateAct/>]} />
+                <Route exact path="/createsection" element={[<BodyHead />, <CreateSection/>]} />
                 <Route path="*"
                     element={
                         <div>
