@@ -45,7 +45,7 @@ const ActInput = () => {
                                 <tr key={index} >
 
                                     <td>{index + 1}</td>
-                                    <td><Link to="/createsection">{eachAct.title_of_act}</Link></td>
+                                    <td><Link to={"/createsection/"+eachAct.id}>{eachAct.title_of_act}</Link></td>
                                     <td>{eachAct.act_year}</td>
                                     <td>{eachAct.number}</td>
                                     <td>{eachAct.publication_date}</td>

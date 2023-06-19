@@ -104,7 +104,7 @@ function Home() {
                 <Route exact path="/admin" element={<AdminLogin/>} />
                 <Route exact path="/actinput" element={[<BodyHead />, <ActInput/>]} />
                 <Route exact path="/createact" element={[<BodyHead />, <CreateAct/>]} />
-                <Route exact path="/createsection" element={[<BodyHead />, <CreateSection/>]} />
+                <Route exact path="/createsection/:id" element={[<BodyHead />, <CreateSection/>]} />
                 <Route path="*"
                     element={
                         <div>
