@@ -5,15 +5,18 @@ import "react-widgets/styles.css";
 import axios from "../axios/axios"
 import { Button } from 'react-bootstrap';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
+import useAuth from '../../hooks/authHooks';
 
 
-const AmmendRepealed = () => {
+const AmmendRepealed = ({ act_Year, act_ID, section_ID }) => {
+    const {token} = useAuth();
     const [value, setValue] = useState(1);
     const [actID, setActID] = useState("");
     const [sectionID, setSectionID] = useState("");
     const [subSectionID, setSubSectionID] = useState("");
     const [clauseID, setClauseID] = useState("");
     const [subClauseID, setSubClauseID] = useState("");
+    const [isAmmendmentDone, setIsAmmendmentDone] = useState(false)
 
     const [ammendment, setAmmendment] = useState(false)
     const [getActList, setGetActList] = useState([])
@@ -153,11 +156,42 @@ const AmmendRepealed = () => {
         setEditContent(response.data.content[0].content)
     }
 
+    const handlePostAmmendment = async () => {
+        console.log(token)
+        console.log(act_Year)
+        console.log(act_ID)
+        console.log(section_ID)
+        console.log(actID)
+        console.log(sectionID)
+        console.log(editContent)
+        const response = await axios.post(
+            "/api/amendment/",
+            {
+                jwt: token,
+                act_year: act_Year,
+                act_id: act_ID,
+                section_id: section_ID,
+                sub_section_id: null,
+                schedule_id: null,
+                sub_schedule_id: null,
+            
+                amendment_to_act_id: actID ? actID : null,
+                amendment_to_section_id: sectionID ? sectionID : null,
+                amendment_to_sub_section_id: subSectionID ? subSectionID : null,
+                amendment_to_schedule_id: clauseID ? clauseID : null,
+                amendment_to_sub_schedule_id: subClauseID ? subClauseID : null,
+            
+                content: editContent
+            }
+        );
+        setIsAmmendmentDone(true)
+    }
+
     return (
         <div style={{ width: '50%', marginTop: '10px' }}>
-            {/* <p>
-                Current Value: <strong>{value}</strong>
-            </p> */}
+            {!isAmmendmentDone && (
+                <>
+             
             <DropdownList
                 dataKey="id"
                 textField="color"
@@ -245,9 +279,17 @@ const AmmendRepealed = () => {
                                 onChange={handleEditContent}
                                 style={{ padding: '10px', fontSize: '20px', width: '200%', height: '200px' }}
                             />
+                            <Button variant='contained' className='text_field_sign'
+                                onClick={handlePostAmmendment}
+                            >সাবমিট</Button>
                         </div>
                     )}
                 </div>
+            )}
+               </>
+            )}
+            {isAmmendmentDone && (
+                <p>ammendment done</p>
             )}
         </div>
     )
