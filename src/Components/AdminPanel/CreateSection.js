@@ -4,7 +4,6 @@ import { useParams, useNavigate } from 'react-router-dom'
 import AddSomething from './AddSomething'
 import axios from "../axios/axios"
 import AddSection from './AddSection'
-import { Height } from '@mui/icons-material'
 import CreateSubSection from './CreateSubSection'
 
 const CreateSection = () => {
@@ -42,38 +41,43 @@ const CreateSection = () => {
     return (
         <div className='CreateSectionMain'>
             <div className='CreateSectionInner'>
-                {sectionList[0] && (
-                    <>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
-                            {sectionList.map((eachSection, index) => (
-                                <CreateSubSection key={index}
-                                    sectionNumber={eachSection?.number}
-                                    sectionHeading={eachSection.heading}
-                                    sectionContent={eachSection.content}
+                <div style={{display: 'flex',
+                 alignItems: 'left',
+                  flexDirection: 'column',
+                  width: '100%',
+                  }}>
+                    {sectionList[0] && (
+                        <>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
+                                {sectionList.map((eachSection, index) => (
+                                    <CreateSubSection key={index}
+                                        sectionNumber={eachSection?.number}
+                                        sectionHeading={eachSection.heading}
+                                        sectionContent={eachSection.content}
+                                        sectionId={eachSection.id}
 
-                                />
+                                    />
 
-                            ))}
-                        </div>
-                        <div style={{
-                            width: '100%',
-                            alignItems: 'center',
-                            display: 'flex',
-                            flexDirection: 'column',
-                        }}>
-                            <div onClick={handleAddSectionOpen} style={{ cursor: 'pointer', width: '200px', marginTop: '10px' }}>
-                                <AddSomething addText={"Add Section"} />
+                                ))}
                             </div>
-                            {addSectionOpen &&
-                                <div style={{ width: '100%' }}>
-                                    <AddSection actId={params.id} />
+                            <div style={{
+                                width: '100%',
+                                alignItems: 'center',
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}>
+                                <div onClick={handleAddSectionOpen} style={{ cursor: 'pointer', width: '200px', marginTop: '10px' }}>
+                                    <AddSomething addText={"Add Section"} />
                                 </div>
-                            }
-                        </div>
-                    </>
-                )
-
-                }
+                                {addSectionOpen &&
+                                    <div style={{ width: '100%' }}>
+                                        <AddSection actId={params.id} />
+                                    </div>
+                                }
+                            </div>
+                        </>
+                    )}
+                </div>
                 {!sectionList[0] && (
                     <div style={{
                         width: '100%',

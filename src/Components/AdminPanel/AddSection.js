@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import useAuth from '../../hooks/authHooks';
 import axios from '../axios/axios';
-import AmmendRepealed from './AmmendRepealed';
 import { Button } from 'react-bootstrap';
-import AddSomething from './AddSomething';
 import DropdownList from "react-widgets/DropdownList"
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { useNavigate, Redirect } from 'react-router-dom';
@@ -295,17 +293,7 @@ const AddSection = ({ actId }) => {
                             onClick={handleActionButton}
                         >+Action</Button>
                         {actionButton && (
-                            //     <>
-                            //     <AmmendRepealed
-                            //     // sectionNo={sectionNo}
-                            //     // sectionHeading={sectionHeading}
-                            //     // sectionContent={sectionContent}
-                            //     act_Year={newSectionData.act_year}
-                            //     act_ID={newSectionData.act_id}
-                            //     section_ID={newSectionData.section_id}
-                            // />
-                            // </>
-                            <div style={{ width: '50%', marginTop: '10px' }}>
+                            <div style={{ width: '50%', marginTop: '10px'}}>
                                 <DropdownList
                                     dataKey="id"
                                     textField="color"
