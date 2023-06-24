@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import DropdownList from "react-widgets/DropdownList"
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { useNavigate, Redirect, useParams } from 'react-router-dom';
+import "react-widgets/styles.css";
 
 const AddSubSection = ({actId, sectionId}) => {
     const [subSectionNo, setSubSectionNo] = useState("")
@@ -285,7 +286,7 @@ const AddSubSection = ({actId, sectionId}) => {
                         onClick={handleActionButton}
                     >+Action</Button>
                     {actionButton && (
-                        <div style={{ width: '100%', marginTop: '10px' }}>
+                        <div style={{ width: '50%', marginTop: '10px' }}>
                             <DropdownList
                                 dataKey="id"
                                 textField="color"

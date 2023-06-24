@@ -11,20 +11,43 @@ const ActInnerView = () => {
     const { marginDiv } = useAuth()
 
     const [post, setPost] = useState({});
-    const [check, setCheck] = useState({});
+    const [oiginalActData, setOriginalActData] = useState({})
 
+    const [liveActData, setLiveActData] = useState([]);
+    
+    const handleActData = (actData) => {
+        setPost(actData)
+    }
+    console.log(post)
 
+    useEffect(() => {
+        axios.post(
+            `/api/getliveact/`, {
+            act_id: 16
+        }
+        )
+            .then(res => {
+                // console.log(res.data.live_data)
+                setLiveActData(res.data.live_data)
+                // setCheck(res.data.Act[0]["section"])
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+    }, []);
 
 
     useEffect(() => {
         axios.post(
             `/api/actsDetail/`, {
-            id: 4
+            id: 16
         }
         )
             .then(res => {
-                console.log(res.data.Act[0])
+                // console.log(res.data.Act[0])
                 setPost(res.data.Act[0])
+                setOriginalActData(res.data.Act[0])
                 // setCheck(res.data.Act[0]["section"])
             })
             .catch(err => {
@@ -49,6 +72,38 @@ const ActInnerView = () => {
                 <div className='ActInner_top_inside'>
                     <h5>[ ১১ এপ্রিল, ২০০১ ]</h5>
                 </div>
+                {liveActData && (
+                    <div className='ActInner_top_inside2'>
+                        <div style={{
+                            height: '100%',
+                            background: '#42adff',
+                            padding: '0px 10px',
+                            color: 'white',
+                            fontWeight: 'bold',
+                            cursor: 'pointer',
+                        }}
+                        onClick={()=>handleActData(oiginalActData)}
+                        >Original Act</div>
+                        <div style={{
+                            height: '100%',
+                            background: '#42adff',
+                            padding: '0px 10px',
+                            color: 'white',
+                            fontWeight: 'bold',
+                        }}>Live: </div>
+                        {liveActData.map((eachLiveActData, index) => (
+                            <h5 
+                            key={index} 
+                            onClick={()=>handleActData(eachLiveActData.json_data__Act[0])}
+                            style={{
+                                cursor: 'pointer'
+                            }}
+                            >{eachLiveActData.year}</h5>
+                        ))}
+
+                    </div>
+                )}
+
 
             </div>
             <div className='ActInner_middle'>
@@ -80,7 +135,7 @@ const ActInnerView = () => {
                                 }}>
                             <EachSectionSingle key={index}
                                 heading={eachSection.heading}
-                                content={eachSection.content? eachSection.content: ''}
+                                content={eachSection.content ? eachSection.content : ''}
                                 number={eachSection.number}
                                 live={eachSection.live}
                                 repealed={eachSection.repealed}
@@ -90,20 +145,9 @@ const ActInnerView = () => {
                                 subSection={eachSection.sub_section ? eachSection.sub_section
                                     :
                                     ''}
-                                amendment_from_data = {eachSection.amendment_from_data? eachSection.amendment_from_data: ''}  
-                                amendment_to_data = {eachSection.amendment_to_data? eachSection.amendment_to_data: ''}  
+                                amendment_from_data={eachSection.amendment_from_data ? eachSection.amendment_from_data : ''}
+                                amendment_to_data={eachSection.amendment_to_data ? eachSection.amendment_to_data : ''}
                             />
-                            {/* {eachSection.repealed === "YES" ?
-                                <Repealed act_no={eachSection.repealed_data.repealed_to_act__number}
-                                    section_no={eachSection.repealed_data.repealed_to_section__number ? eachSection.repealed_data.repealed_to_section__number : ''}
-                                    subSection_no={eachSection.repealed_data.repealed_to_sub_section__number ? eachSection.repealed_data.repealed_to_sub_section__number : ''}
-                                    schedule_no={eachSection.repealed_data.repealed_to_schedule__number ? eachSection.repealed_data.repealed_to_schedule__number : ''}
-                                    subschedule_no={eachSection.repealed_data.repealed_to_sub_schedule__number ? eachSection.repealed_data.repealed_to_sub_schedule__number : ''}
-
-                                />
-                                :
-                                <></>
-                            } */}
 
                         </div>
 

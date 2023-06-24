@@ -36,7 +36,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                             color: repealed === "YES" ? '#F0232B' : "black",
                             }}>
                                 {content? content: ''}
-                            {live === "YES" ?
+                            {/* {live === "YES" ?
                                 // <Live />
                                 <img src="/images/live.png" style={{
                                     height: '30px',
@@ -45,7 +45,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                 }} />
                                 :
                                 ''
-                            }
+                            } */}
                         </p>
                         
                         {repealed === "YES" ?
@@ -74,7 +74,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                     color: repealed === "YES" ? '#F0232B' :
                                         (value.repealed === "YES" ? "#F0232B" : "black"),
                                 }}>{value.number}&nbsp;{value.content}
-                                    {value.live === "YES" ?
+                                    {/* {value.live === "YES" ?
                                         // <Live />
                                         <img src="/images/live.png" style={{
                                             height: '30px',
@@ -83,7 +83,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                         }} />
                                         :
                                         ''
-                                    }
+                                    } */}
 
                                 </p>
                                 {(value.repealed === "YES" && repealed != "YES" ) ?
@@ -114,7 +114,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                     (value.repealed === "YES" ? "#F0232B" :
                                                         (eachSchedules.repealed === "YES" ? "#F0232B" : "black")),
                                             }}>{eachSchedules.number}&nbsp;{eachSchedules.content}
-                                                {eachSchedules.live === "YES" ?
+                                                {/* {eachSchedules.live === "YES" ?
                                                     // <Live />
                                                     <img src="/images/live.png" style={{
                                                         height: '30px',
@@ -123,7 +123,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                     }} />
                                                     :
                                                     ''
-                                                }
+                                                } */}
 
                                             </p>
                                             {( repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed === "YES") ?
@@ -154,7 +154,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                                         (eachSchedules.repealed === "YES" ? "#F0232B" :
                                                                             (eachSubSchedules.repealed === "YES" ? "#F0232B" : "black"))),
                                                             }}>{eachSubSchedules.number}&nbsp;{eachSubSchedules.content}
-                                                                {eachSubSchedules.live === "YES" ?
+                                                                {/* {eachSubSchedules.live === "YES" ?
                                                                     // <Live />
                                                                     <img src="/images/live.png" style={{
                                                                         height: '30px',
@@ -163,7 +163,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                                     }} />
                                                                     :
                                                                     ''
-                                                                }
+                                                                } */}
 
                                                             </p>
                                                             {( repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed != "YES" && eachSubSchedules.repealed === "YES") ?

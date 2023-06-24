@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import DropdownList from "react-widgets/DropdownList"
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { useNavigate, Redirect } from 'react-router-dom';
+import "react-widgets/styles.css";
 
 const AddSection = ({ actId }) => {
     const [sectionNo, setSectionNo] = useState("")
@@ -166,13 +167,6 @@ const AddSection = ({ actId }) => {
     }
 
     const handlePostAmmendment = async () => {
-        // console.log(token)
-        // console.log(act_Year)
-        // console.log(act_ID)
-        // console.log(section_ID)
-        // console.log(actID)
-        // console.log(sectionID)
-        // console.log(editContent)
         const response = await axios.post(
             "/api/amendment/",
             {

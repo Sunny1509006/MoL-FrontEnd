@@ -267,9 +267,9 @@ const Conversation = () => {
 
                                 </div>
                                 <img
-                                    src="/images/chatbot.png" style={{
+                                    src="/images/chatbot_icon2.png" style={{
                                         height: '40px',
-                                        width: '40px',
+                                        width: '45px',
                                         marginTop: '12px',
                                         marginLeft: '8px',
                                         float: "left",

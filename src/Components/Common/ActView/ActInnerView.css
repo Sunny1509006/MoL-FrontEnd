@@ -42,6 +42,22 @@
     margin: 0px;
 }
 
+.ActInner_top_inside2 {
+    width: 100%;
+    padding: 10px;
+    background: #8accfe;
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    
+}
+
+.ActInner_top_inside2 h5 {
+    color: white;
+    margin: 0px;
+}
+
 .ActInner_middle {
     width: 100%;
     padding: 0px 30px;
