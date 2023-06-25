@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Amendment = ({ amendment_from_data, amendment_to_data }) => {
     const [isOpenFrom, setIsOpenFrom] = useState(false);
     const [isOpenTo, setIsOpenTo] = useState(false);
-
+    console.log(amendment_from_data)
     const openPopUpFrom = () => {
         setIsOpenFrom(true)
     }
@@ -50,7 +50,8 @@ const Amendment = ({ amendment_from_data, amendment_to_data }) => {
                     }}
                     onClick={openPopUpFrom}
                     >
-                        ২০১৬ সালের {amendment_from_data.amendment_from_act__number ? amendment_from_data.amendment_from_act__number + " নং আইনের" : ""} {amendment_from_data.amendment_from_section__number ? amendment_from_data.amendment_from_section__number + " নং ধারার" : ""} {amendment_from_data.amendment_from_sub_section__number ? amendment_from_data.amendment_from_sub_section__number + " নং উপধারার" : ""} {amendment_from_data.amendment_from_schedule__number ? amendment_from_data.amendment_from_schedule__number + " নং দফার" : ""} {amendment_from_data.amendment_from_sub_schedule__number ? amendment_from_data.amendment_from_sub_schedule__number + " নং উপদফা" : ""}  কে সংশোধিত করেছে
+                        {/* ২০১৬ সালের {amendment_from_data.amendment_from_act__number ? amendment_from_data.amendment_from_act__number + " নং আইনের" : ""} {amendment_from_data.amendment_from_section__number ? amendment_from_data.amendment_from_section__number + " নং ধারার" : ""} {amendment_from_data.amendment_from_sub_section__number ? amendment_from_data.amendment_from_sub_section__number + " নং উপধারার" : ""} {amendment_from_data.amendment_from_schedule__number ? amendment_from_data.amendment_from_schedule__number + " নং দফার" : ""} {amendment_from_data.amendment_from_sub_schedule__number ? amendment_from_data.amendment_from_sub_schedule__number + " নং উপদফা" : ""}  কে সংশোধিত করেছে */}
+                        {amendment_from_data.amendment_from_act__title_of_act ? amendment_from_data.amendment_from_act__title_of_act + " আইনের" : ""} {amendment_from_data.amendment_from_section__number ? amendment_from_data.amendment_from_section__number + " নং ধারার" : ""} {amendment_from_data.amendment_from_sub_section__number ? amendment_from_data.amendment_from_sub_section__number + " নং উপধারার" : ""} {amendment_from_data.amendment_from_schedule__number ? amendment_from_data.amendment_from_schedule__number + " নং দফার" : ""} {amendment_from_data.amendment_from_sub_schedule__number ? amendment_from_data.amendment_from_sub_schedule__number + " নং উপদফা" : ""}  কে সংশোধিত করেছে
                     </Link>
                 </p>
                 :

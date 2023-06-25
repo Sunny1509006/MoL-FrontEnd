@@ -8,7 +8,7 @@ const Repealed = ({ repealed_data }) => {
     // console.log(repealed_data.repealed_to_act__number)
     const [isOpen, setIsOpen] = useState(false)
     const {isPopUpOpen, setIsPopUpOpen} = useAuth()
-
+    console.log(repealed_data)
     const openPopUp = () => {
         // setIsPopUpOpen(true)
         setIsOpen(true)

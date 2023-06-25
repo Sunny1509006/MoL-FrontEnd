@@ -4,6 +4,7 @@ import AddSomething from './AddSomething'
 import axios from "../axios/axios"
 import AddSubSection from './AddSubSection'
 import "./CreateSection.css"
+import CreateSchedule from './CreateSchedule'
 
 const CreateSubSection = ({ sectionNumber, sectionHeading, sectionContent, sectionId }) => {
     const [openSubSectionDiv, setOpenSubSectionDiv] = useState(false)
@@ -61,16 +62,18 @@ const CreateSubSection = ({ sectionNumber, sectionHeading, sectionContent, secti
                             <>
                                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
                                     {subSectionList.map((eachSubSection, index) => (
-                                        //  <CreateSubSection key={index}
-                                        //      sectionNumber={eachSection?.number}
-                                        //      sectionHeading={eachSection.heading}
-                                        //      sectionContent={eachSection.content}
+                                         <CreateSchedule key={index}
+                                             subSectionNumber={eachSubSection?.number}
+                                             subSectionHeading={eachSubSection?.heading}
+                                             subSectionContent={eachSubSection?.content}
+                                             sectionId={sectionId}
+                                             subSectionId={eachSubSection.id}
+                                            //  sectionId = {eachSubSection.}
+                                         />
 
-                                        //  />
-
-                                        <div>
-                                            {eachSubSection.number} {eachSubSection.content}
-                                        </div>
+                                        // <div>
+                                        //     {eachSubSection.number} {eachSubSection.content}
+                                        // </div>
 
                                     ))}
                                 </div>

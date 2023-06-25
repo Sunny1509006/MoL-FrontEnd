@@ -34,8 +34,8 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                     }}>
                         <p style={{
                             color: repealed === "YES" ? '#F0232B' : "black",
-                            }}>
-                                {content? content: ''}
+                        }}>
+                            {content ? content : ''}
                             {/* {live === "YES" ?
                                 // <Live />
                                 <img src="/images/live.png" style={{
@@ -47,15 +47,15 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                 ''
                             } */}
                         </p>
-                        
+
                         {repealed === "YES" ?
                             <Repealed repealed_data={repealed_data}
-                            
+
                             />
                             :
                             <></>
                         }
-                        
+
                         {((amendment_from === "YES") || (amendment_to === "YES")) ?
                             <Amendment amendment_from_data={amendment_from_data ? amendment_from_data : ''}
                                 amendment_to_data={amendment_to_data ? amendment_to_data : ''}
@@ -86,7 +86,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                     } */}
 
                                 </p>
-                                {(value.repealed === "YES" && repealed != "YES" ) ?
+                                {(value.repealed === "YES" && repealed != "YES") ?
                                     <Repealed repealed_data={value.repealed_data}
 
                                     />
@@ -126,7 +126,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                 } */}
 
                                             </p>
-                                            {( repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed === "YES") ?
+                                            {(repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed === "YES") ?
                                                 <Repealed repealed_data={eachSchedules.repealed_data}
 
                                                 />
@@ -166,7 +166,7 @@ const EachSectionSingle = ({ heading, content, number, subSection, live,
                                                                 } */}
 
                                                             </p>
-                                                            {( repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed != "YES" && eachSubSchedules.repealed === "YES") ?
+                                                            {(repealed != "YES" && value.repealed != "YES" && eachSchedules.repealed != "YES" && eachSubSchedules.repealed === "YES") ?
                                                                 <Repealed repealed_data={eachSubSchedules.repealed_data}
 
                                                                 />
